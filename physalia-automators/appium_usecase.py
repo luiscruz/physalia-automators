@@ -3,6 +3,11 @@
 from appium import webdriver
 from physalia.energy_profiler import AndroidUseCase
 
+import os
+PATH = lambda p: os.path.abspath(
+    os.path.join(os.path.dirname(__file__), p)
+)
+
 class AppiumUseCase(AndroidUseCase):
     """`AndroidUseCase` to use with `Appium`."""
 
@@ -25,9 +30,9 @@ class AppiumUseCase(AndroidUseCase):
         """
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = '4.2'
-        desired_caps['deviceName'] = 'Android Emulator'
-        desired_caps['app'] = self.app_apk
+        desired_caps['platformVersion'] = '6.0.1'
+        desired_caps['deviceName'] = '00e388b9e4931384'
+        desired_caps['app'] = PATH(self.app_apk)
         
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_capabilities=desired_caps)
         self._prepare()
@@ -43,8 +48,7 @@ class AppiumUseCase(AndroidUseCase):
     def uninstall_app(self):
         """Uninstall app of the Android device."""
         click.secho("Uninstalling {}".format(self.app_pkg), fg='blue')
-
-
+        self.driver.remove_app('self.app_pkg')
 
 
 # View a listed app
@@ -55,11 +59,10 @@ def prepare(use_case):
 
 def run_view_listed_app(use_case):
     """Interaction of getting info about an application."""
-    el = self.driver.find_element_by_accessibility_id('icon')
+    el = use_case.driver.find_element_by_accessibility_id('action_search')
     el.click()
     app_icon.touch()
     sleep(10)
-
 
 view_listed_app_use_case = AppiumUseCase(
     "ViewListedApp",
