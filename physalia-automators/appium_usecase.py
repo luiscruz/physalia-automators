@@ -138,7 +138,7 @@ def prepare_long_tap(use_case):
     use_case.action = TouchAction(use_case.driver)
 
 def run_long_tap(use_case):
-    """Run script to test find by content descriptor."""
+    """Run script to test long tap descriptor."""
 
     @minimum_execution_time(seconds=time_boundaries.LONG_TAP)
     def simple_routine():
@@ -161,11 +161,11 @@ long_tap_use_case = AppiumUseCase(
     prepare=prepare_long_tap,
 )
 
-print long_tap_use_case.run().duration
+# print long_tap_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
-def prepare_long_tap(use_case):
+def prepare_multi_finger_tap(use_case):
     use_case.elements = [
         use_case.driver.find_element_by_accessibility_id('Button One'),
         use_case.driver.find_element_by_accessibility_id('Button Two'),
@@ -173,16 +173,18 @@ def prepare_long_tap(use_case):
         use_case.driver.find_element_by_accessibility_id('Button Fab'),
         use_case.driver.find_element_by_accessibility_id('Text Area'),
     ]
-    use_case.action = TouchAction(self.driver)
 
-def run_long_tap(use_case):
-    """Run script to test find by content descriptor."""
+def run_multi_finger_tap(use_case):
+    """Run script to test multi finger tap."""
 
-    @minimum_execution_time(seconds=time_boundaries.LONG_TAP)
+    @minimum_execution_time(seconds=time_boundaries.MULTI_FINGER_TAP)
     def simple_routine():
         for idx, el in enumerate(use_case.elements):
             prev_el = use_case.elements[idx-1]
-            use_case.action.long_press(el).release().perform()
+            use_case.driver.tap([
+                (el.location['x'],el.location['y']),
+                (prev_el.location['x'],prev_el.location['y'])
+            ])
 
     try:
         for i in range(10):
@@ -190,15 +192,15 @@ def run_long_tap(use_case):
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
 
-long_tap_use_case = AppiumUseCase(
-    "Appium-long_tap",
+multi_finger_tap_use_case = AppiumUseCase(
+    "Appium-multi_finger_tap",
     "../apks/testapp.apk",
     "com.tqrg.physalia.testapp",
     "",
     "0.01",
-    run_long_tap,
-    prepare=prepare_long_tap,
+    run_multi_finger_tap,
+    prepare=prepare_multi_finger_tap,
 )
 
-# print long_tap_use_case.run().duration
+print multi_finger_tap_use_case.run().duration
 
