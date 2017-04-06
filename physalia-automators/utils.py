@@ -2,6 +2,7 @@
 
 from functools import partial
 import time
+import click
 
 def minimum_execution_time(seconds):
     def ret_fun(fun):
@@ -11,6 +12,8 @@ def minimum_execution_time(seconds):
             return_value = fun(*args, **kwargs)
             if time.time() < finish:
                 time.sleep(finish-time.time())
+            else:
+                click.secho("Warning: execution time boundary exceed by {:.1f}s.".format(time.time()-finish), fg='yellow')
             return return_value
         return repl
     return ret_fun
