@@ -202,5 +202,148 @@ multi_finger_tap_use_case = AppiumUseCase(
     prepare=prepare_multi_finger_tap,
 )
 
-print multi_finger_tap_use_case.run().duration
+# print multi_finger_tap_use_case.run().duration
 
+# -------------------------------------------------------------------------- #
+
+def prepare_dragndrop(use_case):
+    button1 = use_case.driver.find_element_by_accessibility_id('Button One')
+    button2 = use_case.driver.find_element_by_accessibility_id('Button Two')
+    button3 = use_case.driver.find_element_by_accessibility_id('Button Three')
+    button_fab = use_case.driver.find_element_by_accessibility_id('Button Fab')
+    text_area = use_case.driver.find_element_by_accessibility_id('Text Area')
+    use_case.moves = [
+        (button1, button2),
+        (button2, button3),
+        (button_fab, button3),
+        (button_fab, text_area),
+    ]
+
+def run_dragndrop(use_case):
+    """Run script to test multi finger tap."""
+
+    @minimum_execution_time(seconds=time_boundaries.DRAGNDROP)
+    def simple_routine():
+        for first, second in use_case.moves:
+            use_case.driver.drag_and_drop(first, second)
+
+    try:
+        for i in range(10):
+            simple_routine()
+    except Exception as e:
+        click.secho("Error: {}.".format(e), fg='red')
+
+dragndrop_use_case = AppiumUseCase(
+    "Appium-dragndrop",
+    "../apks/testapp.apk",
+    "com.tqrg.physalia.testapp",
+    "",
+    "0.01",
+    run_dragndrop,
+    prepare=prepare_dragndrop,
+)
+
+# print dragndrop_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+def prepare_swipe(use_case):
+    paint = use_case.driver.find_element_by_accessibility_id('Paint')
+    use_case.x_i, use_case.y_i = (paint.location['x'], paint.location['y'])
+
+def run_swipe(use_case):
+    """Run script to test multi finger tap."""
+
+    @minimum_execution_time(seconds=time_boundaries.SWIPE)
+    def simple_routine(offset_y):
+        # Swipe left
+        x_f, y_f = (use_case.x_i+70, use_case.y_i+offset_y+1)
+        paint = use_case.driver.find_element_by_accessibility_id('Paint')
+        button_fab = use_case.driver.find_element_by_accessibility_id('Button Fab')
+        use_case.driver.swipe(use_case.x_i, use_case.y_i+offset_y+1, x_f, y_f)
+        # Swipe Right
+        x_f, y_f = (use_case.x_i+1000, use_case.y_i+offset_y)
+        use_case.driver.swipe(use_case.x_i, use_case.y_i+offset_y, x_f, y_f)
+
+    try:
+        for i in range(40):
+            simple_routine(i*8)
+    except Exception as e:
+        click.secho("Error: {}.".format(e), fg='red')
+
+swipe_use_case = AppiumUseCase(
+    "Appium-swipe",
+    "../apks/testapp.apk",
+    "com.tqrg.physalia.testapp",
+    "",
+    "0.01",
+    run_swipe,
+    prepare=prepare_swipe,
+)
+
+# print swipe_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+def prepare_pinch_and_spread(use_case):
+    use_case.paint = use_case.driver.find_element_by_accessibility_id('Paint')
+
+def run_pinch_and_spread(use_case):
+    """Run script to test multi finger tap."""
+
+    @minimum_execution_time(seconds=time_boundaries.PINCH_AND_SPREAD)
+    def simple_routine():
+        for _ in range(40):
+            use_case.driver.pinch(use_case.paint, percent=200, steps=50)
+            use_case.driver.zoom(use_case.paint, percent=200, steps=50)
+
+    simple_routine()
+    try:
+        simple_routine()
+    except Exception as e:
+        click.secho("Error: {}.".format(e), fg='red')
+
+pinch_and_spread_use_case = AppiumUseCase(
+    "Appium-pinch_and_spread",
+    "../apks/testapp.apk",
+    "com.tqrg.physalia.testapp",
+    "",
+    "0.01",
+    run_pinch_and_spread,
+    prepare=prepare_pinch_and_spread,
+)
+
+# print pinch_and_spread_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+def prepare_back_button(use_case):
+    use_case.paint = use_case.driver.find_element_by_accessibility_id('Paint')
+
+@minimum_execution_time(seconds=time_boundaries.BACK_BUTTON)
+def run_back_button(use_case):
+    """Run script to test multi finger tap."""
+
+    @minimum_execution_time(seconds=time_boundaries.BACK_BUTTON_UNIT, warning=False)
+    def simple_routine():
+        for _ in range(100):
+            keycode_back=4
+            use_case.driver.press_keycode(keycode_back)
+
+    simple_routine()
+    try:
+        simple_routine()
+    except Exception as e:
+        click.secho("Error: {}.".format(e), fg='red')
+
+back_button_use_case = AppiumUseCase(
+    "Appium-back_button",
+    "../apks/testapp.apk",
+    "com.tqrg.physalia.testapp",
+    "",
+    "0.01",
+    run_back_button,
+    prepare=prepare_back_button,
+)
+
+print back_button_use_case.run().duration
