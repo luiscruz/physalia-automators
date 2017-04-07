@@ -433,4 +433,33 @@ find_by_id_use_case = AppiumUseCase(
     run_find_by_id,
 )
 
-print find_by_id_use_case.run().duration
+# print find_by_id_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+@minimum_execution_time(seconds=time_boundaries.FIND_BY_CONTENT)
+def run_find_by_content(use_case):
+    """Run script to test multi finger tap."""
+    def find_by_content(content):
+        return use_case.driver.find_element_by_android_uiautomator(
+            "new UiSelector().textContains(\"{}\")".format(content)
+        )
+    try:
+        for _ in range(40):
+            find_by_content("Button 1")
+            find_by_content("Button 2")
+            find_by_content("Button 3")            
+        
+    except Exception as e:
+        click.secho("Error: {}.".format(e), fg='red')
+
+find_by_content_use_case = AppiumUseCase(
+    "Appium-find_by_content",
+    "../apks/testapp.apk",
+    "com.tqrg.physalia.testapp",
+    "",
+    "0.01",
+    run_find_by_content,
+)
+
+print find_by_content_use_case.run().duration
