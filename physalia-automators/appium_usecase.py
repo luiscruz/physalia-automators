@@ -1,6 +1,5 @@
 """Interaction using Appium"""
 
-from time import sleep
 from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
 import click
@@ -60,36 +59,6 @@ class AppiumUseCase(AndroidUseCase):
         self.driver.remove_app(self.app_pkg)
 
 # -------------------------------------------------------------------------- #
-
-def run_find_by_content_description(use_case):
-    """Run script to test find by content descriptor."""
-
-    @minimum_execution_time(seconds=time_boundaries.FIND_BY_CONTENT_DESCRIPTION)
-    def simple_routine():
-        use_case.driver.find_element_by_accessibility_id('Button One').click()
-        use_case.driver.find_element_by_accessibility_id('Button Two')
-        use_case.driver.find_element_by_accessibility_id('Button Three')
-        use_case.driver.find_element_by_accessibility_id('Button Fab')
-        use_case.driver.find_element_by_accessibility_id('Text Area')
-
-    try:
-        for i in range(10):
-            simple_routine()
-    except Exception as e:
-        click.secho("Error: {}.".format(e), fg='red')
-
-find_by_content_description_use_case = AppiumUseCase(
-    "Appium-find_by_content_decription",
-    "../apks/testapp.apk",
-    "com.tqrg.physalia.testapp",
-    "",
-    "0.01",
-    run_find_by_content_description
-)
-
-# print find_by_content_description_use_case.run().duration
-
-# -------------------------------------------------------------------------- #
 def prepare_tap(use_case):
     use_case.button1 = use_case.driver.find_element_by_accessibility_id('Button One')
     use_case.button2 = use_case.driver.find_element_by_accessibility_id('Button Two')
@@ -98,7 +67,7 @@ def prepare_tap(use_case):
     use_case.text_area = use_case.driver.find_element_by_accessibility_id('Text Area')
 
 def run_tap(use_case):
-    """Run script to test find by content descriptor."""
+    """Run script to test tap."""
 
     @minimum_execution_time(seconds=time_boundaries.TAP)
     def simple_routine():
@@ -138,7 +107,7 @@ def prepare_long_tap(use_case):
     use_case.action = TouchAction(use_case.driver)
 
 def run_long_tap(use_case):
-    """Run script to test long tap descriptor."""
+    """Run script to test long tap."""
 
     @minimum_execution_time(seconds=time_boundaries.LONG_TAP)
     def simple_routine():
@@ -290,14 +259,24 @@ def prepare_pinch_and_spread(use_case):
 
 def run_pinch_and_spread(use_case):
     """Run script to test multi finger tap."""
+    def zoom(element_id):
+        use_case.driver.execute_script(
+            'mobile: pinch', {'id': element_id, 'scale': '2', 'velocity': 1}
+        )
+
+    def pinch(element_id):
+        use_case.driver.execute_script(
+            'mobile: pinch', {'id': element_id, 'scale': '0.5', 'velocity': 1}
+        )
 
     @minimum_execution_time(seconds=time_boundaries.PINCH_AND_SPREAD)
     def simple_routine():
+        print dir(use_case.paint)
         for _ in range(40):
-            use_case.driver.pinch(use_case.paint, percent=200, steps=50)
-            use_case.driver.zoom(use_case.paint, percent=200, steps=50)
+            pinch(use_case.paint.id)
+            zoom(use_case.paint.id)
 
-    simple_routine()
+
     try:
         simple_routine()
     except Exception as e:
@@ -313,7 +292,7 @@ pinch_and_spread_use_case = AppiumUseCase(
     prepare=prepare_pinch_and_spread,
 )
 
-# print pinch_and_spread_use_case.run().duration
+print pinch_and_spread_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -462,4 +441,6 @@ find_by_content_use_case = AppiumUseCase(
     run_find_by_content,
 )
 
-print find_by_content_use_case.run().duration
+# print find_by_content_use_case.run().duration
+
+
