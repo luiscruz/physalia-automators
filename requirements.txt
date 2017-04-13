@@ -1,3 +1,4 @@
 click
 physalia
 Appium-Python-Client
+uiautomator

@@ -227,8 +227,6 @@ def run_swipe(use_case):
     def simple_routine(offset_y):
         # Swipe left
         x_f, y_f = (use_case.x_i+70, use_case.y_i+offset_y+1)
-        paint = use_case.driver.find_element_by_accessibility_id('Paint')
-        button_fab = use_case.driver.find_element_by_accessibility_id('Button Fab')
         use_case.driver.swipe(use_case.x_i, use_case.y_i+offset_y+1, x_f, y_f)
         # Swipe Right
         x_f, y_f = (use_case.x_i+1000, use_case.y_i+offset_y)
@@ -428,7 +426,7 @@ def run_find_by_content(use_case):
             find_by_content("Button 1")
             find_by_content("Button 2")
             find_by_content("Button 3")            
-        
+
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
 
@@ -442,5 +440,3 @@ find_by_content_use_case = AppiumUseCase(
 )
 
 # print find_by_content_use_case.run().duration
-
-
