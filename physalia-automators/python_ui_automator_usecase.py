@@ -239,5 +239,60 @@ swipe_use_case = AndroidUseCase(
     cleanup=cleanup
 )
 
-print swipe_use_case.run().duration
+# print swipe_use_case.run().duration
 
+# -------------------------------------------------------------------------- #
+
+def prepare_pinch_and_spread(use_case):
+    use_case.install_app()
+    use_case.open_app()
+    use_case.paint = device(description="Paint")
+
+    
+@minimum_execution_time(time_boundaries.PINCH_AND_SPREAD)
+def run_pinch_and_spread(use_case):
+    def simple_routine():
+        # Pinch in
+        use_case.paint.pinch.In(percent=50, steps=40)
+        # Spread
+        use_case.paint.pinch.Out(percent=50, steps=40)    
+    
+    for i in range(40):
+        simple_routine()
+
+    
+pinch_and_spread_use_case = AndroidUseCase(
+    "PythonUiAutomator-pinch_and_spread",
+    "../apks/testapp.apk",
+    "com.tqrg.physalia.testapp",
+    "0.01",
+    run=run_pinch_and_spread,
+    prepare=prepare_pinch_and_spread,
+    cleanup=cleanup
+)
+
+# print pinch_and_spread_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+    
+@minimum_execution_time(time_boundaries.BACK_BUTTON)
+def run_back_button(use_case):
+
+    @minimum_execution_time(seconds=time_boundaries.BACK_BUTTON_UNIT, warning=False)
+    def simple_routine():
+            device.press.back()
+
+    for _ in range(200):
+        simple_routine()
+    
+back_button_use_case = AndroidUseCase(
+    "PythonUiAutomator-back_button",
+    "../apks/testapp.apk",
+    "com.tqrg.physalia.testapp",
+    "0.01",
+    run=run_back_button,
+    prepare=prepare,
+    cleanup=cleanup
+)
+
+print back_button_use_case.run().duration
