@@ -303,12 +303,11 @@ def run_back_button(use_case):
 
     @minimum_execution_time(seconds=time_boundaries.BACK_BUTTON_UNIT, warning=False)
     def simple_routine():
-        for _ in range(200):
-            keycode_back=4
-            use_case.driver.press_keycode(keycode_back)
+        use_case.driver.press_keycode(4)
 
     try:
-        simple_routine()
+        for _ in range(200):
+            simple_routine()
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
 
