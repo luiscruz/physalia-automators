@@ -47,7 +47,7 @@ find_by_id_use_case = AndroidUseCase(
 @minimum_execution_time(time_boundaries.FIND_BY_DESCRIPTION)
 def run_find_by_description(_):
     for _ in range(40):
-        device(description="Button One").click()
+        device(description="Button One")
         device(description="Button Two")
         device(description="Button Three")
         device(description="Button Fab")
@@ -137,7 +137,7 @@ def run_long_tap(use_case):
         for el in use_case.elements:
             el.long_click()
     
-tap_use_case = AndroidUseCase(
+long_tap_use_case = AndroidUseCase(
     "PythonUiAutomator-long_tap",
     "../apks/testapp.apk",
     "com.tqrg.physalia.testapp",
@@ -177,7 +177,6 @@ def prepare_dragndrop(use_case):
         (button_fab, button3),
         (button_fab, text_area),
     ]
-    print button2.centerX
     
 @minimum_execution_time(time_boundaries.DRAGNDROP)
 def run_dragndrop(use_case):
