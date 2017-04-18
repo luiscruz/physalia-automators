@@ -1,0 +1,197 @@
+"""Interaction using Espresso"""
+
+# adb shell am instrument -w  com.example.android.testing.uiautomator.BasicSample.test/android.support.test.runner.AndroidJUnitRunner
+
+from physalia.energy_profiler import AndroidUseCase
+from utils import minimum_execution_time
+import time_boundaries
+import subprocess
+import click
+
+class EspressoUseCase(AndroidUseCase):
+    """`AndroidUseCase` to use with `UiAutomator`."""
+
+    # pylint: disable=too-many-arguments
+    # Eight is reasonable in this case.
+
+    def __init__(self, name, app_apk, app_pkg, app_version,
+                 test_class, test_method,
+                 test_apk, test_pkg, minimum_execution_time):  # noqa: D102
+        super(EspressoUseCase, self).__init__(
+            name, app_apk, app_pkg, app_version,
+        )
+        self.test_class = test_class
+        self.test_method = test_method
+        self.test_pkg = test_pkg
+        self.test_apk = test_apk
+        self.minimum_execution_time = minimum_execution_time
+
+    def install_test(self):
+        click.secho("Installing {}".format(self.test_apk), fg='blue')
+        subprocess.check_output(["adb", "install", self.test_apk])
+
+    def uninstall_test(self):
+        """Uninstall test app of the Android device."""
+        click.secho("Uninstalling {}".format(self.test_pkg), fg='blue')
+        subprocess.check_output(["adb", "uninstall", self.test_pkg])
+
+    def prepare(self):
+        """Prepare environment for running."""
+        self.install_app()
+        self.install_test()
+        self.open_app()
+        self._prepare()
+        click.secho("Starting use case {}.".format(self.name), fg='green')
+
+    def cleanup(self):
+        """Clean environment after running."""
+        self._cleanup()
+        # self.uninstall_app()
+        # self.uninstall_test()
+    
+    def _run(self):
+        @minimum_execution_time(seconds=self.minimum_execution_time)
+        def launch_espresso():
+            subprocess.check_output(
+                "adb shell am instrument -w -r -e debug false "
+                "-e class {test_class}#{test_method} {test_pkg}/"
+                "android.support.test.runner.AndroidJUnitRunner".format(
+                    test_class=self.test_class,
+                    test_method=self.test_method,
+                    test_pkg=self.test_pkg
+                ),
+                shell=True
+            )
+        launch_espresso()
+        
+
+APK = "../apks/testapp-debug.apk"
+APP_PKG = "com.tqrg.physalia.testapp"
+APP_VERSION = "0.01"
+
+# -------------------------------------------------------------------------- #
+
+find_by_id_use_case = EspressoUseCase(
+    "Espresso-find_by_id",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.EspressoTest",
+    "findById",
+    "../apks/test_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.INPUT_TEXT
+)
+
+print find_by_id_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+find_by_description_use_case = EspressoUseCase(
+    "Espresso-find_by_description",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.EspressoTest",
+    "findByDescription",
+    "../apks/test_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.INPUT_TEXT
+)
+
+print find_by_description_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+find_by_content_use_case = EspressoUseCase(
+    "Espresso-find_by_content",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.EspressoTest",
+    "findByContent",
+    "../apks/test_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.INPUT_TEXT
+)
+
+print find_by_content_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+tap_use_case = EspressoUseCase(
+    "Espresso-tap",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.EspressoTest",
+    "tap",
+    "../apks/test_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.INPUT_TEXT
+)
+
+print tap_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+long_tap_use_case = EspressoUseCase(
+    "Espresso-long_tap",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.EspressoTest",
+    "longTap",
+    "../apks/test_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.INPUT_TEXT
+)
+
+print long_tap_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+swipe_use_case = EspressoUseCase(
+    "Espresso-swipe",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.EspressoTest",
+    "swipe",
+    "../apks/test_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.INPUT_TEXT
+)
+
+print swipe_use_case.run().duration
+# -------------------------------------------------------------------------- #
+
+back_button_use_case = EspressoUseCase(
+    "Espresso-back_button",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.EspressoTest",
+    "backButton",
+    "../apks/test_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.INPUT_TEXT
+)
+
+print back_button_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+input_text_use_case = EspressoUseCase(
+    "Espresso-input_text",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.EspressoTest",
+    "inputText",
+    "../apks/test_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.INPUT_TEXT
+)
+
+# print input_text_use_case.run().duration
