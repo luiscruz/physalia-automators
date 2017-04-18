@@ -201,7 +201,6 @@ def prepare_tap(use_case):
         use_case.view_client.findViewWithContentDescription("Button Two"),
         use_case.view_client.findViewWithContentDescription("Button Three"),
         use_case.view_client.findViewWithContentDescription("Button Fab"),
-        use_case.view_client.findViewWithContentDescription("Text Area"),
     ]
     
 @minimum_execution_time(time_boundaries.TAP)
@@ -232,7 +231,6 @@ def prepare_long_tap(use_case):
         use_case.view_client.findViewWithContentDescription("Button Two"),
         use_case.view_client.findViewWithContentDescription("Button Three"),
         use_case.view_client.findViewWithContentDescription("Button Fab"),
-        use_case.view_client.findViewWithContentDescription("Text Area"),
     ]
     
 @minimum_execution_time(time_boundaries.LONG_TAP)

@@ -64,7 +64,6 @@ def prepare_tap(use_case):
     use_case.button2 = use_case.driver.find_element_by_accessibility_id('Button Two')
     use_case.button3 = use_case.driver.find_element_by_accessibility_id('Button Three')
     use_case.button_fab = use_case.driver.find_element_by_accessibility_id('Button Fab')
-    use_case.text_area = use_case.driver.find_element_by_accessibility_id('Text Area')
 
 def run_tap(use_case):
     """Run script to test tap."""
@@ -75,7 +74,6 @@ def run_tap(use_case):
         use_case.button2.click()
         use_case.button3.click()
         use_case.button_fab.click()
-        use_case.text_area.click()
     try:
         for i in range(10):
             simple_routine()
@@ -102,7 +100,6 @@ def prepare_long_tap(use_case):
         use_case.driver.find_element_by_accessibility_id('Button Two'),
         use_case.driver.find_element_by_accessibility_id('Button Three'),
         use_case.driver.find_element_by_accessibility_id('Button Fab'),
-        use_case.driver.find_element_by_accessibility_id('Text Area'),
     ]
     use_case.action = TouchAction(use_case.driver)
 
@@ -384,7 +381,7 @@ find_by_description_use_case = AppiumUseCase(
 
 @minimum_execution_time(seconds=time_boundaries.FIND_BY_ID)
 def run_find_by_id(use_case):
-    """Run script to test multi finger tap."""
+    """Run script to test find by id."""
 
     try:
         for _ in range(40):

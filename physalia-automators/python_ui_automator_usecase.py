@@ -97,7 +97,6 @@ def prepare_tap(use_case):
         device(description="Button Two"),
         device(description="Button Three"),
         device(description="Button Fab"),
-        device(description="Text Area"),
     ]
     
 @minimum_execution_time(time_boundaries.TAP)
@@ -128,7 +127,6 @@ def prepare_long_tap(use_case):
         device(description="Button Two"),
         device(description="Button Three"),
         device(description="Button Fab"),
-        device(description="Text Area"),
     ]
     
 @minimum_execution_time(time_boundaries.LONG_TAP)
