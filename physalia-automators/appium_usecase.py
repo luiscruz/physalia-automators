@@ -187,7 +187,7 @@ def prepare_dragndrop(use_case):
 
 @minimum_execution_time(seconds=time_boundaries.DRAGNDROP)
 def run_dragndrop(use_case):
-    """Run script to test multi finger tap."""
+    """Run script to test drag and drop."""
 
     @minimum_execution_time(seconds=time_boundaries.DRAGNDROP_UNIT)
     def simple_routine():
@@ -219,7 +219,7 @@ def prepare_swipe(use_case):
     use_case.x_i, use_case.y_i = (paint.location['x'], paint.location['y'])
 
 def run_swipe(use_case):
-    """Run script to test multi finger tap."""
+    """Run script to test swipe."""
 
     @minimum_execution_time(seconds=time_boundaries.SWIPE)
     def simple_routine(offset_y):
