@@ -39,15 +39,15 @@ class EspressoUseCase(AndroidUseCase):
         """Prepare environment for running."""
         self.install_app()
         self.install_test()
-        self.open_app()
+        # self.open_app()
         self._prepare()
         click.secho("Starting use case {}.".format(self.name), fg='green')
 
     def cleanup(self):
         """Clean environment after running."""
         self._cleanup()
-        # self.uninstall_app()
-        # self.uninstall_test()
+        self.uninstall_app()
+        self.uninstall_test()
     
     def _run(self):
         @minimum_execution_time(seconds=self.minimum_execution_time)
@@ -83,7 +83,7 @@ find_by_id_use_case = EspressoUseCase(
     time_boundaries.INPUT_TEXT
 )
 
-print find_by_id_use_case.run().duration
+# print find_by_id_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -99,7 +99,7 @@ find_by_description_use_case = EspressoUseCase(
     time_boundaries.INPUT_TEXT
 )
 
-print find_by_description_use_case.run().duration
+# print find_by_description_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -115,7 +115,7 @@ find_by_content_use_case = EspressoUseCase(
     time_boundaries.INPUT_TEXT
 )
 
-print find_by_content_use_case.run().duration
+# print find_by_content_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 

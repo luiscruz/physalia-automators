@@ -185,10 +185,11 @@ def prepare_dragndrop(use_case):
         (button_fab, text_area),
     ]
 
+@minimum_execution_time(seconds=time_boundaries.DRAGNDROP)
 def run_dragndrop(use_case):
     """Run script to test multi finger tap."""
 
-    @minimum_execution_time(seconds=time_boundaries.DRAGNDROP)
+    @minimum_execution_time(seconds=time_boundaries.DRAGNDROP_UNIT)
     def simple_routine():
         for first, second in use_case.moves:
             use_case.driver.drag_and_drop(first, second)
