@@ -80,7 +80,7 @@ find_by_id_use_case = EspressoUseCase(
     "findById",
     "../apks/test_routines.apk",
     "com.tqrg.physalia.testapp.test",
-    time_boundaries.INPUT_TEXT
+    time_boundaries.FIND_BY_ID
 )
 
 # print find_by_id_use_case.run().duration
@@ -96,7 +96,7 @@ find_by_description_use_case = EspressoUseCase(
     "findByDescription",
     "../apks/test_routines.apk",
     "com.tqrg.physalia.testapp.test",
-    time_boundaries.INPUT_TEXT
+    time_boundaries.FIND_BY_DESCRIPTION
 )
 
 # print find_by_description_use_case.run().duration
@@ -112,7 +112,7 @@ find_by_content_use_case = EspressoUseCase(
     "findByContent",
     "../apks/test_routines.apk",
     "com.tqrg.physalia.testapp.test",
-    time_boundaries.INPUT_TEXT
+    time_boundaries.FIND_BY_CONTENT
 )
 
 # print find_by_content_use_case.run().duration
@@ -128,7 +128,7 @@ tap_use_case = EspressoUseCase(
     "tap",
     "../apks/test_routines.apk",
     "com.tqrg.physalia.testapp.test",
-    time_boundaries.INPUT_TEXT
+    time_boundaries.TAP
 )
 
 print tap_use_case.run().duration
@@ -144,7 +144,7 @@ long_tap_use_case = EspressoUseCase(
     "longTap",
     "../apks/test_routines.apk",
     "com.tqrg.physalia.testapp.test",
-    time_boundaries.INPUT_TEXT
+    time_boundaries.LONG_TAP
 )
 
 print long_tap_use_case.run().duration
@@ -160,7 +160,7 @@ swipe_use_case = EspressoUseCase(
     "swipe",
     "../apks/test_routines.apk",
     "com.tqrg.physalia.testapp.test",
-    time_boundaries.INPUT_TEXT
+    time_boundaries.SWIPE
 )
 
 print swipe_use_case.run().duration
@@ -175,7 +175,7 @@ back_button_use_case = EspressoUseCase(
     "backButton",
     "../apks/test_routines.apk",
     "com.tqrg.physalia.testapp.test",
-    time_boundaries.INPUT_TEXT
+    time_boundaries.BACK_BUTTON
 )
 
 print back_button_use_case.run().duration
