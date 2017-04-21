@@ -98,3 +98,84 @@ tap_use_case = RobotiumUseCase(
 )
 
 print tap_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+long_tap_use_case = RobotiumUseCase(
+    "Robotium-long_tap",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.test.RobotiumTest",
+    "testLongTap",
+    "../apks/RobotiumTest_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.LONG_TAP
+)
+
+print long_tap_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+dragndrop_use_case = RobotiumUseCase(
+    "Robotium-dragndrop",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.test.RobotiumTest",
+    "testDragndrop",
+    "../apks/RobotiumTest_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.DRAGNDROP
+)
+
+print dragndrop_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+swipe_use_case = RobotiumUseCase(
+    "Robotium-swipe",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.test.RobotiumTest",
+    "testSwipe",
+    "../apks/RobotiumTest_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.SWIPE
+)
+
+print swipe_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+back_button_use_case = RobotiumUseCase(
+    "Robotium-back_button",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.test.RobotiumTest",
+    "testBackButton",
+    "../apks/RobotiumTest_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.BACK_BUTTON
+)
+
+print back_button_use_case.run().duration
+
+
+# -------------------------------------------------------------------------- #
+
+input_text_use_case = RobotiumUseCase(
+    "Robotium-input_text",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.test.RobotiumTest",
+    "testInputText",
+    "../apks/RobotiumTest_routines.apk",
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.INPUT_TEXT
+)
+
+print input_text_use_case.run().duration
