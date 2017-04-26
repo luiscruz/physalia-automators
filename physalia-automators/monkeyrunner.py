@@ -14,6 +14,8 @@ BUTTON_1 = (560, 580)
 BUTTON_2 = (560, 705)
 BUTTON_3 = (560, 830)
 BUTTON_FAB = (965, 474)
+TEXT_FIELD = (560, 950)
+PAINT_TOP = (560, 1012)
 TEXT_AREA = (560, 1610)
 
 # -------------------------------------------------------------------------- #
@@ -58,6 +60,70 @@ def run_long_tap():
                 element[1],
                 MonkeyDevice.UP
             )
+
+# -------------------------------------------------------------------------- #
+
+def run_dragndrop():
+    moves = [
+        (BUTTON_1, BUTTON_2),
+        (BUTTON_2, BUTTON_3),
+        (BUTTON_FAB, BUTTON_3),
+        (BUTTON_FAB, TEXT_AREA),
+    ]
+    device = MonkeyRunner.waitForConnection()
+    for _ in range(10):
+        for first, second in moves:
+            device.drag(
+                first,
+                second,
+                0.5,
+                100
+            )
+
+# -------------------------------------------------------------------------- #
+
+def run_swipe():
+    x_i, y_i = PAINT_TOP
+    device = MonkeyRunner.waitForConnection()
+
+    def simple_routine(offset_y):
+        # Swipe left
+        swipe_distance=420
+        steps=40
+        x_f, y_f = (x_i-swipe_distance, y_i+offset_y+1)
+        device.drag((x_i, y_i+offset_y+1), (x_f, y_f), 0.4, steps)
+        # Swipe Right
+        x_f, y_f = (x_i+swipe_distance, y_i+offset_y)
+        device.drag((x_i, y_i+offset_y), (x_f, y_f), 0.4, steps)
+
+    for i in range(40):
+        simple_routine(i*8)
+
+# -------------------------------------------------------------------------- #
+
+def run_back_button():
+    device = MonkeyRunner.waitForConnection()
+    for _ in range(200):
+        device.press("KEYCODE_BACK", MonkeyDevice.DOWN_AND_UP)
+
+# run_back_button()
+
+# -------------------------------------------------------------------------- #
+
+def run_input_text():
+    device = MonkeyRunner.waitForConnection()
+    # device.touch(
+#         TEXT_FIELD[0],
+#         TEXT_FIELD[1],
+#         MonkeyDevice.DOWN_AND_UP
+#     )
+    device.type("Physalia")
+    # device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
+#     device.type("says")
+#     device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
+#     device.type("hi!")
+
+run_input_text()
 
 # -------------------------------------------------------------------------- #
 #
