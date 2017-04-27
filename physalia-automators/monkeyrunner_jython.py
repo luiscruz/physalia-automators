@@ -4,7 +4,7 @@ Only works with Nexus 5X.
 """
 
 from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice
-
+import sys
 
 PACKAGE = "com.tqrg.physalia.testapp"
 ACTIVITY = "com.tqrg.physalia.testapp.ScrollingActivity"
@@ -123,7 +123,11 @@ def run_input_text():
     device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
     device.type("hi!")
 
-run_input_text()
+# run_input_text()
+
+if len(sys.argv) == 2:
+    method_name = sys.argv[1]
+    exec(method_name+"()")
 
 # -------------------------------------------------------------------------- #
 #
