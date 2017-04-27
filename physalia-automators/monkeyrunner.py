@@ -118,10 +118,10 @@ def run_input_text():
 #         MonkeyDevice.DOWN_AND_UP
 #     )
     device.type("Physalia")
-    # device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
-#     device.type("says")
-#     device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
-#     device.type("hi!")
+    device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
+    device.type("says")
+    device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
+    device.type("hi!")
 
 run_input_text()
 
