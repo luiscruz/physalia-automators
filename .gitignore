@@ -90,3 +90,6 @@ ENV/
 
 .DS_STORE
 *.keystore
+
+#Calabash
+physalia-automators/calabash-ruby/test_servers/
