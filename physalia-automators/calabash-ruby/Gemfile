@@ -1,0 +1,6 @@
+source "http://rubygems.org"
+
+gem 'certified'
+gem 'calabash-android'
+gem 'cucumber'
+gem 'pry'
