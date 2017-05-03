@@ -32,3 +32,7 @@ Feature: Physalia UI Interactions
 
   Scenario: Back button
     When "I go back" for 40 times
+  
+  Scenario: Type with keyboard
+    When I type "Physalia says hi!" in "text_field"
+  

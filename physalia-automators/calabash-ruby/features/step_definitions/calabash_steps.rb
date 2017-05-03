@@ -51,3 +51,7 @@ When(/^"([^"]*)" for (\d+) times$/) do |nested_step, times|
     sleep 0.1
   end
 end
+
+When(/^I type "([^"]*)" in "([^"]*)"$/) do |text_to_enter, text_field|
+  enter_text("* id:'#{text_field}'", text_to_enter)
+end
