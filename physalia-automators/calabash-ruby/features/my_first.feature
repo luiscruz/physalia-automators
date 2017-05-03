@@ -36,3 +36,32 @@ Feature: Physalia UI Interactions
   Scenario: Type with keyboard
     When I type "Physalia says hi!" in "text_field"
   
+  Scenario: Find By Id
+    When I find view with id <view> for 40 times
+    | view        |
+    | button_1    |
+    | button_2    |
+    | button_3    |
+    | text_field  |
+    | fab         |
+    | paint       |
+    | text_area   |
+
+  Scenario: Find By Description
+    When I find view with description <view> for 40 times
+    | view          |
+    | Button One    |
+    | Button Two    |
+    | Button Three  |
+    | Text Field    |
+    | Button Fab    |
+    | Paint         |
+    | Text Area     |
+
+
+  Scenario: Find By Content
+    When I find view with content <view_content> for 40 times
+    | view_content  |
+    | Button 1      |
+    | Button 2      |
+    | Button 3      |
