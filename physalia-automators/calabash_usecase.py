@@ -41,17 +41,21 @@ class CalabashUseCase(AndroidUseCase):
     def _run(self):
         @minimum_execution_time(seconds=self.minimum_execution_time)
         def launch_calabash():
-            subprocess.check_output(
-                "calabash-android run ../{apk} "
-                "features/{feature}"
-                " --name \"{scenario}\"".format(
-                    apk=self.app_apk,
-                    feature=self.feature,
-                    scenario=self.scenario
-                ),
-                cwd="./calabash-ruby/",
-                shell=True
-            )
+            try:
+                subprocess.check_output(
+                    "calabash-android run ../{apk} "
+                    "features/{feature}"
+                    " --name \"{scenario}\"".format(
+                        apk=self.app_apk,
+                        feature=self.feature,
+                        scenario=self.scenario
+                    ),
+                    cwd="./calabash-ruby/",
+                    shell=True
+                )
+            except subprocess.CalledProcessError as e:
+                click.secho(str(e), fg='red')
+                print e.output
         launch_calabash()
         
 APK = "../apks/app-debug.apk"
@@ -61,8 +65,50 @@ FEATURE = "physalia_test_app.feature"
 
 # -------------------------------------------------------------------------- #
 
+find_by_id_use_case = CalabashUseCase(
+    "Calabash-find_by_id",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    FEATURE,
+    "Find\ By\ Id",
+    time_boundaries.FIND_BY_ID
+)
+
+print find_by_id_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+find_by_description_use_case = CalabashUseCase(
+    "Calabash-find_by_description",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    FEATURE,
+    "Find\ By\ Description",
+    time_boundaries.FIND_BY_DESCRIPTION
+)
+
+print find_by_description_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+find_by_content_use_case = CalabashUseCase(
+    "Calabash-find_by_content",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    FEATURE,
+    "Find\ By\ Content",
+    time_boundaries.FIND_BY_CONTENT
+)
+
+print find_by_content_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
 tap_use_case = CalabashUseCase(
-    "Monkeyrunner-tap",
+    "Calabash-tap",
     APK,
     APP_PKG,
     APP_VERSION,
@@ -71,6 +117,90 @@ tap_use_case = CalabashUseCase(
     time_boundaries.TAP
 )
 
-print tap_use_case.run().duration
+# print tap_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+long_tap_use_case = CalabashUseCase(
+    "Calabash-long_tap",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    FEATURE,
+    "Long\ tap\ on\ views",
+    time_boundaries.LONG_TAP
+)
+
+# print long_tap_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+dragndrop_use_case = CalabashUseCase(
+    "Calabash-dragndrop",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    FEATURE,
+    "Dragndrop",
+    time_boundaries.DRAGNDROP
+)
+
+# print dragndrop_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+swipe_use_case = CalabashUseCase(
+    "Calabash-swipe",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    FEATURE,
+    "Swipe",
+    time_boundaries.SWIPE
+)
+
+# print swipe_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+pinch_and_spread_use_case = CalabashUseCase(
+    "Calabash-pinch_and_spread",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    FEATURE,
+    "Pinch\ and\ spread",
+    time_boundaries.PINCH_AND_SPREAD
+)
+
+# print pinch_and_spread_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+back_button_use_case = CalabashUseCase(
+    "Calabash-back_button",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    FEATURE,
+    "Back\ button",
+    time_boundaries.BACK_BUTTON
+)
+
+# print back_button_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+input_text_use_case = CalabashUseCase(
+    "Calabash-input_text",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    FEATURE,
+    "Type\ with\ keyboard",
+    time_boundaries.INPUT_TEXT
+)
+
+print input_text_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
