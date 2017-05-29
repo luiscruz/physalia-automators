@@ -97,7 +97,7 @@ tap_use_case = RobotiumUseCase(
     time_boundaries.TAP
 )
 
-print tap_use_case.run().duration
+# print tap_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -113,7 +113,7 @@ long_tap_use_case = RobotiumUseCase(
     time_boundaries.LONG_TAP
 )
 
-print long_tap_use_case.run().duration
+# print long_tap_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -129,7 +129,7 @@ dragndrop_use_case = RobotiumUseCase(
     time_boundaries.DRAGNDROP
 )
 
-print dragndrop_use_case.run().duration
+# print dragndrop_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -145,7 +145,7 @@ swipe_use_case = RobotiumUseCase(
     time_boundaries.SWIPE
 )
 
-print swipe_use_case.run().duration
+# print swipe_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -161,7 +161,7 @@ back_button_use_case = RobotiumUseCase(
     time_boundaries.BACK_BUTTON
 )
 
-print back_button_use_case.run().duration
+# print back_button_use_case.run().duration
 
 
 # -------------------------------------------------------------------------- #
@@ -178,4 +178,18 @@ input_text_use_case = RobotiumUseCase(
     time_boundaries.INPUT_TEXT
 )
 
-print input_text_use_case.run().duration
+# print input_text_use_case.run().duration
+
+use_cases = {
+    "find_by_id": find_by_id_use_case,
+    "find_by_description": None, #TODO
+    "find_by_content": None, #TODO
+    "tap": tap_use_case,
+    "long_tap": long_tap_use_case,
+    "multi_finger_tap": None,
+    "dragndrop": dragndrop_use_case,
+    "swipe": swipe_use_case,
+    "pinch_and_spread": None,
+    "back_button": back_button_use_case,
+    "input_text": input_text_use_case,
+}
