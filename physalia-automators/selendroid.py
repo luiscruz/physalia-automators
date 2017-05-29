@@ -1,4 +1,4 @@
-"""Interaction using Python Ui Automator"""
+d9"""Interaction using Python Ui Automator"""
 
 from selenium import webdriver
 from selenium.webdriver.common.touch_actions import TouchActions
@@ -270,4 +270,18 @@ swipe_use_case = SelendroidUseCase(
     prepare=prepare_swipe,
 )
 
-print swipe_use_case.run().duration
+# print swipe_use_case.run().duration
+
+use_cases = {
+    "find_by_id": None,
+    "find_by_description": None,
+    "find_by_content": None,
+    "tap": tap_use_case,
+    "long_tap": long_tap_use_case,
+    "multi_finger_tap": multi_finger_tap_use_case,
+    "dragndrop": dragndrop_use_case,
+    "swipe": swipe_use_case,
+    "back_button": None,
+    "input_text": None,
+}
+
