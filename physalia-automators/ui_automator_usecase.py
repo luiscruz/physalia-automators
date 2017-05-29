@@ -61,7 +61,7 @@ class UiAutomatorUseCase(AndroidUseCase):
 
 # -------------------------------------------------------------------------- #
 
-use_case = UiAutomatorUseCase(
+find_by_id_use_case = UiAutomatorUseCase(
     "UiAutomator-test",
     "../apks/testapp.apk",
     "com.tqrg.physalia.testapp",
@@ -71,4 +71,19 @@ use_case = UiAutomatorUseCase(
     time_boundaries.FIND_BY_ID
 )
 
-print use_case.run().duration
+# print find_by_id_use_case.run().duration
+
+
+use_cases = {
+    "find_by_id": find_by_id_use_case,
+    "find_by_description": None,
+    "find_by_content": None,
+    "tap": None,
+    "long_tap": None,
+    "multi_finger_tap": None,
+    "dragndrop": None,
+    "swipe": None,
+    "pinch_and_spread": None,
+    "back_button": None,
+    "input_text": None,
+}
