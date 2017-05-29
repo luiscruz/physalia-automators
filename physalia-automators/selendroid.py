@@ -281,7 +281,7 @@ use_cases = {
     "multi_finger_tap": multi_finger_tap_use_case,
     "dragndrop": dragndrop_use_case,
     "swipe": swipe_use_case,
+    "pinch_and_spread": None,
     "back_button": None,
     "input_text": None,
 }
-
