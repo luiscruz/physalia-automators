@@ -130,7 +130,7 @@ back_button_use_case = MonkeyrunnerUseCase(
     time_boundaries.BACK_BUTTON
 )
 
-print back_button_use_case.run().duration
+# print back_button_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -144,6 +144,21 @@ input_text_use_case = MonkeyrunnerUseCase(
     time_boundaries.INPUT_TEXT
 )
 
-print input_text_use_case.run().duration
+# print input_text_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
+
+
+use_cases = {
+    "find_by_id": None,
+    "find_by_description": None,
+    "find_by_content": None,
+    "tap": tap_use_case,
+    "long_tap": long_tap_use_case,
+    "multi_finger_tap": None, #TODO
+    "dragndrop": dragndrop_use_case,
+    "swipe": swipe_use_case,
+    "pinch_and_spread": None,
+    "back_button": back_button_use_case,
+    "input_text": input_text_use_case,
+}
