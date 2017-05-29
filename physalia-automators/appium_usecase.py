@@ -437,3 +437,17 @@ find_by_content_use_case = AppiumUseCase(
 )
 
 # print find_by_content_use_case.run().duration
+
+use_cases = {
+    "find_by_id": find_by_id_use_case,
+    "find_by_description": find_by_description_use_case,
+    "find_by_content": find_by_content_use_case,
+    "tap": tap_use_case,
+    "long_tap": long_tap_use_case,
+    "multi_finger_tap": multi_finger_tap_use_case,
+    "dragndrop": dragndrop_use_case,
+    "swipe": swipe_use_case,
+    "pinch_and_spread": pinch_and_spread_use_case,
+    "back_button": back_button_use_case,
+    "input_text": input_text_use_case,
+}
