@@ -12,20 +12,30 @@ Example:
 # pylint: disable=missing-docstring
 
 import click
-from physalia_automators import android_view_client_use_case
-from physalia_automators import appium_usecase
-from physalia_automators import calabash_use_case
-from physalia_automators import espresso_use_case
-from physalia_automators import monkeyrunner_use_case
-from physalia_automators import python_ui_automator_use_case
-from physalia_automators import robotium_use_case
-from physalia_automators import ui_automator_use_case
+from physalia.power_meters import MonsoonPowerMeter
+# from physalia_automators import android_view_client_use_case
+# from physalia_automators import appium_usecase
+# from physalia_automators import calabash_usecase
+# from physalia_automators import espresso_usecase
+# from physalia_automators import monkeyrunner_usecase
+from physalia_automators import python_ui_automator_usecase
+# from physalia_automators import robotium_usecase
+# from physalia_automators import ui_automator_usecase
 
 @click.command()
-def tool(runner):
+def tool():
     """Run tool."""
-    print android_view_client_use_case.use_cases
-
+    power_meter = MonsoonPowerMeter(voltage=3.8, sample_hz=50000, serial=12886)
+    print power_meter
+    print python_ui_automator_usecase.use_cases
+    for use_case_name,use_case in python_ui_automator_usecase.use_cases.items():
+        if use_case:
+            click.secho("Running {}...".format(use_case_name),
+                        fg='blue')
+            use_case.run(power_meter=power_meter)
+        else:
+            click.secho("Skipping {}...".format(use_case_name),
+                        fg='red')
 
 if __name__ == '__main__':
     tool()

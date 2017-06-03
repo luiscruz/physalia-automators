@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* setup tools
 * downgraded physalia version
 * added cli
 * added dictionaire with all usecases for uiautomator

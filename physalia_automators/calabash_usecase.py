@@ -12,7 +12,6 @@ import subprocess
 import click
 
 
-
 class CalabashUseCase(AndroidUseCase):
     """`AndroidUseCase` to use with `Calabash`."""
 

@@ -8,6 +8,8 @@ import time_boundaries
 
 from uiautomator import device
 
+APK = "./apks/testapp.apk"
+
 def prepare(use_case):
     use_case.install_app()
     use_case.open_app()
@@ -32,7 +34,7 @@ def run_find_by_id(_):
     
 find_by_id_use_case = AndroidUseCase(
     "PythonUiAutomator-find_by_id",
-    "../apks/testapp.apk",
+    APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_find_by_id,
@@ -57,7 +59,7 @@ def run_find_by_description(_):
     
 find_by_description_use_case = AndroidUseCase(
     "PythonUiAutomator-find_by_description",
-    "../apks/testapp.apk",
+    APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_find_by_description,
@@ -78,7 +80,7 @@ def run_find_by_content(_):
     
 find_by_content_use_case = AndroidUseCase(
     "PythonUiAutomator-find_by_content",
-    "../apks/testapp.apk",
+    APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_find_by_content,
@@ -107,7 +109,7 @@ def run_tap(use_case):
     
 tap_use_case = AndroidUseCase(
     "PythonUiAutomator-tap",
-    "../apks/testapp.apk",
+    APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_tap,
@@ -137,7 +139,7 @@ def run_long_tap(use_case):
     
 long_tap_use_case = AndroidUseCase(
     "PythonUiAutomator-long_tap",
-    "../apks/testapp.apk",
+    APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_long_tap,
@@ -188,7 +190,7 @@ def run_dragndrop(use_case):
     
 dragndrop_use_case = AndroidUseCase(
     "PythonUiAutomator-dragndrop",
-    "../apks/testapp.apk",
+    APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_dragndrop,
@@ -228,7 +230,7 @@ def run_swipe(use_case):
     
 swipe_use_case = AndroidUseCase(
     "PythonUiAutomator-swipe",
-    "../apks/testapp.apk",
+    APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_swipe,
@@ -260,7 +262,7 @@ def run_pinch_and_spread(use_case):
     
 pinch_and_spread_use_case = AndroidUseCase(
     "PythonUiAutomator-pinch_and_spread",
-    "../apks/testapp.apk",
+    APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_pinch_and_spread,
@@ -284,7 +286,7 @@ def run_back_button(use_case):
     
 back_button_use_case = AndroidUseCase(
     "PythonUiAutomator-back_button",
-    "../apks/testapp.apk",
+    APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_back_button,
