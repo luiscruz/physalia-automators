@@ -1,0 +1,50 @@
+CHANGES
+=======
+
+* downgraded physalia version
+* added cli
+* added dictionaire with all usecases for uiautomator
+* added dictionaire with all usecases for monkeyruner
+* added dictionaire with all usecases for uiautomator
+* added dictionaire with all usecases for Appium
+* added dictionaire with all usecases for Espresso
+* added dictionaire with all usecases for Robotium
+* added dictionaire with all usecases for AndroidViewClient
+* added dictionaire with all usecases for calabach; fixed selendroid
+* added dictionaire with all usecases for selendroid
+* added permisssion for calabash
+* all interactions in calabash
+* calabash usecase for tap
+* calabash find view by id content desciptoin
+*  calabash type with keyboard
+*  calabash pinch and spread and go back
+* calabash
+* monkeyrunner tests
+* monkeyrunner
+* renamed monkeyrunner jython file
+* added all routines
+* monkeyrunner
+* robotium use cases integrated with physalia
+* time boundaries fix
+* robotium apks
+* robotium - a few use cases
+*  minor fixes
+* selendroid
+* selendroid
+* remove text area from tap tests"
+* added espresso tests
+* minor fix
+* android view client
+* small fix in back button
+* pythonui automatr: pinh and spread; press back
+* uiautomator use case and python ui automator use case
+* ui\_automator first attempts
+* find by content
+* find by uid; find by description; input text
+* swipe, pinch and spread, back button
+* added multi finger interaction
+* test appium for tap and long tap
+* first appium test running
+* experiments
+* appium begin
+* Initial commit
