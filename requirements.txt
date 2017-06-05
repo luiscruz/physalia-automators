@@ -1,4 +1,4 @@
 click
-physalia==0.0.1.dev100
+physalia==0.0.1.dev105
 Appium-Python-Client
 uiautomator

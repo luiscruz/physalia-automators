@@ -25,14 +25,16 @@ from physalia_automators import python_ui_automator_usecase
 @click.command()
 def tool():
     """Run tool."""
-    power_meter = MonsoonPowerMeter(voltage=3.8, sample_hz=50000, serial=12886)
+    power_meter = MonsoonPowerMeter(voltage=3.8, sample_hz=5000, serial=12886)
     print power_meter
     print python_ui_automator_usecase.use_cases
     for use_case_name,use_case in python_ui_automator_usecase.use_cases.items():
         if use_case:
             click.secho("Running {}...".format(use_case_name),
                         fg='blue')
-            use_case.run(power_meter=power_meter)
+            results = use_case.profile(power_meter=power_meter,
+                                       count=30, retry_limit=10,
+                                       save_to_csv="results.csv")
         else:
             click.secho("Skipping {}...".format(use_case_name),
                         fg='red')

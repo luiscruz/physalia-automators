@@ -13,7 +13,7 @@ def minimum_execution_time(seconds, warning=True):
             if time.time() < finish:
                 time.sleep(finish-time.time())
             else:
-                if warning:
+                if warning and seconds != -1:
                     click.secho(
                         "Warning: execution time boundary exceed by {:.1f}s."
                         .format(time.time()-finish),
