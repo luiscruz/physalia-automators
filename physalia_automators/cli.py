@@ -11,8 +11,10 @@ Example:
 # pylint: disable=no-value-for-parameter
 # pylint: disable=missing-docstring
 
+import time
+import csv
 import click
-from physalia.power_meters import MonsoonPowerMeter
+from physalia.power_meters import MonsoonPowerMeter, EmulatedPowerMeter
 # from physalia_automators import android_view_client_use_case
 # from physalia_automators import appium_usecase
 # from physalia_automators import calabash_usecase
@@ -22,22 +24,51 @@ from physalia_automators import python_ui_automator_usecase
 # from physalia_automators import robotium_usecase
 # from physalia_automators import ui_automator_usecase
 
+COLUMN_USE_CASE = 1
+
 @click.command()
-def tool():
+@click.argument('count', default=30, type=click.IntRange(min=1))
+@click.argument('output', default="results.csv", type=click.Path(dir_okay=False))
+def tool(count, output):
     """Run tool."""
-    power_meter = MonsoonPowerMeter(voltage=3.8, sample_hz=5000, serial=12886)
-    print power_meter
-    print python_ui_automator_usecase.use_cases
+    
+    start_time = time.time()
+    click.secho("=====================================", fg="blue")
+    click.secho("         Physalia Automators         ", fg="blue")
+    click.secho("=====================================", fg="blue")
+    click.secho("By Luis Cruz and Rui Abreu.   ", fg="blue")
+    click.secho("http://tqrg.github.io/physalia.", fg="blue")
+    # click.launch('http://tqrg.github.io/physalia/')
+
+    power_meter = MonsoonPowerMeter(voltage=3.8, serial=12886)
     for use_case_name,use_case in python_ui_automator_usecase.use_cases.items():
         if use_case:
-            click.secho("Running {}...".format(use_case_name),
-                        fg='blue')
-            results = use_case.profile(power_meter=power_meter,
-                                       count=30, retry_limit=10,
-                                       save_to_csv="results.csv")
+            executions_done = get_number_of_rows_for_key(use_case.name, output)
+            executions_left = count - executions_done
+            
+            if executions_left > 0:
+                click.secho("\n\nRunning {}...".format(use_case_name),
+                            fg='blue', bold=True)
+                results = use_case.profile(power_meter=power_meter,
+                                           count=executions_left,
+                                           retry_limit=3,
+                                           save_to_csv=output)
+            else:
+                click.secho(
+                    "\nSkipping {}: already done...".format(use_case_name),
+                    fg='yellow'
+                )
         else:
-            click.secho("Skipping {}...".format(use_case_name),
-                        fg='red')
+            click.secho(
+                "\nSkipping {}: not defined...".format(use_case_name),
+                fg='yellow'
+            )
+
+def get_number_of_rows_for_key(key, filename):
+    """Get number of elements for a given usecase name."""
+    with open(filename, 'rb') as csvfile:
+        csv_reader = csv.reader(csvfile)
+        return len([None for row in csv_reader if row[COLUMN_USE_CASE] == key])
 
 if __name__ == '__main__':
     tool()
