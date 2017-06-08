@@ -59,6 +59,95 @@ class AppiumUseCase(AndroidUseCase):
         self.driver.remove_app(self.app_pkg)
 
 # -------------------------------------------------------------------------- #
+
+@minimum_execution_time(seconds=time_boundaries.FIND_BY_ID)
+def run_find_by_id(use_case):
+    """Run script to test find by id."""
+
+    try:
+        for _ in range(loop_count.FIND_BY_ID):
+            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/button_1")[0]
+            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/button_2")[0]
+            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/button_3")[0]
+            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/text_field")[0]
+            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/fab")[0]
+            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/paint")[0]
+            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/text_area")[0]
+            
+        
+    except Exception as e:
+        click.secho("Error: {}.".format(e), fg='red')
+
+find_by_id_use_case = AppiumUseCase(
+    "Appium-find_by_id",
+    "../apks/testapp.apk",
+    "com.tqrg.physalia.testapp",
+    "",
+    "0.01",
+    run_find_by_id,
+)
+
+# print find_by_id_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+@minimum_execution_time(seconds=time_boundaries.FIND_BY_DESCRIPTION)
+def run_find_by_description(use_case):
+    """Run script to test multi finger tap."""
+
+    try:
+        for _ in range(loop_count.FIND_BY_DESCRIPTION):
+            use_case.driver.find_element_by_accessibility_id('Button One')
+            use_case.driver.find_element_by_accessibility_id('Button Two')
+            use_case.driver.find_element_by_accessibility_id('Button Three')
+            use_case.driver.find_element_by_accessibility_id('Button Fab')
+            use_case.driver.find_element_by_accessibility_id('Text Field')
+            use_case.driver.find_element_by_accessibility_id('Paint')
+            use_case.driver.find_element_by_accessibility_id('Text Area')
+    except Exception as e:
+        click.secho("Error: {}.".format(e), fg='red')
+
+find_by_description_use_case = AppiumUseCase(
+    "Appium-find_by_description",
+    "../apks/testapp.apk",
+    "com.tqrg.physalia.testapp",
+    "",
+    "0.01",
+    run_find_by_description,
+)
+
+# print find_by_description_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+@minimum_execution_time(seconds=time_boundaries.FIND_BY_CONTENT)
+def run_find_by_content(use_case):
+    """Run script to test multi finger tap."""
+    def find_by_content(content):
+        return use_case.driver.find_element_by_android_uiautomator(
+            "new UiSelector().textContains(\"{}\")".format(content)
+        )
+    try:
+        for _ in range(loop_count.FIND_BY_CONTENT):
+            find_by_content("Button 1")
+            find_by_content("Button 2")
+            find_by_content("Button 3")            
+
+    except Exception as e:
+        click.secho("Error: {}.".format(e), fg='red')
+
+find_by_content_use_case = AppiumUseCase(
+    "Appium-find_by_content",
+    "../apks/testapp.apk",
+    "com.tqrg.physalia.testapp",
+    "",
+    "0.01",
+    run_find_by_content,
+)
+
+# print find_by_content_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
 def prepare_tap(use_case):
     use_case.button1 = use_case.driver.find_element_by_accessibility_id('Button One')
     use_case.button2 = use_case.driver.find_element_by_accessibility_id('Button Two')
@@ -75,7 +164,7 @@ def run_tap(use_case):
         use_case.button3.click()
         use_case.button_fab.click()
     try:
-        for i in range(10):
+        for i in range(loop_count.TAP):
             simple_routine()
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
@@ -231,7 +320,7 @@ def run_swipe(use_case):
         use_case.driver.swipe(use_case.x_i, use_case.y_i+offset_y, x_f, y_f)
 
     try:
-        for i in range(40):
+        for i in range(loop_count.SWIPE):
             simple_routine(i*8)
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
@@ -268,7 +357,7 @@ def run_pinch_and_spread(use_case):
     @minimum_execution_time(seconds=time_boundaries.PINCH_AND_SPREAD)
     def simple_routine():
         print dir(use_case.paint)
-        for _ in range(40):
+        for _ in range(loop_count.PINCH_AND_SPREAD):
             pinch(use_case.paint.id)
             zoom(use_case.paint.id)
 
@@ -304,7 +393,7 @@ def run_back_button(use_case):
         use_case.driver.press_keycode(4)
 
     try:
-        for _ in range(200):
+        for _ in range(loop_count.BACK_BUTTON):
             simple_routine()
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
@@ -348,95 +437,6 @@ input_text_use_case = AppiumUseCase(
 )
 
 # print input_text_use_case.run().duration
-
-# -------------------------------------------------------------------------- #
-
-@minimum_execution_time(seconds=time_boundaries.FIND_BY_DESCRIPTION)
-def run_find_by_description(use_case):
-    """Run script to test multi finger tap."""
-
-    try:
-        for _ in range(40):
-            use_case.driver.find_element_by_accessibility_id('Button One')
-            use_case.driver.find_element_by_accessibility_id('Button Two')
-            use_case.driver.find_element_by_accessibility_id('Button Three')
-            use_case.driver.find_element_by_accessibility_id('Button Fab')
-            use_case.driver.find_element_by_accessibility_id('Text Field')
-            use_case.driver.find_element_by_accessibility_id('Paint')
-            use_case.driver.find_element_by_accessibility_id('Text Area')
-    except Exception as e:
-        click.secho("Error: {}.".format(e), fg='red')
-
-find_by_description_use_case = AppiumUseCase(
-    "Appium-find_by_description",
-    "../apks/testapp.apk",
-    "com.tqrg.physalia.testapp",
-    "",
-    "0.01",
-    run_find_by_description,
-)
-
-# print find_by_description_use_case.run().duration
-
-# -------------------------------------------------------------------------- #
-
-@minimum_execution_time(seconds=time_boundaries.FIND_BY_ID)
-def run_find_by_id(use_case):
-    """Run script to test find by id."""
-
-    try:
-        for _ in range(40):
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/button_1")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/button_2")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/button_3")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/text_field")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/fab")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/paint")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/text_area")[0]
-            
-        
-    except Exception as e:
-        click.secho("Error: {}.".format(e), fg='red')
-
-find_by_id_use_case = AppiumUseCase(
-    "Appium-find_by_id",
-    "../apks/testapp.apk",
-    "com.tqrg.physalia.testapp",
-    "",
-    "0.01",
-    run_find_by_id,
-)
-
-# print find_by_id_use_case.run().duration
-
-# -------------------------------------------------------------------------- #
-
-@minimum_execution_time(seconds=time_boundaries.FIND_BY_CONTENT)
-def run_find_by_content(use_case):
-    """Run script to test multi finger tap."""
-    def find_by_content(content):
-        return use_case.driver.find_element_by_android_uiautomator(
-            "new UiSelector().textContains(\"{}\")".format(content)
-        )
-    try:
-        for _ in range(40):
-            find_by_content("Button 1")
-            find_by_content("Button 2")
-            find_by_content("Button 3")            
-
-    except Exception as e:
-        click.secho("Error: {}.".format(e), fg='red')
-
-find_by_content_use_case = AppiumUseCase(
-    "Appium-find_by_content",
-    "../apks/testapp.apk",
-    "com.tqrg.physalia.testapp",
-    "",
-    "0.01",
-    run_find_by_content,
-)
-
-# print find_by_content_use_case.run().duration
 
 use_cases = {
     "find_by_id": find_by_id_use_case,

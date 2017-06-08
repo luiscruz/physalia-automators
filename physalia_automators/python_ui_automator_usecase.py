@@ -224,7 +224,7 @@ def run_swipe(use_case):
         device.swipe(use_case.x_i, use_case.y_i+offset_y, x_f, y_f, steps=steps)
     
     
-    for i in range(40):
+    for i in range(loop_count.SWIPE):
         simple_routine(i*8)
 
     

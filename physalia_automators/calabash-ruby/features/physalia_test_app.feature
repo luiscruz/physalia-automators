@@ -1,7 +1,7 @@
 Feature: Physalia UI Interactions
 
   Scenario: Tap on views
-    When I tap <view> for 40 times
+    When I tap <view> for 10 times
     | view    |
     | button_1  |
     | button_2  |
@@ -9,7 +9,7 @@ Feature: Physalia UI Interactions
     | fab       |
 
   Scenario: Long tap on views
-    When I long tap <view> for 40 times
+    When I long tap <view> for 10 times
     | view    |
     | button_1  |
     | button_2  |
@@ -17,7 +17,7 @@ Feature: Physalia UI Interactions
     | fab       |
 
   Scenario: Dragndrop
-    When I dragndrop <first_view> to <second_view> for 40 times
+    When I dragndrop <first_view> to <second_view> for 10 times
     | first_view  | second_view |
     | button_1    | button_2    |
     | fab         | button_3    |

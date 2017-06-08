@@ -6,6 +6,7 @@ from physalia.energy_profiler import AndroidUseCase
 from com.dtmilano.android.viewclient import ViewClient
 from utils import minimum_execution_time
 import time_boundaries
+from constants import loop_count
 
 
 class AndroidViewClientUseCase(AndroidUseCase):
@@ -124,7 +125,7 @@ def cleanup(use_case):
 
 @minimum_execution_time(time_boundaries.FIND_BY_ID)
 def run_find_by_id(use_case):
-    for _ in range(40):
+    for _ in range(loop_count.FIND_BY_ID):
         use_case.view_client.findViewById("com.tqrg.physalia.testapp:id/button_1")
         use_case.view_client.findViewById("com.tqrg.physalia.testapp:id/button_2")
         use_case.view_client.findViewById("com.tqrg.physalia.testapp:id/button_3")
@@ -149,7 +150,7 @@ find_by_id_use_case = AndroidViewClientUseCase(
 
 @minimum_execution_time(time_boundaries.FIND_BY_DESCRIPTION)
 def run_find_by_description(use_case):
-    for _ in range(40):
+    for _ in range(loop_count.FIND_BY_DESCRIPTION):
         use_case.view_client.findViewWithContentDescription("Button One")
         use_case.view_client.findViewWithContentDescription("Button Two")
         use_case.view_client.findViewWithContentDescription("Button Three")
@@ -174,7 +175,7 @@ find_by_description_use_case = AndroidViewClientUseCase(
 
 @minimum_execution_time(time_boundaries.FIND_BY_CONTENT)
 def run_find_by_content(use_case):
-    for _ in range(40):
+    for _ in range(loop_count.FIND_BY_CONTENT):
         use_case.view_client.findViewWithText(text="Button 1")
         use_case.view_client.findViewWithText(text="Button 2")
         use_case.view_client.findViewWithText(text="Button 3")
@@ -205,7 +206,7 @@ def prepare_tap(use_case):
     
 @minimum_execution_time(time_boundaries.TAP)
 def run_tap(use_case):
-    for _ in range(10):
+    for _ in range(loop_count.TAP):
         for el in use_case.elements:
             el.click()
     
@@ -235,7 +236,7 @@ def prepare_long_tap(use_case):
     
 @minimum_execution_time(time_boundaries.LONG_TAP)
 def run_long_tap(use_case):
-    for _ in range(10):
+    for _ in range(loop_count.LONG_TAP):
         for el in use_case.elements:
             el.longTouch()
     
@@ -278,7 +279,7 @@ def run_dragndrop(use_case):
             duration = 500
             use_case.device.drag(first.getCenter(), second.getCenter(), duration)
 
-    for _ in range(10):
+    for _ in range(loop_count.DRAGNDROP):
         simple_routine()
     
 dragndrop_use_case = AndroidViewClientUseCase(
@@ -316,7 +317,7 @@ def run_swipe(use_case):
         use_case.view_client.swipe(use_case.x_i, use_case.y_i+offset_y, x_f, y_f, steps=steps)
     
     
-    for i in range(40):
+    for i in range(loop_count.SWIPE):
         simple_routine(i*8)
 
     
@@ -345,7 +346,7 @@ def run_back_button(use_case):
     def simple_routine():
             use_case.device.press('BACK')
 
-    for _ in range(200):
+    for _ in range(loop_count.BACK_BUTTON):
         simple_routine()
     
 back_button_use_case = AndroidViewClientUseCase(
