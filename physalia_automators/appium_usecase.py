@@ -6,6 +6,7 @@ import click
 from physalia.energy_profiler import AndroidUseCase
 from utils import minimum_execution_time
 import time_boundaries
+from constants import loop_count
 
 import os
 PATH = lambda p: os.path.abspath(
@@ -242,7 +243,7 @@ def run_multi_finger_tap(use_case):
             ])
 
     try:
-        for i in range(10):
+        for i in range(loop.MULTI_FINGER_TAP):
             simple_routine()
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')

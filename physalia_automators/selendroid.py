@@ -7,6 +7,7 @@ import click
 from physalia.energy_profiler import AndroidUseCase
 from utils import minimum_execution_time
 import time_boundaries
+from constants import loop_count
 
 class SelendroidUseCase(AndroidUseCase):
     """`AndroidUseCase` to use with `Selendroid`."""
@@ -100,7 +101,7 @@ def run_tap(use_case):
         use_case.tap(use_case.button3)
         use_case.tap(use_case.button_fab)
     try:
-        for i in range(10):
+        for i in range(loop_count.TAP):
             simple_routine()
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
@@ -137,7 +138,7 @@ def run_long_tap(use_case):
             use_case.long_tap(el)
 
     try:
-        for i in range(10):
+        for i in range(loop_count.LONG_TAP):
             simple_routine()
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
@@ -166,7 +167,7 @@ def prepare_multi_finger_tap(use_case):
     ]
     use_case.action = TouchActions(use_case.driver)
 
-@minimum_execution_time(seconds=time_boundaries.DOUBLE_TAP)
+@minimum_execution_time(seconds=time_boundaries.MULTI_FINGER_TAP)
 def run_multi_finger_tap(use_case):
     """Run script to test long tap."""
 
@@ -178,7 +179,7 @@ def run_multi_finger_tap(use_case):
                 prev_el.location['x'], prev_el.location['y']
             )
     try:
-        for i in range(10):
+        for i in range(loop_count.MULTI_FINGER_TAP):
             simple_routine()
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
@@ -220,7 +221,7 @@ def run_dragndrop(use_case):
             use_case.drag_and_drop(first, second)
 
     try:
-        for i in range(10):
+        for i in range(loop_count.DRAGNDROP):
             simple_routine()
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
@@ -255,7 +256,7 @@ def run_swipe(use_case):
         # Swipe Right
         use_case.swipe(use_case.paint, 400)
     try:
-        for i in range(10):
+        for i in range(loop_count.SWIPE):
             simple_routine(i*8)
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')

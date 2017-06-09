@@ -5,6 +5,7 @@ import click
 from physalia.energy_profiler import AndroidUseCase
 from utils import minimum_execution_time
 import time_boundaries
+from constants import loop_count
 
 from uiautomator import device
 
@@ -23,7 +24,7 @@ def cleanup(use_case):
 
 @minimum_execution_time(time_boundaries.FIND_BY_ID)
 def run_find_by_id(_):
-    for _ in range(40):
+    for _ in range(loop_count.FIND_BY_ID):
         device(resourceId="com.tqrg.physalia.testapp:id/button_1")
         device(resourceId="com.tqrg.physalia.testapp:id/button_2")
         device(resourceId="com.tqrg.physalia.testapp:id/button_3")
@@ -48,7 +49,7 @@ find_by_id_use_case = AndroidUseCase(
 
 @minimum_execution_time(time_boundaries.FIND_BY_DESCRIPTION)
 def run_find_by_description(_):
-    for _ in range(40):
+    for _ in range(loop_count.FIND_BY_DESCRIPTION):
         device(description="Button One")
         device(description="Button Two")
         device(description="Button Three")
@@ -73,7 +74,7 @@ find_by_description_use_case = AndroidUseCase(
 
 @minimum_execution_time(time_boundaries.FIND_BY_CONTENT)
 def run_find_by_content(_):
-    for _ in range(40):
+    for _ in range(loop_count.FIND_BY_CONTENT):
         device(text="Button 1")
         device(text="Button 2")
         device(text="Button 3")
@@ -103,7 +104,7 @@ def prepare_tap(use_case):
     
 @minimum_execution_time(time_boundaries.TAP)
 def run_tap(use_case):
-    for _ in range(10):
+    for _ in range(loop_count.TAP):
         for el in use_case.elements:
             el.click()
     
@@ -133,7 +134,7 @@ def prepare_long_tap(use_case):
     
 @minimum_execution_time(time_boundaries.LONG_TAP)
 def run_long_tap(use_case):
-    for _ in range(10):
+    for _ in range(loop_count.LONG_TAP):
         for el in use_case.elements:
             el.long_click()
     
@@ -185,7 +186,7 @@ def run_dragndrop(use_case):
         for first, second in use_case.moves:
             first.drag.to(second.centerX, second.centerY, steps=100)
 
-    for _ in range(10):
+    for _ in range(loop_count.DRAGNDROP):
         simple_routine()
     
 dragndrop_use_case = AndroidUseCase(
@@ -256,7 +257,7 @@ def run_pinch_and_spread(use_case):
         # Spread
         use_case.paint.pinch.Out(percent=50, steps=40)    
     
-    for i in range(40):
+    for i in range(loop.PINCH_AND_SPREAD):
         simple_routine()
 
     
@@ -281,7 +282,7 @@ def run_back_button(use_case):
     def simple_routine():
             device.press.back()
 
-    for _ in range(200):
+    for _ in range(loop_count.BACK_BUTTON):
         simple_routine()
     
 back_button_use_case = AndroidUseCase(
