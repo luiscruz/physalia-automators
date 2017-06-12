@@ -11,6 +11,8 @@ Example:
 # pylint: disable=no-value-for-parameter
 # pylint: disable=missing-docstring
 
+import signal
+import sys
 import time
 import csv
 import click
@@ -32,7 +34,6 @@ COLUMN_USE_CASE = 1
 def tool(count, output):
     """Run tool."""
     
-    start_time = time.time()
     click.secho("=====================================", fg="blue")
     click.secho("         Physalia Automators         ", fg="blue")
     click.secho("=====================================", fg="blue")
@@ -69,6 +70,20 @@ def get_number_of_rows_for_key(key, filename):
     with open(filename, 'rb') as csvfile:
         csv_reader = csv.reader(csvfile)
         return len([None for row in csv_reader if row[COLUMN_USE_CASE] == key])
+        
+def exit_gracefully(start_time):
+    exit_time = time.time()
+    duration = exit_time - start_time
+    click.secho(
+        "Physalia automators exited in {:.2f} minutes.".format(duration/60),
+        fg='blue'
+    )
 
 if __name__ == '__main__':
-    tool()
+    start_time = time.time()
+    try:
+        tool()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        exit_gracefully(start_time)
