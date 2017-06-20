@@ -257,7 +257,7 @@ def run_pinch_and_spread(use_case):
         # Spread
         use_case.paint.pinch.Out(percent=50, steps=40)    
     
-    for i in range(loop.PINCH_AND_SPREAD):
+    for i in range(loop_count.PINCH_AND_SPREAD):
         simple_routine()
 
     

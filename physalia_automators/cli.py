@@ -19,7 +19,7 @@ import click
 from physalia.power_meters import MonsoonPowerMeter, EmulatedPowerMeter
 # from physalia_automators import android_view_client_use_case
 # from physalia_automators import appium_usecase
-# from physalia_automators import calabash_usecase
+from physalia_automators import calabash_usecase
 # from physalia_automators import espresso_usecase
 # from physalia_automators import monkeyrunner_usecase
 from physalia_automators import python_ui_automator_usecase
@@ -42,7 +42,21 @@ def tool(count, output):
     # click.launch('http://tqrg.github.io/physalia/')
 
     power_meter = MonsoonPowerMeter(voltage=3.8, serial=12886)
-    for use_case_name,use_case in python_ui_automator_usecase.use_cases.items():
+
+    # -------- Calabash -------- #
+    if(calabash_usecase.CalabashUseCase.calabash_is_installed()):
+        evaluate_platform(calabash_usecase.use_cases, power_meter, count, output)
+    else:
+        click.secho("Skipping Calabash experiments.", fg="red")
+        click.secho("Be sure to install it and run the experiments again.", fg="red")
+        click.launch('https://github.com/calabash/calabash-android')
+
+    # ----- Python Ui Automator ----- #
+    evaluate_platform(python_ui_automator_usecase.use_cases, power_meter, count, output)
+    
+
+def evaluate_platform(use_cases, power_meter, count, output):
+    for use_case_name,use_case in use_cases.items():
         if use_case:
             executions_done = get_number_of_rows_for_key(use_case.name, output)
             executions_left = count - executions_done
@@ -64,6 +78,7 @@ def tool(count, output):
                 "\nSkipping {}: not defined...".format(use_case_name),
                 fg='yellow'
             )
+    
 
 def get_number_of_rows_for_key(key, filename):
     """Get number of elements for a given usecase name."""

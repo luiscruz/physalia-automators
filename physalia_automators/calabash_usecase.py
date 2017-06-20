@@ -5,11 +5,12 @@ Installation details:
 https://github.com/calabash/calabash-android
 """
 
+import subprocess
+import click
+from whichcraft import which
 from physalia.energy_profiler import AndroidUseCase
 from utils import minimum_execution_time
 import time_boundaries
-import subprocess
-import click
 
 
 class CalabashUseCase(AndroidUseCase):
@@ -41,23 +42,28 @@ class CalabashUseCase(AndroidUseCase):
         @minimum_execution_time(seconds=self.minimum_execution_time)
         def launch_calabash():
             try:
-                subprocess.check_output(
-                    "calabash-android run ../{apk} "
+                print subprocess.check_output(
+                    "calabash-android run ../../{apk} "
                     "features/{feature}"
                     " --name \"{scenario}\"".format(
                         apk=self.app_apk,
                         feature=self.feature,
                         scenario=self.scenario
                     ),
-                    cwd="./calabash-ruby/",
+                    cwd="./physalia_automators/calabash-ruby/",
                     shell=True
                 )
             except subprocess.CalledProcessError as e:
                 click.secho(str(e), fg='red')
                 print e.output
         launch_calabash()
+    
+    @staticmethod
+    def calabash_is_installed():
+        """Check if calabash is installed."""
+        return bool(which("calabash-android"))
         
-APK = "../apks/app-debug.apk"
+APK = "./apks/app-debug.apk"
 APP_PKG = "com.tqrg.physalia.testapp"
 APP_VERSION = "0.01"
 FEATURE = "physalia_test_app.feature"
@@ -74,7 +80,7 @@ find_by_id_use_case = CalabashUseCase(
     time_boundaries.FIND_BY_ID
 )
 
-print find_by_id_use_case.run().duration
+# print find_by_id_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -88,7 +94,7 @@ find_by_description_use_case = CalabashUseCase(
     time_boundaries.FIND_BY_DESCRIPTION
 )
 
-print find_by_description_use_case.run().duration
+# print find_by_description_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -102,7 +108,7 @@ find_by_content_use_case = CalabashUseCase(
     time_boundaries.FIND_BY_CONTENT
 )
 
-print find_by_content_use_case.run().duration
+# print find_by_content_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
