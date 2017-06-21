@@ -14,6 +14,7 @@ Example:
 import time
 import csv
 import click
+from retrying import retry
 from physalia.power_meters import MonsoonPowerMeter, EmulatedPowerMeter
 # from physalia_automators import android_view_client_use_case
 # from physalia_automators import espresso_usecase
@@ -58,19 +59,22 @@ def tool(count, output):
 
 
     # ---------- Appium ---------- #
-    if appium_usecase.AppiumUseCase.appium_is_installed():
-        appium_usecase.AppiumUseCase.start_appium_server()
-        time.sleep(30)
-        try:
-            evaluate_platform(appium_usecase.use_cases, power_meter, count, output)
-        finally:
-            appium_usecase.AppiumUseCase.stop_appium_server()
-    else:
-        click.secho("Skipping Appium experiments.", fg="red")
-        click.secho("Be sure to install it and run the experiments again.", fg="red")
-        click.secho('Launching http://appium.io', fg="red")
-        click.launch('http://appium.io')
+    @retry(wait_fixed=2000, stop_max_attempt_number=10)
+    def run_appium_measurements():
+        if appium_usecase.AppiumUseCase.appium_is_installed():
+            appium_usecase.AppiumUseCase.start_appium_server()
+            time.sleep(30)
+            try:
+                evaluate_platform(appium_usecase.use_cases, power_meter, count, output)
+            finally:
+                appium_usecase.AppiumUseCase.stop_appium_server()
+        else:
+            click.secho("Skipping Appium experiments.", fg="red")
+            click.secho("Be sure to install it and run the experiments again.", fg="red")
+            click.secho('Launching http://appium.io', fg="red")
+            click.launch('http://appium.io')
 
+    run_appium_measurements()
 
     
 
