@@ -1,5 +1,7 @@
 """Interaction using Appium"""
 
+from whichcraft import which
+import subprocess
 from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
 import click
@@ -59,6 +61,21 @@ class AppiumUseCase(AndroidUseCase):
         click.secho("Uninstalling {}".format(self.app_pkg), fg='blue')
         self.driver.remove_app(self.app_pkg)
 
+    @staticmethod
+    def appium_is_installed():
+        return bool(which("appium"))
+    
+    @classmethod
+    def start_appium_server(cls):
+        click.secho("Starting Appium...", fg='blue')
+        cls.process = subprocess.Popen(['appium', '--log-level', 'error'])
+
+    @classmethod
+    def stop_appium_server(cls):
+        click.secho("Stopping Appium...", fg='blue')
+        cls.process.terminate()
+
+        
 # -------------------------------------------------------------------------- #
 
 @minimum_execution_time(seconds=time_boundaries.FIND_BY_ID)
@@ -243,7 +260,7 @@ def run_multi_finger_tap(use_case):
             ])
 
     try:
-        for i in range(loop.MULTI_FINGER_TAP):
+        for i in range(loop_count.MULTI_FINGER_TAP):
             simple_routine()
     except Exception as e:
         click.secho("Error: {}.".format(e), fg='red')
@@ -378,7 +395,7 @@ pinch_and_spread_use_case = AppiumUseCase(
     prepare=prepare_pinch_and_spread,
 )
 
-print pinch_and_spread_use_case.run().duration
+# print pinch_and_spread_use_case.run().duration
 
 # -------------------------------------------------------------------------- #
 
@@ -448,7 +465,7 @@ use_cases = {
     "multi_finger_tap": multi_finger_tap_use_case,
     "dragndrop": dragndrop_use_case,
     "swipe": swipe_use_case,
-    "pinch_and_spread": pinch_and_spread_use_case,
+    "pinch_and_spread": None, #pinch_and_spread_use_case,
     "back_button": back_button_use_case,
     "input_text": input_text_use_case,
 }
