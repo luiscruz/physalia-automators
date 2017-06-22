@@ -2,11 +2,17 @@
 
 # adb shell am instrument -w  com.example.android.testing.uiautomator.BasicSample.test/android.support.test.runner.AndroidJUnitRunner
 
-from physalia.energy_profiler import AndroidUseCase
-from utils import minimum_execution_time
+import os
 import time_boundaries
 import subprocess
 import click
+from physalia.energy_profiler import AndroidUseCase
+from physalia_automators.utils import minimum_execution_time
+
+def get_path(relative_path):
+    return os.path.abspath(
+        os.path.join(os.path.dirname(__file__), relative_path)
+    )
 
 class EspressoUseCase(AndroidUseCase):
     """`AndroidUseCase` to use with `UiAutomator`."""
@@ -65,20 +71,21 @@ class EspressoUseCase(AndroidUseCase):
         launch_espresso()
         
 
-APK = "../apks/testapp-debug.apk"
+APP_APK = get_path("../apks/testapp-debug.apk")
 APP_PKG = "com.tqrg.physalia.testapp"
 APP_VERSION = "0.01"
+TEST_APK = get_path("../apks/test_routines.apk")
 
 # -------------------------------------------------------------------------- #
 
 find_by_id_use_case = EspressoUseCase(
     "Espresso-find_by_id",
-    APK,
+    APP_APK,
     APP_PKG,
     APP_VERSION,
     "com.tqrg.physalia.testapp.EspressoTest",
     "findById",
-    "../apks/test_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.FIND_BY_ID
 )
@@ -89,12 +96,12 @@ find_by_id_use_case = EspressoUseCase(
 
 find_by_description_use_case = EspressoUseCase(
     "Espresso-find_by_description",
-    APK,
+    APP_APK,
     APP_PKG,
     APP_VERSION,
     "com.tqrg.physalia.testapp.EspressoTest",
     "findByDescription",
-    "../apks/test_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.FIND_BY_DESCRIPTION
 )
@@ -105,12 +112,12 @@ find_by_description_use_case = EspressoUseCase(
 
 find_by_content_use_case = EspressoUseCase(
     "Espresso-find_by_content",
-    APK,
+    APP_APK,
     APP_PKG,
     APP_VERSION,
     "com.tqrg.physalia.testapp.EspressoTest",
     "findByContent",
-    "../apks/test_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.FIND_BY_CONTENT
 )
@@ -121,12 +128,12 @@ find_by_content_use_case = EspressoUseCase(
 
 tap_use_case = EspressoUseCase(
     "Espresso-tap",
-    APK,
+    APP_APK,
     APP_PKG,
     APP_VERSION,
     "com.tqrg.physalia.testapp.EspressoTest",
     "tap",
-    "../apks/test_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.TAP
 )
@@ -137,12 +144,12 @@ tap_use_case = EspressoUseCase(
 
 long_tap_use_case = EspressoUseCase(
     "Espresso-long_tap",
-    APK,
+    APP_APK,
     APP_PKG,
     APP_VERSION,
     "com.tqrg.physalia.testapp.EspressoTest",
     "longTap",
-    "../apks/test_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.LONG_TAP
 )
@@ -153,12 +160,12 @@ long_tap_use_case = EspressoUseCase(
 
 swipe_use_case = EspressoUseCase(
     "Espresso-swipe",
-    APK,
+    APP_APK,
     APP_PKG,
     APP_VERSION,
     "com.tqrg.physalia.testapp.EspressoTest",
     "swipe",
-    "../apks/test_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.SWIPE
 )
@@ -168,12 +175,12 @@ swipe_use_case = EspressoUseCase(
 
 back_button_use_case = EspressoUseCase(
     "Espresso-back_button",
-    APK,
+    APP_APK,
     APP_PKG,
     APP_VERSION,
     "com.tqrg.physalia.testapp.EspressoTest",
     "backButton",
-    "../apks/test_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.BACK_BUTTON
 )
@@ -184,12 +191,12 @@ back_button_use_case = EspressoUseCase(
 
 input_text_use_case = EspressoUseCase(
     "Espresso-input_text",
-    APK,
+    APP_APK,
     APP_PKG,
     APP_VERSION,
     "com.tqrg.physalia.testapp.EspressoTest",
     "inputText",
-    "../apks/test_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.INPUT_TEXT
 )
