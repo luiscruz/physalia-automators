@@ -14,11 +14,12 @@ Example:
 import time
 import csv
 import click
+from retrying import retry
 from physalia.power_meters import MonsoonPowerMeter, EmulatedPowerMeter
 # from physalia_automators import android_view_client_use_case
-# from physalia_automators import espresso_usecase
 # from physalia_automators import monkeyrunner_usecase
-# from physalia_automators import robotium_usecase
+from physalia_automators import robotium_usecase
+from physalia_automators import espresso_usecase
 from physalia_automators import ui_automator_usecase
 from physalia_automators import calabash_usecase
 from physalia_automators import python_ui_automator_usecase
@@ -36,10 +37,16 @@ def tool(count, output):
     click.secho("         Physalia Automators         ", fg="blue")
     click.secho("=====================================", fg="blue")
     click.secho("By Luis Cruz and Rui Abreu.   ", fg="blue")
-    click.secho("http://tqrg.github.io/physalia.", fg="blue")
+    click.secho("http://tqrg.github.io/physalia", fg="blue")
     # click.launch('http://tqrg.github.io/physalia/')
 
     power_meter = MonsoonPowerMeter(voltage=3.8, serial=12886)
+
+    # -------- Robotium -------- #
+    evaluate_platform(robotium_usecase.use_cases, power_meter, count, output)
+
+    # -------- Espresso -------- #
+    evaluate_platform(espresso_usecase.use_cases, power_meter, count, output)
 
     # -------- Ui Automator -------- #
     evaluate_platform(ui_automator_usecase.use_cases, power_meter, count, output)
@@ -58,19 +65,22 @@ def tool(count, output):
 
 
     # ---------- Appium ---------- #
-    if appium_usecase.AppiumUseCase.appium_is_installed():
-        appium_usecase.AppiumUseCase.start_appium_server()
-        time.sleep(30)
-        try:
-            evaluate_platform(appium_usecase.use_cases, power_meter, count, output)
-        finally:
-            appium_usecase.AppiumUseCase.stop_appium_server()
-    else:
-        click.secho("Skipping Appium experiments.", fg="red")
-        click.secho("Be sure to install it and run the experiments again.", fg="red")
-        click.secho('Launching http://appium.io', fg="red")
-        click.launch('http://appium.io')
+    @retry(wait_fixed=2000, stop_max_attempt_number=40)
+    def run_appium_measurements():
+        if appium_usecase.AppiumUseCase.appium_is_installed():
+            appium_usecase.AppiumUseCase.start_appium_server()
+            time.sleep(30)
+            try:
+                evaluate_platform(appium_usecase.use_cases, power_meter, count, output)
+            finally:
+                appium_usecase.AppiumUseCase.stop_appium_server()
+        else:
+            click.secho("Skipping Appium experiments.", fg="red")
+            click.secho("Be sure to install it and run the experiments again.", fg="red")
+            click.secho('Launching http://appium.io', fg="red")
+            click.launch('http://appium.io')
 
+    run_appium_measurements()
 
     
 

@@ -61,11 +61,16 @@ class RobotiumUseCase(AndroidUseCase):
                 shell=True
             )
         launch_espresso()
-        
 
-APK = "../apks/RobotiumTest.apk"
+def get_path(relative_path):
+    return os.path.abspath(
+        os.path.join(os.path.dirname(__file__), relative_path)
+    )        
+
+APK = get_path("../apks/RobotiumTest.apk")
 APP_PKG = "com.tqrg.physalia.testapp"
 APP_VERSION = "0.01"
+TEST_APK = get_path("../apks/RobotiumTest_routines.apk")
 
 # -------------------------------------------------------------------------- #
 
@@ -76,7 +81,7 @@ find_by_id_use_case = RobotiumUseCase(
     APP_VERSION,
     "com.tqrg.physalia.testapp.test.RobotiumTest",
     "testFindById",
-    "../apks/RobotiumTest_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.FIND_BY_ID
 )
@@ -92,7 +97,7 @@ tap_use_case = RobotiumUseCase(
     APP_VERSION,
     "com.tqrg.physalia.testapp.test.RobotiumTest",
     "testTap",
-    "../apks/RobotiumTest_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.TAP
 )
@@ -108,7 +113,7 @@ long_tap_use_case = RobotiumUseCase(
     APP_VERSION,
     "com.tqrg.physalia.testapp.test.RobotiumTest",
     "testLongTap",
-    "../apks/RobotiumTest_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.LONG_TAP
 )
@@ -124,7 +129,7 @@ dragndrop_use_case = RobotiumUseCase(
     APP_VERSION,
     "com.tqrg.physalia.testapp.test.RobotiumTest",
     "testDragndrop",
-    "../apks/RobotiumTest_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.DRAGNDROP
 )
@@ -140,7 +145,7 @@ swipe_use_case = RobotiumUseCase(
     APP_VERSION,
     "com.tqrg.physalia.testapp.test.RobotiumTest",
     "testSwipe",
-    "../apks/RobotiumTest_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.SWIPE
 )
@@ -156,7 +161,7 @@ back_button_use_case = RobotiumUseCase(
     APP_VERSION,
     "com.tqrg.physalia.testapp.test.RobotiumTest",
     "testBackButton",
-    "../apks/RobotiumTest_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.BACK_BUTTON
 )
@@ -173,7 +178,7 @@ input_text_use_case = RobotiumUseCase(
     APP_VERSION,
     "com.tqrg.physalia.testapp.test.RobotiumTest",
     "testInputText",
-    "../apks/RobotiumTest_routines.apk",
+    TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.INPUT_TEXT
 )

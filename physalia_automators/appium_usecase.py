@@ -467,5 +467,5 @@ use_cases = {
     "swipe": swipe_use_case,
     "pinch_and_spread": None, #pinch_and_spread_use_case,
     "back_button": back_button_use_case,
-    "input_text": input_text_use_case,
+    "input_text": None, #fixme
 }
