@@ -91,36 +91,6 @@
 1496753945.836469,PythonUiAutomator-pinch_and_spread,com.tqrg.physalia.testapp,0.01,Nexus 5X,59,0.028215390259425377,Monsoon-5000Hz
 1496834071.396567,PythonUiAutomator-pinch_and_spread,com.tqrg.physalia.testapp,0.01,Nexus 5X,71,0.03493905552868702,Monsoon-5000Hz
 1496848226.826217,PythonUiAutomator-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,118,0.05038356191106889,Monsoon-5000Hz
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
-1496848226.826217,PythonUiAutomator-find_by_id
 1496850801.034282,PythonUiAutomator-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,112,0.05198438321953448,Monsoon-5000Hz
 1496850909.683215,PythonUiAutomator-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,96,0.041567962988229554,Monsoon-5000Hz
 1496851018.61484,PythonUiAutomator-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,96,0.04132040273061763,Monsoon-5000Hz
@@ -150,66 +120,6 @@
 1497283294.653201,PythonUiAutomator-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,96,0.04194183034125977,Monsoon
 1497283405.537072,PythonUiAutomator-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.04274839782993393,Monsoon
 1497283520.123649,PythonUiAutomator-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,102,0.042954985217795255,Monsoon
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_description
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
-1496848226.826217,PythonUiAutomator-find_by_content
 1497442818.986072,PythonUiAutomator-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,54,0.02637470046702574,Monsoon
 1497442886.836881,PythonUiAutomator-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,57,0.029561106556072227,Monsoon
 1497447129.622403,PythonUiAutomator-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,55,0.024265243231931632,Monsoon
@@ -1381,3 +1291,513 @@
 1498127253.033831,Espresso-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.0002144361821407451,Monsoon
 1498127276.317549,Espresso-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.00019663094180279376,Monsoon
 1498127296.810112,Espresso-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.000216971672369858,Monsoon
+1498131055.611246,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.0002539200305662952,Monsoon
+1498131066.38062,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.00022342300786470888,Monsoon
+1498131076.716994,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.00021808643143675805,Monsoon
+1498135654.08195,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.00022517883955444417,Monsoon
+1498135668.072084,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.00043977717828893546,Monsoon
+1498135672.635574,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.0003776674146918353,Monsoon
+1498135677.396342,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.00046756917275581224,Monsoon
+1498135682.072556,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,0,0.00041323581632002923,Monsoon
+1498149225.519655,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0037474857530484028,Monsoon
+1498149282.233146,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.024882982019391132,Monsoon
+1498149343.939652,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,49,0.025306812752692694,Monsoon
+1498149416.65574,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,63,0.03755533585046172,Monsoon
+1498149483.125335,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,53,0.030031462505717556,Monsoon
+1498149496.833484,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0017567931157792547,Monsoon
+1498152698.559428,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.006427330598724682,Monsoon
+1498152717.475185,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.005650863233075299,Monsoon
+1498152732.849453,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.004552383452675722,Monsoon
+1498152749.119569,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.004609102507811344,Monsoon
+1498152764.621646,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0037406979069475143,Monsoon
+1498152780.105965,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.003690221319048902,Monsoon
+1498152795.714598,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.004003173420853069,Monsoon
+1498152810.676841,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0030268444454547346,Monsoon
+1498152826.331316,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0029310872118156915,Monsoon
+1498152841.149884,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0029739631034005026,Monsoon
+1498152856.073391,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0028742672920421017,Monsoon
+1498152870.970377,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0028774852344217857,Monsoon
+1498152886.206574,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.00308815805432473,Monsoon
+1498152901.050403,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0029284565066568344,Monsoon
+1498152917.180445,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.002863488507684488,Monsoon
+1498152932.325969,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.002754816448135212,Monsoon
+1498152947.396803,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0029157683768508283,Monsoon
+1498152963.225159,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0028956324347760307,Monsoon
+1498152978.144555,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0029649790220943532,Monsoon
+1498152993.843648,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0029830930655187072,Monsoon
+1498153008.86475,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.002932603492664153,Monsoon
+1498153026.098379,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0035630094658268604,Monsoon
+1498153071.867283,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0027943599354321503,Monsoon
+1498153087.611202,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.003210643146364904,Monsoon
+1498153102.446324,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0028534166395123247,Monsoon
+1498153118.68459,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0030054624709416025,Monsoon
+1498153134.813071,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.002912010782495924,Monsoon
+1498153149.707503,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.002876524380680101,Monsoon
+1498153164.64529,Monkeyrunner-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0029720085926977185,Monsoon
+1498153221.588582,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.021079813345883172,Monsoon
+1498153280.295687,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,49,0.021654417623289273,Monsoon
+1498153338.452506,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021210284809545142,Monsoon
+1498153396.704569,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021270401794173072,Monsoon
+1498153455.048796,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02125457229513043,Monsoon
+1498153513.223244,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.021040396977033932,Monsoon
+1498153570.52158,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.021196520229779376,Monsoon
+1498153627.965622,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.021102820650820562,Monsoon
+1498153685.536746,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.020928319923707462,Monsoon
+1498153743.131059,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.02106243364036802,Monsoon
+1498153801.172252,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021210037284774396,Monsoon
+1498153859.531435,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02117365410696049,Monsoon
+1498153919.090419,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.021193522390558665,Monsoon
+1498153977.001941,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.02105817666100431,Monsoon
+1498154034.789006,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021336866053676223,Monsoon
+1498154093.493088,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021182732423198604,Monsoon
+1498154152.062904,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02112714631552698,Monsoon
+1498154211.194883,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.022135898625821396,Monsoon
+1498154299.550202,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.020705446723381586,Monsoon
+1498154387.076352,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.020673835171633206,Monsoon
+1498154473.692501,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.020574624573651158,Monsoon
+1498154531.261388,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02192289873770291,Monsoon
+1498154590.563231,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021142035013807556,Monsoon
+1498154648.04286,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.02105110453060687,Monsoon
+1498154705.153808,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.020935606679026882,Monsoon
+1498154762.515108,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.02107112430048016,Monsoon
+1498154820.118251,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.021334349181993645,Monsoon
+1498154876.553682,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,46,0.02098639572778612,Monsoon
+1498154933.573601,Monkeyrunner-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,47,0.021073012430509894,Monsoon
+1498154991.709609,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021341019728782495,Monsoon
+1498155050.102132,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021399991966194194,Monsoon
+1498155108.353012,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02138491319936842,Monsoon
+1498155166.819941,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021383114271246964,Monsoon
+1498155225.157688,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02131776443412589,Monsoon
+1498155283.37872,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021429976334012526,Monsoon
+1498155341.682385,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02148485346926263,Monsoon
+1498155399.86311,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021638807599346086,Monsoon
+1498155458.312357,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021625291344302827,Monsoon
+1498155516.461499,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021446635353498306,Monsoon
+1498155574.236129,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02135251367610304,Monsoon
+1498155632.011032,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021391282153441667,Monsoon
+1498155690.523663,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,49,0.021642488242785213,Monsoon
+1498155776.197655,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.0210106577482177,Monsoon
+1498155834.689019,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021761057833736615,Monsoon
+1498155893.365669,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021667263755268725,Monsoon
+1498155952.390959,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021579938301213932,Monsoon
+1498156010.743779,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021605545051596287,Monsoon
+1498156069.051968,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021461601727689825,Monsoon
+1498156127.934438,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02163140699137538,Monsoon
+1498156216.28261,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02119923969034187,Monsoon
+1498156274.062292,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02169227362786986,Monsoon
+1498156332.142976,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021985153424203218,Monsoon
+1498156392.961536,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021752146654012736,Monsoon
+1498156451.376492,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02156510415870844,Monsoon
+1498156509.52159,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021508416355426403,Monsoon
+1498156567.08342,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.022916401620048286,Monsoon
+1498156624.570544,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.02152559873792119,Monsoon
+1498156682.388924,Monkeyrunner-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,48,0.021524360492984427,Monsoon
+1498156753.338312,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,61,0.034550433566782175,Monsoon
+1498156824.448188,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,60,0.03454330446896264,Monsoon
+1498156894.20696,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,59,0.03204973202847648,Monsoon
+1498156966.325253,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,59,0.03153011694993852,Monsoon
+1498157040.105936,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,61,0.032539530482986224,Monsoon
+1498157111.91403,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,59,0.0318688990192301,Monsoon
+1498157185.982283,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,61,0.032337154878856376,Monsoon
+1498157259.26708,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,60,0.032317496754412665,Monsoon
+1498157332.651984,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,60,0.032155349759650426,Monsoon
+1498157413.359076,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,68,0.03463300634284494,Monsoon
+1498157524.32591,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,62,0.03244658569966861,Monsoon
+1498157597.348712,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,60,0.031997844818924696,Monsoon
+1498157677.434187,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,67,0.03418858788932666,Monsoon
+1498157767.16236,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,76,0.03713449729494512,Monsoon
+1498157841.260917,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,60,0.031797370568594475,Monsoon
+1498157914.59039,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,60,0.032039093105239946,Monsoon
+1498157988.61899,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,61,0.032117979117165005,Monsoon
+1498158078.781695,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,77,0.03747950354222405,Monsoon
+1498158153.162624,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,60,0.032206883202208436,Monsoon
+1498158231.221254,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,65,0.03373389489649373,Monsoon
+1498158306.200429,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,61,0.032559747094185375,Monsoon
+1498158378.752402,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,60,0.03192048755173762,Monsoon
+1498158452.560876,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,61,0.03224895845316203,Monsoon
+1498158527.039726,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,62,0.03248080353369475,Monsoon
+1498158605.814258,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,65,0.033887253545788594,Monsoon
+1498158680.754397,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,62,0.03270515388505621,Monsoon
+1498158753.099294,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,59,0.031920952580125304,Monsoon
+1498158826.482369,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,61,0.03226830546506804,Monsoon
+1498158906.233892,Monkeyrunner-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,66,0.03401376630810159,Monsoon
+1498158977.077744,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,57,0.029653254462391167,Monsoon
+1498159048.436544,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,57,0.029650163968164747,Monsoon
+1498159115.476452,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,54,0.02996063418672062,Monsoon
+1498159255.839858,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,57,0.03011400131970467,Monsoon
+1498159327.473058,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,59,0.030714082639128733,Monsoon
+1498159402.182962,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,62,0.03182422805265297,Monsoon
+1498159475.126023,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,60,0.03084119777245155,Monsoon
+1498159542.526949,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,54,0.028916432681729876,Monsoon
+1498159610.675536,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,55,0.029167633156849643,Monsoon
+1498159675.964668,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.028022010224393698,Monsoon
+1498159743.698147,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,55,0.0292694847889928,Monsoon
+1498159809.849654,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,53,0.028615895273394906,Monsoon
+1498159873.734976,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,51,0.027713215246528825,Monsoon
+1498159937.251197,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,51,0.02794225555332606,Monsoon
+1498160000.93899,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,51,0.027731217509179278,Monsoon
+1498160064.762048,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,51,0.027790805473937284,Monsoon
+1498160128.364018,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,51,0.027473583270932325,Monsoon
+1498160191.317664,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,50,0.02722216158089505,Monsoon
+1498160255.024318,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,51,0.027637067248739024,Monsoon
+1498160353.238563,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,50,0.026934178164049413,Monsoon
+1498160416.769918,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,51,0.027466914000955328,Monsoon
+1498160480.010176,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,50,0.027566261153181344,Monsoon
+1498160543.143482,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,50,0.02757192711770399,Monsoon
+1498160642.056942,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,51,0.02680482815488149,Monsoon
+1498160704.833013,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,50,0.027226984690112508,Monsoon
+1498160770.0139,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.028054883333698072,Monsoon
+1498160833.363009,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,50,0.02777225929109248,Monsoon
+1498160896.688846,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,50,0.027454345996112905,Monsoon
+1498160960.595251,Monkeyrunner-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,51,0.02777567691051448,Monsoon
+1498160977.924268,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.002220188352821958,Monsoon
+1498160994.561106,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0016489633777287925,Monsoon
+1498161010.797574,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0014948938360734416,Monsoon
+1498161027.038161,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0015295144062723817,Monsoon
+1498161044.162125,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.001608094877560052,Monsoon
+1498161060.399909,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0015213235217141762,Monsoon
+1498161112.079899,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0012626534141798533,Monsoon
+1498161128.386435,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0015994086128346852,Monsoon
+1498161143.160642,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0015458323615242253,Monsoon
+1498161157.028264,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.001572579540192876,Monsoon
+1498161170.232194,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.001637364553613549,Monsoon
+1498161183.349962,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0015925018760663133,Monsoon
+1498161196.416275,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.001597516428988292,Monsoon
+1498161209.515393,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0016335234515175285,Monsoon
+1498161222.724805,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0015675206145864006,Monsoon
+1498161236.4463,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0016044153829955384,Monsoon
+1498161249.765848,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0016532992499536385,Monsoon
+1498161291.408436,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0014099512366354634,Monsoon
+1498161304.559808,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.001575244146623338,Monsoon
+1498161317.770471,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.001571298490484269,Monsoon
+1498161331.202843,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0015855315383759728,Monsoon
+1498161344.37862,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0015539512934367467,Monsoon
+1498161357.783144,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0015963361801200526,Monsoon
+1498161371.32625,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.001613933194806063,Monsoon
+1498161384.595849,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0016177540314384537,Monsoon
+1498161398.256641,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0017027743903892574,Monsoon
+1498161412.10039,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0017797826534065643,Monsoon
+1498161426.21714,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0016578396485377217,Monsoon
+1498161441.494801,Monkeyrunner-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,3,0.0016599148593512115,Monsoon
+1498161762.623827,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.09457876680143579,Monsoon
+1498162082.879853,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.09280366344179493,Monsoon
+1498162405.117862,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.09700699264592591,Monsoon
+1498162763.64491,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.09892130439993396,Monsoon
+1498163084.643916,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.09955478896629028,Monsoon
+1498163407.084194,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.10516225391490065,Monsoon
+1498163729.66733,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.10142129546973254,Monsoon
+1498164049.592061,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.10249254666174427,Monsoon
+1498164370.47078,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.10392295457373897,Monsoon
+1498164690.872679,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.10194627587584418,Monsoon
+1498165010.80434,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.1050401303365667,Monsoon
+1498165332.565773,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.10058621908294654,Monsoon
+1498165652.703682,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.10520155708349375,Monsoon
+1498165973.522202,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.10239682875436043,Monsoon
+1498166293.291664,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.1031864189862827,Monsoon
+1498166612.701191,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.10195960354644443,Monsoon
+1498166933.14841,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.10526556482827233,Monsoon
+1498167255.65907,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.10062084298834129,Monsoon
+1498167577.285078,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,308,0.1060762328348333,Monsoon
+1498167899.45982,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.10213099483003718,Monsoon
+1498168220.447887,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.10486938511791816,Monsoon
+1498168544.531525,Robotium-back_button,com.tqrg.physalia.testapp,0.01,Nexus 5X,309,0.10221289076023504,Monsoon
+1498168619.108854,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,27,0.015221658295090144,Monsoon
+1498168657.903836,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.013941290453659843,Monsoon
+1498168696.03333,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.013987437357251787,Monsoon
+1498168734.587744,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,27,0.014306727660673304,Monsoon
+1498168772.755786,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.01411413977759269,Monsoon
+1498168811.559871,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014083524938479301,Monsoon
+1498168849.454365,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014190866617488708,Monsoon
+1498168887.45735,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014423542831854074,Monsoon
+1498168925.468888,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014173803237726205,Monsoon
+1498168963.292217,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014394773998287235,Monsoon
+1498169001.467093,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014345940795948251,Monsoon
+1498169070.388655,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014232781717800286,Monsoon
+1498169109.445175,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,27,0.014253180944914602,Monsoon
+1498169148.672894,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014340749793761974,Monsoon
+1498169187.156496,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014313573225987664,Monsoon
+1498169226.15211,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.01424246562553584,Monsoon
+1498169265.291413,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014270928632277509,Monsoon
+1498169304.329884,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014141081744492918,Monsoon
+1498169342.638297,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014183358452173155,Monsoon
+1498169413.694387,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,27,0.01425532785305535,Monsoon
+1498169452.423498,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.01438133786894313,Monsoon
+1498169491.52849,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,27,0.014299996317709313,Monsoon
+1498169530.469906,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,27,0.014106706152452837,Monsoon
+1498169570.567171,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014330220298841442,Monsoon
+1498169609.024479,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.01425222269157558,Monsoon
+1498169647.167155,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014269611427022483,Monsoon
+1498169685.456986,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014345716304946736,Monsoon
+1498169725.326191,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,26,0.014067822286192251,Monsoon
+1498169767.8641,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,27,0.012932142704108302,Monsoon
+1498169810.062267,Robotium-tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,27,0.01308429009795426,Monsoon
+1498169968.535165,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,144,0.02836683503771012,Monsoon
+1498170125.419661,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.028065754897632814,Monsoon
+1498170278.462313,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.028410137277515055,Monsoon
+1498170432.093111,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.02768981510215814,Monsoon
+1498170585.483342,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.02830494811668006,Monsoon
+1498170738.2733,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.02802665017584257,Monsoon
+1498170891.520743,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.02843986895431373,Monsoon
+1498171044.611585,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.028277064093544118,Monsoon
+1498171197.952799,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027785992212997438,Monsoon
+1498171350.7558,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027560568106468366,Monsoon
+1498171504.134653,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027970409166610657,Monsoon
+1498171657.146649,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.02872230477998279,Monsoon
+1498171810.577516,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.028111563687220474,Monsoon
+1498171963.635198,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027669580931325474,Monsoon
+1498172116.516613,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027580196083617375,Monsoon
+1498172269.87751,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.02829333510154439,Monsoon
+1498172423.912923,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027707207600268718,Monsoon
+1498172576.947879,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027906879881125262,Monsoon
+1498172731.204973,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.02753275173275243,Monsoon
+1498172914.63571,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027746172198357767,Monsoon
+1498173067.725871,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.02791246051474859,Monsoon
+1498173220.437143,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027383134203808772,Monsoon
+1498173373.621063,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027684157980225076,Monsoon
+1498173556.577149,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027278934780624813,Monsoon
+1498173711.414123,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027714422749486715,Monsoon
+1498173865.384413,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.02791931097041912,Monsoon
+1498174018.766084,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027481703382877195,Monsoon
+1498174172.720003,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.028016853609631426,Monsoon
+1498174326.098346,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.027931941463557722,Monsoon
+1498174478.842171,Robotium-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,143,0.029648578695502824,Monsoon
+1498174590.401897,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,99,0.044451442823642405,Monsoon
+1498174700.364118,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.04556495239350198,Monsoon
+1498174811.777559,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.042534324940761446,Monsoon
+1498174925.822614,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.04054230373770324,Monsoon
+1498175040.853458,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.04209493790394161,Monsoon
+1498175152.645498,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03846380236127063,Monsoon
+1498175267.440602,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.0398229620772002,Monsoon
+1498175411.688203,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03847656285774212,Monsoon
+1498175524.243245,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03845293869883034,Monsoon
+1498175636.708278,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03861848253629153,Monsoon
+1498175748.475504,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03842579067463293,Monsoon
+1498175861.019551,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03853755444010579,Monsoon
+1498175972.953036,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.038041776583977255,Monsoon
+1498176084.694774,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.038484530534726225,Monsoon
+1498176197.645347,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.038856453236414734,Monsoon
+1498176309.768289,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03869300887378041,Monsoon
+1498176421.586373,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03864592639849285,Monsoon
+1498176533.625681,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03875984291809338,Monsoon
+1498176646.129963,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.038602983157015866,Monsoon
+1498176758.101932,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.038508994496667295,Monsoon
+1498176870.55291,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03849245171875971,Monsoon
+1498176982.92384,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.038277710782031175,Monsoon
+1498177095.14657,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.038783606927182905,Monsoon
+1498177206.979559,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03831552583146631,Monsoon
+1498177319.100556,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.038682750243265535,Monsoon
+1498177431.396909,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.0388461322496545,Monsoon
+1498177543.557208,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.038709055973496616,Monsoon
+1498177655.559852,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.038414470580855,Monsoon
+1498177767.409035,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.03860716621911185,Monsoon
+1498177880.463497,Robotium-long_tap,com.tqrg.physalia.testapp,0.01,Nexus 5X,100,0.0386674136745816,Monsoon
+1498177989.160192,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03482429293455564,Monsoon
+1498178098.726447,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03516589301334435,Monsoon
+1498178207.683981,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03427119048731474,Monsoon
+1498178316.56526,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03476435902033526,Monsoon
+1498178425.161219,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03424233089394481,Monsoon
+1498178533.637637,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03424471132018015,Monsoon
+1498178642.073648,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.034282452869006996,Monsoon
+1498178750.473844,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.034742859185443835,Monsoon
+1498178859.786889,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03417968323821347,Monsoon
+1498178969.289129,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.034346092700061066,Monsoon
+1498179078.750246,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.034270968773307715,Monsoon
+1498179188.012756,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03486498238512818,Monsoon
+1498179297.278255,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03447284283413521,Monsoon
+1498179406.983515,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03428789177292448,Monsoon
+1498179516.405456,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.034004838195029925,Monsoon
+1498179627.196675,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.034191718143100305,Monsoon
+1498179736.251083,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03408871968931682,Monsoon
+1498179846.19178,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03429956815691929,Monsoon
+1498179955.208896,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03468075928204599,Monsoon
+1498180063.897034,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.034497023100382725,Monsoon
+1498180172.369898,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.034159418292431125,Monsoon
+1498180310.65676,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03456425402618881,Monsoon
+1498180419.14066,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03432987852566557,Monsoon
+1498180527.830299,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.034116063643235696,Monsoon
+1498215251.453487,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.005145343023785273,Monsoon
+1498215270.791986,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.0050337666663272645,Monsoon
+1498215317.070571,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0033759202833935184,Monsoon
+1498215333.67185,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0034703506069156996,Monsoon
+1498215349.764383,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0031898788701060876,Monsoon
+1498215366.126002,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0027080905253459393,Monsoon
+1498215382.692448,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.002903513510778347,Monsoon
+1498215399.632202,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0026172814920078238,Monsoon
+1498215416.604669,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0024575850549499725,Monsoon
+1498215435.029911,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.002820000573682972,Monsoon
+1498215484.307715,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0023806910102710326,Monsoon
+1498215500.816849,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.002591919239399578,Monsoon
+1498215516.647096,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0024386002012038344,Monsoon
+1498215532.891448,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.002477661599423626,Monsoon
+1498215549.130284,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0024654489265362083,Monsoon
+1498215565.303796,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0024319961510555375,Monsoon
+1498215580.702798,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0023331797768059086,Monsoon
+1498215596.441588,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0023742397932352585,Monsoon
+1498215612.306444,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.002442466016887624,Monsoon
+1498215628.7974,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.002639664646581338,Monsoon
+1498215644.688916,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0023934094223451354,Monsoon
+1498215660.756955,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.002370035704695575,Monsoon
+1498215679.579019,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0025525797788804702,Monsoon
+1498215726.811121,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.002309250478960664,Monsoon
+1498215773.763173,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.002101643762778147,Monsoon
+1498215792.365408,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.002520127226138839,Monsoon
+1498215810.462898,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0023757091124057056,Monsoon
+1498215829.010836,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0024631539346019254,Monsoon
+1498215847.744718,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.002595008086523603,Monsoon
+1498215865.622651,Monkeyrunner-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,5,0.002301217625480058,Monsoon
+1498215976.578263,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.038324545949747886,Monsoon
+1498216083.54943,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,96,0.038603922080937665,Monsoon
+1498216191.26935,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,96,0.03964517637435149,Monsoon
+1498216301.676664,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03808376753937504,Monsoon
+1498216408.496762,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,96,0.04135494814742274,Monsoon
+1498216516.377779,Robotium-swipe,com.tqrg.physalia.testapp,0.01,Nexus 5X,97,0.03958652891906545,Monsoon
+1498216618.458933,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.019577538338529415,Monsoon
+1498216713.895139,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,53,0.021794377675342928,Monsoon
+1498216778.799069,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,53,0.02169033050097349,Monsoon
+1498216844.575479,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.019182652030205,Monsoon
+1498216907.770951,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.020988816987117857,Monsoon
+1498216970.697246,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.02164126635590873,Monsoon
+1498217033.975796,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.022902945924893614,Monsoon
+1498217100.511951,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.018963949724052208,Monsoon
+1498217167.003796,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.01974498059508148,Monsoon
+1498217261.104389,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.022459454498635577,Monsoon
+1498217329.184522,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.02004631897432802,Monsoon
+1498217395.80535,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.019858360847290445,Monsoon
+1498217459.144938,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.02096717210416989,Monsoon
+1498217522.736019,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.020713509384065167,Monsoon
+1498217585.634155,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.020851636633787498,Monsoon
+1498217648.999948,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.020976375283236516,Monsoon
+1498217712.68116,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.019248603127007997,Monsoon
+1498217778.92016,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.021265632940965975,Monsoon
+1498217845.775601,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.019654676550355528,Monsoon
+1498217949.882678,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,53,0.019936431575627796,Monsoon
+1498218042.144446,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.02136862093061286,Monsoon
+1498218105.272167,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.019364517739099345,Monsoon
+1498218168.243955,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.02110158577553718,Monsoon
+1498218231.365472,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.02113226881544108,Monsoon
+1498218294.865413,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.021564902213972715,Monsoon
+1498218361.026676,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.018961248069166013,Monsoon
+1498218425.72063,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,53,0.02111496405730138,Monsoon
+1498218489.989198,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,53,0.01993026997182731,Monsoon
+1498218552.905241,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.02063386371268028,Monsoon
+1498218620.330118,Robotium-dragndrop,com.tqrg.physalia.testapp,0.01,Nexus 5X,52,0.021238623284662358,Monsoon
+1498218674.194564,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002198551877197806,Monsoon
+1498218692.072171,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0023320573478643296,Monsoon
+1498218710.109203,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.00234450100078994,Monsoon
+1498218728.168046,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0023249833867128532,Monsoon
+1498218746.420452,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021697263301469175,Monsoon
+1498218764.652238,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0022026433884464,Monsoon
+1498218781.060456,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002131732409262918,Monsoon
+1498218797.196872,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021600806831056397,Monsoon
+1498218813.552495,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021409223833265805,Monsoon
+1498218829.541253,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021751526844881876,Monsoon
+1498218845.547134,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021303684453373157,Monsoon
+1498218861.606112,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0020849009456068903,Monsoon
+1498218877.562617,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002101602973673225,Monsoon
+1498218893.484715,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021467182555515636,Monsoon
+1498218909.176935,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002214470250790995,Monsoon
+1498218925.250559,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.00217204164712805,Monsoon
+1498218940.958155,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002170380864363866,Monsoon
+1498218956.981319,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021266670119936765,Monsoon
+1498218972.695939,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002166542206198834,Monsoon
+1498218988.819628,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002104888319380949,Monsoon
+1498219004.635751,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002140630667798178,Monsoon
+1498219020.160037,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021314979210237577,Monsoon
+1498219035.90304,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.00210000540766768,Monsoon
+1498219052.246056,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002089657727887732,Monsoon
+1498219099.767154,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021620513685721076,Monsoon
+1498219115.413774,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002121492996573862,Monsoon
+1498219131.073261,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021336560384570477,Monsoon
+1498219146.998759,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002142528357137256,Monsoon
+1498219162.727292,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.0021700479612857325,Monsoon
+1498219211.09401,Robotium-input_text,com.tqrg.physalia.testapp,0.01,Nexus 5X,4,0.002193391982682756,Monsoon
+1498222137.906394,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,37,0.016571162531846508,Monsoon
+1498222161.766703,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006603306280618248,Monsoon
+1498222186.209619,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006618774245157167,Monsoon
+1498222210.800664,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006837882866107692,Monsoon
+1498222233.898244,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.006598280503796176,Monsoon
+1498222258.448793,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,16,0.007001465605679983,Monsoon
+1498222283.484722,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,16,0.006919069239273899,Monsoon
+1498222309.594915,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,17,0.007331294295400006,Monsoon
+1498222336.802047,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,18,0.007586494507113716,Monsoon
+1498222362.313858,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,16,0.007113613083640415,Monsoon
+1498222388.272263,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,17,0.007568517391337264,Monsoon
+1498222413.07606,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006895189209877263,Monsoon
+1498222437.099369,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.00704498229613396,Monsoon
+1498222462.110145,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.006702816383175895,Monsoon
+1498222485.211128,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.0067439544925810896,Monsoon
+1498222509.463707,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006961851906343757,Monsoon
+1498222536.976387,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,17,0.007412170609592367,Monsoon
+1498222565.125461,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,18,0.00789934930715071,Monsoon
+1498222588.696068,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006832577269333611,Monsoon
+1498222616.917027,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,18,0.00778062969804844,Monsoon
+1498222661.849721,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,32,0.011021347075919065,Monsoon
+1498222819.072434,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,92,0.024381187156364385,Monsoon
+1498222843.421736,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006830138526446603,Monsoon
+1498222867.69656,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006933699473324291,Monsoon
+1498222892.482201,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,16,0.007028710030909604,Monsoon
+1498223029.621713,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,25,0.01982096077428352,Monsoon
+1498223055.353198,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006857614155309112,Monsoon
+1498223083.022749,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.0065611848254380324,Monsoon
+1498223145.639243,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,13,0.0056746452427378635,Monsoon
+1498223172.53852,PythonUiAutomator-find_by_id,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.006353650956687228,Monsoon
+1498223200.565904,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006707715834446057,Monsoon
+1498223226.130396,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006632264526422433,Monsoon
+1498223253.469895,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.0064536460899036535,Monsoon
+1498223281.522512,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,16,0.006657684282023028,Monsoon
+1498223308.661115,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.006477915743024657,Monsoon
+1498223334.03366,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006607646025488278,Monsoon
+1498223358.724331,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.00638181912085437,Monsoon
+1498223383.738051,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006443548637578007,Monsoon
+1498223407.962631,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.0063907876670498175,Monsoon
+1498223433.242445,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.0064966012363481575,Monsoon
+1498223458.994868,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,16,0.006683243846535941,Monsoon
+1498223484.322355,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006513278720432673,Monsoon
+1498223509.603526,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006523556532346394,Monsoon
+1498223534.352988,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006438312079921416,Monsoon
+1498223558.550244,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.006326370928185833,Monsoon
+1498223582.772889,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.006402230562267493,Monsoon
+1498223606.845958,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.006402933703977584,Monsoon
+1498223631.155849,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.006453079613112611,Monsoon
+1498223656.648421,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006668435180993139,Monsoon
+1498223694.618888,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,25,0.00919764828207171,Monsoon
+1498223719.309031,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.006308582104498239,Monsoon
+1498223744.709562,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006707437036384753,Monsoon
+1498223770.170428,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006686456833863438,Monsoon
+1498223796.243096,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006494892839147826,Monsoon
+1498223821.650111,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006630662543408804,Monsoon
+1498223846.119255,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,14,0.006527974590688589,Monsoon
+1498223872.506763,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,16,0.006724985565622299,Monsoon
+1498223897.879336,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006627035100980867,Monsoon
+1498223922.758251,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006427190380896007,Monsoon
+1498223947.956928,PythonUiAutomator-find_by_description,com.tqrg.physalia.testapp,0.01,Nexus 5X,15,0.006460693412436184,Monsoon
+1498223964.413439,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0029882889371951795,Monsoon
+1498224010.249571,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.002441567040400882,Monsoon
+1498224027.064408,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.003099909996304642,Monsoon
+1498224044.031553,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.003066085734412608,Monsoon
+1498224061.404417,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0032030374324336836,Monsoon
+1498224078.789373,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.003112885662415601,Monsoon
+1498224125.296168,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0025072714691842025,Monsoon
+1498224142.968455,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0032749728597168608,Monsoon
+1498224161.452744,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,8,0.003409833424843415,Monsoon
+1498224180.624407,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,8,0.003266064639117039,Monsoon
+1498224198.698646,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0032360288414838333,Monsoon
+1498224216.713992,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,8,0.003262531615622773,Monsoon
+1498224234.37149,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0032600659888719864,Monsoon
+1498224251.571019,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0031010554317499823,Monsoon
+1498224268.335773,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.003025557312493591,Monsoon
+1498224285.101897,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0030770921726181936,Monsoon
+1498224302.404194,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.003052745411619195,Monsoon
+1498224319.550037,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0031998547084763538,Monsoon
+1498224336.215547,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.003012368855262582,Monsoon
+1498224354.013028,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0032690672790945375,Monsoon
+1498224371.189833,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.003131179195141151,Monsoon
+1498224388.179002,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.003083442892898394,Monsoon
+1498224405.127937,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0030757643312955486,Monsoon
+1498224421.971228,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0030491704967529655,Monsoon
+1498224438.556474,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0031708893835978363,Monsoon
+1498224455.496665,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.0030540722109341917,Monsoon
+1498224473.239133,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.003245525587330921,Monsoon
+1498224490.132903,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.003112303229426873,Monsoon
+1498224506.938014,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,7,0.003060724750630923,Monsoon
+1498224523.502831,PythonUiAutomator-find_by_content,com.tqrg.physalia.testapp,0.01,Nexus 5X,6,0.0030235602056344017,Monsoon

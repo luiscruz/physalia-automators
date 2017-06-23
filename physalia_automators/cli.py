@@ -17,7 +17,7 @@ import click
 from retrying import retry
 from physalia.power_meters import MonsoonPowerMeter, EmulatedPowerMeter
 # from physalia_automators import android_view_client_use_case
-# from physalia_automators import monkeyrunner_usecase
+from physalia_automators import monkeyrunner_usecase
 from physalia_automators import robotium_usecase
 from physalia_automators import espresso_usecase
 from physalia_automators import ui_automator_usecase
@@ -41,6 +41,9 @@ def tool(count, output):
     # click.launch('http://tqrg.github.io/physalia/')
 
     power_meter = MonsoonPowerMeter(voltage=3.8, serial=12886)
+
+    # -------- Monkeyrunner -------- #
+    evaluate_platform(monkeyrunner_usecase.use_cases, power_meter, count, output)
 
     # -------- Robotium -------- #
     evaluate_platform(robotium_usecase.use_cases, power_meter, count, output)
