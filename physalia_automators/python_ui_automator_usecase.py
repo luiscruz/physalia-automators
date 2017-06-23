@@ -25,13 +25,13 @@ def cleanup(use_case):
 @minimum_execution_time(time_boundaries.FIND_BY_ID)
 def run_find_by_id(_):
     for _ in range(loop_count.FIND_BY_ID):
-        device(resourceId="com.tqrg.physalia.testapp:id/button_1")
-        device(resourceId="com.tqrg.physalia.testapp:id/button_2")
-        device(resourceId="com.tqrg.physalia.testapp:id/button_3")
-        device(resourceId="com.tqrg.physalia.testapp:id/text_field")
-        device(resourceId="com.tqrg.physalia.testapp:id/fab")
-        device(resourceId="com.tqrg.physalia.testapp:id/paint")
-        device(resourceId="com.tqrg.physalia.testapp:id/text_area")
+        device(resourceId="com.tqrg.physalia.testapp:id/button_1").exists
+        device(resourceId="com.tqrg.physalia.testapp:id/button_2").exists
+        device(resourceId="com.tqrg.physalia.testapp:id/button_3").exists
+        device(resourceId="com.tqrg.physalia.testapp:id/text_field").exists
+        device(resourceId="com.tqrg.physalia.testapp:id/fab").exists
+        device(resourceId="com.tqrg.physalia.testapp:id/paint").exists
+        device(resourceId="com.tqrg.physalia.testapp:id/text_area").exists
     
 find_by_id_use_case = AndroidUseCase(
     "PythonUiAutomator-find_by_id",
@@ -50,13 +50,13 @@ find_by_id_use_case = AndroidUseCase(
 @minimum_execution_time(time_boundaries.FIND_BY_DESCRIPTION)
 def run_find_by_description(_):
     for _ in range(loop_count.FIND_BY_DESCRIPTION):
-        device(description="Button One")
-        device(description="Button Two")
-        device(description="Button Three")
-        device(description="Button Fab")
-        device(description="Text Field")
-        device(description="Paint")
-        device(description="Text Area")
+        device(description="Button One").exists
+        device(description="Button Two").exists
+        device(description="Button Three").exists
+        device(description="Button Fab").exists
+        device(description="Text Field").exists
+        device(description="Paint").exists
+        device(description="Text Area").exists
     
 find_by_description_use_case = AndroidUseCase(
     "PythonUiAutomator-find_by_description",
@@ -75,9 +75,9 @@ find_by_description_use_case = AndroidUseCase(
 @minimum_execution_time(time_boundaries.FIND_BY_CONTENT)
 def run_find_by_content(_):
     for _ in range(loop_count.FIND_BY_CONTENT):
-        device(text="Button 1")
-        device(text="Button 2")
-        device(text="Button 3")
+        device(text="Button 1").exists
+        device(text="Button 2").exists
+        device(text="Button 3").exists
     
 find_by_content_use_case = AndroidUseCase(
     "PythonUiAutomator-find_by_content",
