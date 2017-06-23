@@ -2,6 +2,7 @@
 
 from functools import partial
 import time
+import os
 import click
 
 def minimum_execution_time(seconds, warning=True):
@@ -23,3 +24,9 @@ def minimum_execution_time(seconds, warning=True):
         return repl
     return ret_fun
 # minimum_execution_time = partial(_partial_minimum_execution_time, argument='seconds')
+
+def get_path(relative_path):
+    """Get path relative to the source file."""
+    return os.path.abspath(
+        os.path.join(os.path.dirname(__file__), relative_path)
+    )
