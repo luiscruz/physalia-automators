@@ -7,12 +7,7 @@ import time_boundaries
 import subprocess
 import click
 from physalia.energy_profiler import AndroidUseCase
-from physalia_automators.utils import minimum_execution_time
-
-def get_path(relative_path):
-    return os.path.abspath(
-        os.path.join(os.path.dirname(__file__), relative_path)
-    )
+from physalia_automators.utils import minimum_execution_time, get_path
 
 class EspressoUseCase(AndroidUseCase):
     """`AndroidUseCase` to use with `UiAutomator`."""
