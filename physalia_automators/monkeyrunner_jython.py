@@ -4,6 +4,7 @@ Only works with Nexus 5X.
 """
 
 from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice
+from constants import loop_count
 import sys
 
 PACKAGE = "com.tqrg.physalia.testapp"
@@ -20,6 +21,23 @@ TEXT_AREA = (560, 1610)
 
 # -------------------------------------------------------------------------- #
 
+def run_find_by_id():
+    elements = [
+        "com.tqrg.physalia.testapp:id/button_1",
+        "com.tqrg.physalia.testapp:id/button_2",
+        "com.tqrg.physalia.testapp:id/button_3",
+        "com.tqrg.physalia.testapp:id/text_field",
+        "com.tqrg.physalia.testapp:id/fab",
+        "com.tqrg.physalia.testapp:id/paint",
+        "com.tqrg.physalia.testapp:id/text_area",
+    ]
+    device = MonkeyRunner.waitForConnection()
+    for _ in range(loop_count.FIND_BY_ID):
+        for element in elements:
+            device.getViewById(element).getLocation()
+
+# -------------------------------------------------------------------------- #
+
 def run_tap():
     elements = [
         BUTTON_1,
@@ -28,7 +46,7 @@ def run_tap():
         BUTTON_FAB,
     ]
     device = MonkeyRunner.waitForConnection()
-    for _ in range(10):
+    for _ in range(loop_count.TAP):
         for element in elements:
             device.touch(
                 element[0],
@@ -47,7 +65,7 @@ def run_long_tap():
         BUTTON_FAB,
     ]
     device = MonkeyRunner.waitForConnection()
-    for _ in range(10):
+    for _ in range(loop_count.LONG_TAP):
         for element in elements:
             device.touch(
                 element[0],
@@ -71,7 +89,7 @@ def run_dragndrop():
         (BUTTON_FAB, TEXT_AREA),
     ]
     device = MonkeyRunner.waitForConnection()
-    for _ in range(10):
+    for _ in range(loop_count.DRAGNDROP):
         for first, second in moves:
             device.drag(
                 first,
@@ -96,14 +114,14 @@ def run_swipe():
         x_f, y_f = (x_i+swipe_distance, y_i+offset_y)
         device.drag((x_i, y_i+offset_y), (x_f, y_f), 0.4, steps)
 
-    for i in range(40):
+    for i in range(loop_count.SWIPE):
         simple_routine(i*8)
 
 # -------------------------------------------------------------------------- #
 
 def run_back_button():
     device = MonkeyRunner.waitForConnection()
-    for _ in range(200):
+    for _ in range(loop_count.BACK_BUTTON):
         device.press("KEYCODE_BACK", MonkeyDevice.DOWN_AND_UP)
 
 # run_back_button()

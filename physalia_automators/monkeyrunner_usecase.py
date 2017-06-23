@@ -1,7 +1,7 @@
 """Interaction using Monkeyrunner"""
 
 from physalia.energy_profiler import AndroidUseCase
-from utils import minimum_execution_time
+from utils import minimum_execution_time, get_path
 import time_boundaries
 import os
 import subprocess
@@ -58,10 +58,22 @@ class MonkeyrunnerUseCase(AndroidUseCase):
         launch_monkeyrunner()
         
 JYTHON_MODULE = "./monkeyrunner_jython.py"
-APK = "../apks/testapp.apk"
+APK = get_path("../apks/testapp.apk")
 APP_PKG = "com.tqrg.physalia.testapp"
 APP_VERSION = "0.01"
+MONKEYRUNNER_ROUTINES = get_path("monkeyrunner_jython.py")
 
+# -------------------------------------------------------------------------- #
+
+find_by_id_use_case = MonkeyrunnerUseCase(
+    "Monkeyrunner-find_by_id",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    MONKEYRUNNER_ROUTINES,
+    "run_find_by_id",
+    time_boundaries.FIND_BY_ID
+)
 # -------------------------------------------------------------------------- #
 
 tap_use_case = MonkeyrunnerUseCase(
@@ -69,7 +81,7 @@ tap_use_case = MonkeyrunnerUseCase(
     APK,
     APP_PKG,
     APP_VERSION,
-    "monkeyrunner_jython.py",
+    MONKEYRUNNER_ROUTINES,
     "run_tap",
     time_boundaries.TAP
 )
@@ -83,7 +95,7 @@ long_tap_use_case = MonkeyrunnerUseCase(
     APK,
     APP_PKG,
     APP_VERSION,
-    "monkeyrunner_jython.py",
+    MONKEYRUNNER_ROUTINES,
     "run_long_tap",
     time_boundaries.LONG_TAP
 )
@@ -97,7 +109,7 @@ dragndrop_use_case = MonkeyrunnerUseCase(
     APK,
     APP_PKG,
     APP_VERSION,
-    "monkeyrunner_jython.py",
+    MONKEYRUNNER_ROUTINES,
     "run_dragndrop",
     time_boundaries.DRAGNDROP
 )
@@ -111,7 +123,7 @@ swipe_use_case = MonkeyrunnerUseCase(
     APK,
     APP_PKG,
     APP_VERSION,
-    "monkeyrunner_jython.py",
+    MONKEYRUNNER_ROUTINES,
     "run_swipe",
     time_boundaries.SWIPE
 )
@@ -125,7 +137,7 @@ back_button_use_case = MonkeyrunnerUseCase(
     APK,
     APP_PKG,
     APP_VERSION,
-    "monkeyrunner_jython.py",
+    MONKEYRUNNER_ROUTINES,
     "run_back_button",
     time_boundaries.BACK_BUTTON
 )
@@ -139,7 +151,7 @@ input_text_use_case = MonkeyrunnerUseCase(
     APK,
     APP_PKG,
     APP_VERSION,
-    "monkeyrunner_jython.py",
+    MONKEYRUNNER_ROUTINES,
     "run_input_text",
     time_boundaries.INPUT_TEXT
 )
@@ -150,7 +162,7 @@ input_text_use_case = MonkeyrunnerUseCase(
 
 
 use_cases = {
-    "find_by_id": None,
+    "find_by_id": find_by_id_use_case,
     "find_by_description": None,
     "find_by_content": None,
     "tap": tap_use_case,
