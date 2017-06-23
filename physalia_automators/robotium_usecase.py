@@ -1,7 +1,7 @@
 """Interaction using Espresso"""
 
 from physalia.energy_profiler import AndroidUseCase
-from utils import minimum_execution_time
+from utils import minimum_execution_time, get_path
 import time_boundaries
 import subprocess
 import click
@@ -61,11 +61,6 @@ class RobotiumUseCase(AndroidUseCase):
                 shell=True
             )
         launch_espresso()
-
-def get_path(relative_path):
-    return os.path.abspath(
-        os.path.join(os.path.dirname(__file__), relative_path)
-    )        
 
 APK = get_path("../apks/RobotiumTest.apk")
 APP_PKG = "com.tqrg.physalia.testapp"
