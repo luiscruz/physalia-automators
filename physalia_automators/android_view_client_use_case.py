@@ -1,12 +1,11 @@
 """Interaction using Android View Client."""
 
 import sys
-import click
 from physalia.energy_profiler import AndroidUseCase
 from com.dtmilano.android.viewclient import ViewClient
-from utils import minimum_execution_time
-import time_boundaries
-from constants import loop_count
+from physalia_automators.utils import minimum_execution_time, get_path
+from physalia_automators import time_boundaries
+from physalia_automators.constants import loop_count
 
 
 class AndroidViewClientUseCase(AndroidUseCase):
@@ -89,14 +88,6 @@ class AndroidViewClientUseCase(AndroidUseCase):
             view = self.view_client.findViewById(view_id)
         return view
 
-    def wait_for_text(self, text):
-        """Refresh `AndroidViewClient` until text is found."""
-        view = self.view_client.findViewWithText(text)
-        while view is None:
-            self.refresh()
-            view = self.view_client.findViewWithText(text)
-        return view
-
     def wait_for_content_description(self, content_description):
         """Refresh `AndroidViewClient` until content description is found."""
         view = self.view_client.findViewWithContentDescription(
@@ -121,11 +112,14 @@ def cleanup(use_case):
     use_case.uninstall_app()
 
 
+APP_APK = get_path("../apks/testapp.apk")
+
 # -------------------------------------------------------------------------- #
 
 @minimum_execution_time(time_boundaries.FIND_BY_ID)
 def run_find_by_id(use_case):
     for _ in range(loop_count.FIND_BY_ID):
+        use_case.refresh()
         use_case.view_client.findViewById("com.tqrg.physalia.testapp:id/button_1")
         use_case.view_client.findViewById("com.tqrg.physalia.testapp:id/button_2")
         use_case.view_client.findViewById("com.tqrg.physalia.testapp:id/button_3")
@@ -136,7 +130,7 @@ def run_find_by_id(use_case):
 
 find_by_id_use_case = AndroidViewClientUseCase(
     "AndroidViewClient-find_by_id",
-    "../apks/testapp.apk",
+    APP_APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_find_by_id,
@@ -151,6 +145,7 @@ find_by_id_use_case = AndroidViewClientUseCase(
 @minimum_execution_time(time_boundaries.FIND_BY_DESCRIPTION)
 def run_find_by_description(use_case):
     for _ in range(loop_count.FIND_BY_DESCRIPTION):
+        use_case.refresh()
         use_case.view_client.findViewWithContentDescription("Button One")
         use_case.view_client.findViewWithContentDescription("Button Two")
         use_case.view_client.findViewWithContentDescription("Button Three")
@@ -161,7 +156,7 @@ def run_find_by_description(use_case):
     
 find_by_description_use_case = AndroidViewClientUseCase(
     "AndroidViewClient-find_by_description",
-    "../apks/testapp.apk",
+    APP_APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_find_by_description,
@@ -176,13 +171,14 @@ find_by_description_use_case = AndroidViewClientUseCase(
 @minimum_execution_time(time_boundaries.FIND_BY_CONTENT)
 def run_find_by_content(use_case):
     for _ in range(loop_count.FIND_BY_CONTENT):
+        use_case.refresh()
         use_case.view_client.findViewWithText(text="Button 1")
         use_case.view_client.findViewWithText(text="Button 2")
         use_case.view_client.findViewWithText(text="Button 3")
     
 find_by_content_use_case = AndroidViewClientUseCase(
     "AndroidViewClient-find_by_content",
-    "../apks/testapp.apk",
+    APP_APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_find_by_content,
@@ -208,11 +204,11 @@ def prepare_tap(use_case):
 def run_tap(use_case):
     for _ in range(loop_count.TAP):
         for el in use_case.elements:
-            el.click()
+            el.touch()
     
 tap_use_case = AndroidViewClientUseCase(
     "AndroidViewClient-tap",
-    "../apks/testapp.apk",
+    APP_APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_tap,
@@ -242,7 +238,7 @@ def run_long_tap(use_case):
     
 long_tap_use_case = AndroidViewClientUseCase(
     "AndroidViewClient-long_tap",
-    "../apks/testapp.apk",
+    APP_APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_long_tap,
@@ -263,7 +259,6 @@ def prepare_dragndrop(use_case):
     button_fab = use_case.view_client.findViewWithContentDescription("Button Fab")
     text_area = use_case.view_client.findViewWithContentDescription("Text Area")
 
-    print button1.getCenter()
     use_case.moves = [
         (button1, button2),
         (button2, button3),
@@ -284,7 +279,7 @@ def run_dragndrop(use_case):
     
 dragndrop_use_case = AndroidViewClientUseCase(
     "AndroidViewClient-dragndrop",
-    "../apks/testapp.apk",
+    APP_APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_dragndrop,
@@ -323,7 +318,7 @@ def run_swipe(use_case):
     
 swipe_use_case = AndroidViewClientUseCase(
     "AndroidViewClient-swipe",
-    "../apks/testapp.apk",
+    APP_APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_swipe,
@@ -351,7 +346,7 @@ def run_back_button(use_case):
     
 back_button_use_case = AndroidViewClientUseCase(
     "AndroidViewClient-back_button",
-    "../apks/testapp.apk",
+    APP_APK,
     "com.tqrg.physalia.testapp",
     "0.01",
     run=run_back_button,
