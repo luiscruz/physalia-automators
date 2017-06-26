@@ -40,7 +40,9 @@ class EspressoUseCase(AndroidUseCase):
         """Prepare environment for running."""
         self.install_app()
         self.install_test()
-        # self.open_app()
+        self.open_app()
+        import time
+        time.sleep(2)
         self._prepare()
         click.secho("Starting use case {}.".format(self.name), fg='green')
 
@@ -53,7 +55,7 @@ class EspressoUseCase(AndroidUseCase):
     def _run(self):
         @minimum_execution_time(seconds=self.minimum_execution_time)
         def launch_espresso():
-            subprocess.check_output(
+            out = subprocess.check_output(
                 "adb shell am instrument -w -r -e debug false "
                 "-e class {test_class}#{test_method} {test_pkg}/"
                 "android.support.test.runner.AndroidJUnitRunner".format(
@@ -63,6 +65,8 @@ class EspressoUseCase(AndroidUseCase):
                 ),
                 shell=True
             )
+            if "OK (1 test)" not in out:
+                print out
         launch_espresso()
         
 
