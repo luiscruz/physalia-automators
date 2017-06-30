@@ -1,11 +1,7 @@
 """Command Line Interface for Physalia.
 
 Example:
-    Examples can be given using either the ``Example`` or ``Examples``
-    sections. Sections support any reStructuredText formatting, including
-    literal blocks::
-
-        $ python cli.py "python ui_interaction.py"
+        ``$ python physalia_automators/cli.py "python ui_interaction.py"``
 """
 
 # pylint: disable=no-value-for-parameter
