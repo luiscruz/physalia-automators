@@ -297,6 +297,31 @@ back_button_use_case = AndroidUseCase(
 
 # print back_button_use_case.run().duration
 
+# -------------------------------------------------------------------------- #
+
+def prepare_input_text(use_case):
+    use_case.install_app()
+    use_case.open_app()
+    use_case.text_field = device(resourceId="com.tqrg.physalia.testapp:id/text_field")
+
+@minimum_execution_time(seconds=time_boundaries.INPUT_TEXT)
+def run_input_text(use_case):
+    """Run script for input text interaction."""
+    message = "Physalia says hi!"
+    for _ in range(loop_count.INPUT_TEXT):
+        use_case.text_field.set_text(message)
+        use_case.text_field.clear_text()
+
+input_text_use_case = AndroidUseCase(
+    "PythonUiAutomator-input_text",
+    APK,
+    "com.tqrg.physalia.testapp",
+    "0.01",
+    run=run_input_text,
+    prepare=prepare_input_text,
+    cleanup=cleanup
+)
+
 use_cases = {
     "find_by_id": find_by_id_use_case,
     "find_by_description": find_by_description_use_case,
@@ -308,5 +333,5 @@ use_cases = {
     "swipe": swipe_use_case,
     "pinch_and_spread": pinch_and_spread_use_case,
     "back_button": back_button_use_case,
-    "input_text": None,
+    "input_text": input_text_use_case,
 }

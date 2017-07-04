@@ -436,13 +436,12 @@ def prepare_input_text(use_case):
 @minimum_execution_time(seconds=time_boundaries.INPUT_TEXT)
 def run_input_text(use_case):
     """Run script to test multi finger tap."""
-
-    try:
-        use_case.text_field.send_keys(
-            "Physalia says hi!"
-        )
-    except Exception as e:
-        click.secho("Error: {}.".format(e), fg='red')
+    message = "Physalia says hi!"
+    len_message = len(message)
+    for _ in range(loop_count.INPUT_TEXT):
+        use_case.text_field.send_keys(message)
+        for _ in range(len_message):
+            driver.press_key_code(67)
 
 input_text_use_case = AppiumUseCase(
     "Appium-input_text",

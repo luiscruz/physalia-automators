@@ -52,8 +52,11 @@ When(/^"([^"]*)" for (\d+) times$/) do |nested_step, times|
   end
 end
 
-When(/^I type "([^"]*)" in "([^"]*)"$/) do |text_to_enter, text_field|
-  enter_text("* id:'#{text_field}'", text_to_enter)
+When(/^I type "([^"]*)" in "([^"]*)" for (\d+) times$/) do |text_to_enter, text_field, times|
+  times.to_i.times do
+    enter_text("* id:'#{text_field}'", text_to_enter)
+    clear_text_in("* id:'#{text_field}'")
+  end
 end
 
 When(/^I find view with id <view> for (\d+) times$/) do |times, table|

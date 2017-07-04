@@ -130,16 +130,15 @@ def run_back_button():
 
 def run_input_text():
     device = MonkeyRunner.waitForConnection()
-    # device.touch(
-#         TEXT_FIELD[0],
-#         TEXT_FIELD[1],
-#         MonkeyDevice.DOWN_AND_UP
-#     )
-    device.type("Physalia")
-    device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
-    device.type("says")
-    device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
-    device.type("hi!")
+    len_message = 17
+    for _ in range(loop_count.INPUT_TEXT):
+        device.type("Physalia")
+        device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
+        device.type("says")
+        device.press("SPACE", MonkeyDevice.DOWN_AND_UP)
+        device.type("hi!")
+        for _ in range(17):
+            device.press("KEYCODE_DEL", MonkeyDevice.DOWN_AND_UP)    
 
 # run_input_text()
 

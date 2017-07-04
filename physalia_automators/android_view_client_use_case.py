@@ -356,6 +356,37 @@ back_button_use_case = AndroidViewClientUseCase(
 
 # print back_button_use_case.run().duration
 
+# -------------------------------------------------------------------------- #
+
+def prepare_input_text(use_case):
+    use_case.install_app()
+    use_case.open_app()
+    use_case.text_field = use_case.wait_for_content_description("Text Field")
+    
+@minimum_execution_time(time_boundaries.INPUT_TEXT)
+def run_input_text(use_case):
+    for _ in range(loop_count.INPUT_TEXT):
+        message = "Physalia says hi!"
+        len_message = len(message)
+        use_case.device.type(message)
+        for _ in range(len_message):
+            use_case.text_field.backspace()
+
+    
+input_text_use_case = AndroidViewClientUseCase(
+    "AndroidViewClient-input_text",
+    APP_APK,
+    "com.tqrg.physalia.testapp",
+    "0.01",
+    run=run_input_text,
+    prepare=prepare_input_text,
+    cleanup=cleanup
+)
+
+# print swipe_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
 use_cases = {
     "find_by_id": find_by_id_use_case,
     "find_by_description": find_by_description_use_case,
@@ -367,6 +398,6 @@ use_cases = {
     "swipe": swipe_use_case,
     "pinch_and_spread": None,
     "back_button": back_button_use_case,
-    "input_text": None, # TODO
+    "input_text": input_text_use_case,
 }
 
