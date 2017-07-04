@@ -34,7 +34,7 @@ Feature: Physalia UI Interactions
     When "I go back" for 200 times
   
   Scenario: Type with keyboard
-    When I type "Physalia says hi!" in "text_field"
+    When I type "Physalia says hi!" in "text_field" for 10 times
   
   Scenario: Find By Id
     When I find view with id <view> for 40 times

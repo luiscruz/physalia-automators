@@ -63,7 +63,7 @@ class CalabashUseCase(AndroidUseCase):
         """Check if calabash is installed."""
         return bool(which("calabash-android"))
         
-APK = "./apks/testapp.apk"
+APK = "./apks/testapp-calabash-resigned.apk"
 APP_PKG = "com.tqrg.physalia.testapp"
 APP_VERSION = "0.01"
 FEATURE = "physalia_test_app.feature"
