@@ -8,7 +8,7 @@ import time_boundaries
 import subprocess
 import click
 
-APP_APK = "./apks/testapp.apk"
+APP_APK = "./apks/testapp-debug.apk"
 TEST_APK = "./apks/test_routines.apk"
 TEST_CLASS = "com.tqrg.physalia.testapp.ApplicationTest"
 
@@ -50,8 +50,8 @@ class UiAutomatorUseCase(AndroidUseCase):
     def cleanup(self):
         """Clean environment after running."""
         self._cleanup()
-        # self.uninstall_app()
-        # self.uninstall_test()
+        self.uninstall_app()
+        self.uninstall_test()
     
     def _run(self):
         @minimum_execution_time(seconds=self.minimum_execution_time)
