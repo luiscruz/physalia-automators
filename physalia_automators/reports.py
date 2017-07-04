@@ -11,7 +11,7 @@ import time
 import csv
 import click
 from physalia.models import Measurement
-from physalia.analytics import violinplot
+from physalia.analytics import violinplot, pairwise_welchs_ttest
 
 @click.command()
 @click.option('-i','--results_input', default="results.csv", type=click.Path(dir_okay=False))
@@ -35,7 +35,10 @@ def tool(results_input, results_output):
             "input_text",
         ]
         for use_case_category in use_case_categories:
-            find_by_id_data = set(Measurement.get_entries_with_name_like(use_case_category, data))
+            click.secho("----------------------------------------", fg="blue")
+            click.secho("         {}".format(use_case_category), fg="blue")
+            click.secho("----------------------------------------", fg="blue")
+            find_by_id_data = set(Measurement.get_entries_with_name_like("-"+use_case_category, data))
             unique_use_cases = Measurement.get_unique_use_cases(find_by_id_data)
             names = {
                 name: name.replace("-"+use_case_category, "") for name in unique_use_cases
@@ -45,7 +48,11 @@ def tool(results_input, results_output):
                 for use_case in unique_use_cases
             ]
             title = use_case_category.title().replace('_'," ")
-            violinplot(*groups, save_fig=results_output+"/"+use_case_category, names=names, title=title)
+            violinplot(
+                *groups,
+                save_fig=results_output+"/"+use_case_category,
+                names=names, title=title, sort=True)
+            pairwise_welchs_ttest(*groups)
         
             
 
