@@ -20,9 +20,9 @@ Feature: Physalia UI Interactions
     When I dragndrop <first_view> to <second_view> for 10 times
     | first_view  | second_view |
     | button_1    | button_2    |
+    | button_2    | button_3    |
     | fab         | button_3    |
-    | fab         | button_3    |
-    | fab         | text_area   |
+    | fab         | paint       |
 
   Scenario: Swipe
     When I swipe in "paint" for 40 times
