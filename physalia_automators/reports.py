@@ -10,6 +10,10 @@ Example:
 import time
 import csv
 import click
+from collections import defaultdict
+from tabulate import tabulate
+from operator import itemgetter
+
 from physalia.models import Measurement
 from physalia.analytics import violinplot, pairwise_welchs_ttest, describe
 
@@ -36,12 +40,14 @@ def tool(results_input, results_output):
             "back_button",
             "input_text",
         ]
+        scores = defaultdict(lambda: 0)
         for use_case_category in use_case_categories:
             click.secho("----------------------------------------", fg="blue")
             click.secho("         {}".format(use_case_category), fg="blue")
             click.secho("----------------------------------------", fg="blue")
             find_by_id_data = set(Measurement.get_entries_with_name_like("-"+use_case_category, data))
             unique_use_cases = list(Measurement.get_unique_use_cases(find_by_id_data))
+            number_of_frameworks = len(unique_use_cases)
             names_dict = {
                 name: name.replace("-"+use_case_category, "") for name in unique_use_cases
             }
@@ -59,10 +65,19 @@ def tool(results_input, results_output):
                 save_fig=results_output+"/"+use_case_category,
                 names=names_dict, title=title, sort=True)
             n_loop_iterations = getattr(loop_count, use_case_category.upper())
-            describe(*groups, names=names, loop_count=n_loop_iterations, ranking=True)
+            # Descriptive statistics
+            table = describe(*groups, names=names, loop_count=n_loop_iterations, ranking=True)
+            # Update Ranking
+            for name, row in zip(names, table):
+                scores[name] += (number_of_frameworks - row["Ranking"])/float(number_of_frameworks)
+            # Welchs ttest
             pairwise_welchs_ttest(*groups, names=names)
+
+        # Ranking
+        click.secho("\nRanking".format(use_case_category), fg="blue")
+        sorted_scores = sorted(scores.items(), key=itemgetter(1), reverse=True)
+        print tabulate(sorted_scores, headers=["Framework", "Score"], tablefmt="grid")
         
-            
 
 def exit_gracefully(start_time):
     exit_time = time.time()

@@ -437,11 +437,9 @@ def prepare_input_text(use_case):
 def run_input_text(use_case):
     """Run script to test multi finger tap."""
     message = "Physalia says hi!"
-    len_message = len(message)
     for _ in range(loop_count.INPUT_TEXT):
         use_case.text_field.send_keys(message)
-        for _ in range(len_message):
-            driver.press_key_code(67)
+        use_case.text_field.clear()
 
 input_text_use_case = AppiumUseCase(
     "Appium-input_text",
@@ -466,5 +464,5 @@ use_cases = {
     "swipe": swipe_use_case,
     "pinch_and_spread": None, #pinch_and_spread_use_case,
     "back_button": back_button_use_case,
-    "input_text": None, #fixme
+    "input_text": input_text_use_case, #fixme
 }
