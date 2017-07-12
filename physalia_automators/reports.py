@@ -7,6 +7,7 @@ Example:
 # pylint: disable=no-value-for-parameter
 # pylint: disable=missing-docstring
 
+import os
 import time
 import csv
 import click
@@ -30,6 +31,9 @@ def tool(results_input, results_output):
     with open(results_input, 'rt') as csv_file:
         csv_reader = csv.reader(csv_file)
         data = {Measurement(*row) for row in csv_reader}
+    if not os.path.isdir(results_output):
+        os.makedirs(results_output)
+
     use_case_categories = [
         "find_by_id",
         "find_by_description",
@@ -45,7 +49,6 @@ def tool(results_input, results_output):
     ]
     scores = defaultdict(lambda: 0)
     for use_case_category in use_case_categories:
-        break
         click.secho("----------------------------------------", fg="blue")
         click.secho("         {}".format(use_case_category), fg="blue")
         click.secho("----------------------------------------", fg="blue")
@@ -67,20 +70,27 @@ def tool(results_input, results_output):
         violinplot(
             *groups,
             save_fig=results_output+"/"+use_case_category,
-            names=names_dict, title=title, sort=True)
-        n_loop_iterations = getattr(loop_count, use_case_category.upper())
+            names_dict=names_dict, title=title, sort=True)
+        n_loop_iterations = _get_interactions_count(use_case_category)
         # Descriptive statistics
-        table = describe(*groups, names=names, loop_count=n_loop_iterations, ranking=True)
+        with open(results_output+"/table_description_"+use_case_category+".tex", "w") as file: 
+            table = describe(*groups, names=names,
+                             loop_count=n_loop_iterations,
+                             ranking=True, out=file, table_fmt="latex")
         # Update Ranking
         for name, row in zip(names, table):
             scores[name] += (number_of_frameworks - row["Ranking"])/float(number_of_frameworks)
         # Welchs ttest
-        pairwise_welchs_ttest(*groups, names=names)
+        with open(results_output+"/table_welchsttest_"+use_case_category+".tex", "w") as file:
+            pairwise_welchs_ttest(*groups, names=names, out=file, table_fmt='latex')
 
     # Ranking
-    # click.secho("\nRanking".format(use_case_category), fg="blue")
-    # sorted_scores = sorted(scores.items(), key=itemgetter(1), reverse=True)
-    # print tabulate(sorted_scores, headers=["Framework", "Score"], tablefmt="grid")
+    click.secho("\nRanking".format(use_case_category), fg="blue")
+    sorted_scores = sorted(scores.items(), key=itemgetter(1), reverse=True)
+    with open(results_output+"/table_ranking.tex", "w") as file: 
+        file.write(
+            tabulate(sorted_scores, headers=["Framework", "Score"], tablefmt="latex")
+        )
     
     frameworks=[
         "AndroidViewClient",
@@ -92,32 +102,44 @@ def tool(results_input, results_output):
         "Robotium",
         "UiAutomator",
     ]
-    
+    framework_results_dir = results_output+"/frameworks/"
+    if not os.path.isdir(framework_results_dir):
+        os.makedirs(framework_results_dir)
     for framework in frameworks:
         means = []
         for interaction in use_case_categories:
-            print(framework, interaction)
             use_case = "{}-{}".format(framework, interaction)
             use_case_data = np.array(list(Measurement.get_entries_with_name(use_case, data)), dtype='float')
             if len(use_case_data):
-                n_loop_iterations = getattr(loop_count, interaction.upper())
+                n_loop_iterations = _get_interactions_count(interaction)
                 mean = np.mean(use_case_data)/n_loop_iterations*1000
             else:
                 mean = 0
             bisect.insort(
                 means,
-                (mean, interaction)
+                (interaction, mean)
             )
+        # means = means[::-1]
         figure = plt.figure()
         figure.suptitle(framework)
         X = range(len(means))
-        Y, names = zip(*means)
+        names, Y = zip(*means)
         plt.bar(X, Y)
-        plt.xticks(X, names, rotation='vertical')
-        for x,y in zip(X, Y):
-            plt.text(x, y, '%.2f' % y, ha='center', va= 'bottom')
-        figure.show()
-    click.prompt("Permission to exit?")
+        axes = figure.gca()
+        axes.set_xticks(X)
+        axes.set_xticklabels([name.replace("_", " ").title() for name in names], rotation = 'vertical')
+        axes.set_ylabel("Energy Consumption (mJ)")
+                
+        figure.subplots_adjust(bottom=0.31)
+
+        bar_labels = [y==0 and "n.a." or format(y, ".2f") for y in Y]
+        for x,y,label in zip(X, Y, bar_labels):
+            plt.text(x, y, label, ha='center', va= 'bottom')
+        figure.savefig(results_output+"/frameworks/"+framework)
+
+def _get_interactions_count(interaction_name):
+    interaction_name = interaction_name.upper()
+    return getattr(loop_count, interaction_name) * getattr(loop_count, interaction_name+"_UNIT")
 
 def exit_gracefully(start_time):
     exit_time = time.time()
