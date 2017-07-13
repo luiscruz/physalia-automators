@@ -1,6 +1,7 @@
 """Interaction using Espresso"""
 
 from physalia.energy_profiler import AndroidUseCase
+from physalia.exceptions import PhysaliaExecutionFailed
 from utils import minimum_execution_time, get_path
 import time_boundaries
 import subprocess
@@ -35,6 +36,8 @@ class RobotiumUseCase(AndroidUseCase):
 
     def prepare(self):
         """Prepare environment for running."""
+        self.uninstall_app()
+        self.uninstall_test()
         self.install_app()
         self.install_test()
         # self.open_app()
@@ -50,7 +53,7 @@ class RobotiumUseCase(AndroidUseCase):
     def _run(self):
         @minimum_execution_time(seconds=self.minimum_execution_time)
         def launch_espresso():
-            print subprocess.check_output(
+            output = subprocess.check_output(
                 "adb shell am instrument -w -r -e debug false "
                 "-e class {test_class}#{test_method} {test_pkg}/"
                 "android.test.InstrumentationTestRunner".format(
@@ -60,9 +63,12 @@ class RobotiumUseCase(AndroidUseCase):
                 ),
                 shell=True
             )
+            print output
+            if "INSTRUMENTATION_FAILED" in output:
+                raise PhysaliaExecutionFailed
         launch_espresso()
 
-APK = get_path("../apks/RobotiumTest.apk")
+APK = get_path("../apks/testapp-debug.apk")
 APP_PKG = "com.tqrg.physalia.testapp"
 APP_VERSION = "0.01"
 TEST_APK = get_path("../apks/RobotiumTest_routines.apk")
@@ -79,6 +85,22 @@ find_by_id_use_case = RobotiumUseCase(
     TEST_APK,
     "com.tqrg.physalia.testapp.test",
     time_boundaries.FIND_BY_ID
+)
+
+# print find_by_id_use_case.run().duration
+
+# -------------------------------------------------------------------------- #
+
+find_by_content_use_case = RobotiumUseCase(
+    "Robotium-find_by_content",
+    APK,
+    APP_PKG,
+    APP_VERSION,
+    "com.tqrg.physalia.testapp.test.RobotiumTest",
+    "testFindByContent",
+    TEST_APK,
+    "com.tqrg.physalia.testapp.test",
+    time_boundaries.FIND_BY_CONTENT
 )
 
 # print find_by_id_use_case.run().duration
@@ -183,7 +205,7 @@ input_text_use_case = RobotiumUseCase(
 use_cases = {
     "find_by_id": find_by_id_use_case,
     "find_by_description": None, #TODO
-    "find_by_content": None, #TODO
+    "find_by_content": find_by_content_use_case,
     "tap": tap_use_case,
     "long_tap": long_tap_use_case,
     "multi_finger_tap": None,
