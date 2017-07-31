@@ -69,17 +69,18 @@ def tool(results_input, results_output):
         title = use_case_category.title().replace('_'," ")
         violinplot(
             *groups,
-            save_fig=results_output+"/"+use_case_category,
-            names_dict=names_dict, title=title, sort=True)
+            save_fig=results_output+"/"+use_case_category+".pdf",
+            names_dict=names_dict, sort=True)
         n_loop_iterations = _get_interactions_count(use_case_category)
         # Descriptive statistics
         with open(results_output+"/table_description_"+use_case_category+".tex", "w") as file: 
             table = describe(*groups, names=names,
                              loop_count=n_loop_iterations,
-                             ranking=True, out=file, table_fmt="latex")
+                             ranking=True, out=file,
+                             table_fmt="latex", float_fmt='.4f')
         # Update Ranking
         for name, row in zip(names, table):
-            scores[name] += (number_of_frameworks - row["Ranking"])/float(number_of_frameworks)
+            scores[name] += (number_of_frameworks - row["Rank"])/float(number_of_frameworks)
         # Welchs ttest
         with open(results_output+"/table_welchsttest_"+use_case_category+".tex", "w") as file:
             pairwise_welchs_ttest(*groups, names=names, out=file, table_fmt='latex')
@@ -89,7 +90,8 @@ def tool(results_input, results_output):
     sorted_scores = sorted(scores.items(), key=itemgetter(1), reverse=True)
     with open(results_output+"/table_ranking.tex", "w") as file: 
         file.write(
-            tabulate(sorted_scores, headers=["Framework", "Score"], tablefmt="latex")
+            tabulate(sorted_scores, headers=["Framework", "Score"], tablefmt="latex",
+            floatfmt=".4f")
         )
     
     frameworks=[
