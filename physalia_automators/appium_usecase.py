@@ -84,13 +84,13 @@ def run_find_by_id(use_case):
 
     try:
         for _ in range(loop_count.FIND_BY_ID):
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/button_1")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/button_2")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/button_3")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/text_field")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/fab")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/paint")[0]
-            use_case.driver.find_elements(by="id", value="com.tqrg.physalia.testapp:id/text_area")[0]
+            use_case.driver.find_element_by_id("com.tqrg.physalia.testapp:id/button_1")
+            use_case.driver.find_element_by_id("com.tqrg.physalia.testapp:id/button_2")
+            use_case.driver.find_element_by_id("com.tqrg.physalia.testapp:id/button_3")
+            use_case.driver.find_element_by_id("com.tqrg.physalia.testapp:id/text_field")
+            use_case.driver.find_element_by_id("com.tqrg.physalia.testapp:id/fab")
+            use_case.driver.find_element_by_id("com.tqrg.physalia.testapp:id/paint")
+            use_case.driver.find_element_by_id("com.tqrg.physalia.testapp:id/text_area")
             
         
     except Exception as e:
