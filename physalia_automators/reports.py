@@ -30,7 +30,10 @@ def tool(results_input, results_output):
     
     with open(results_input, 'rt') as csv_file:
         csv_reader = csv.reader(csv_file)
-        data = {Measurement(*row) for row in csv_reader}
+        data = []
+        for row in csv_reader:
+            # row[6] = float(row[6])*1000 # convert to mJ
+            data.append(Measurement(*row))
     if not os.path.isdir(results_output):
         os.makedirs(results_output)
 
@@ -77,7 +80,7 @@ def tool(results_input, results_output):
             table = describe(*groups, names=names,
                              loop_count=n_loop_iterations,
                              ranking=True, out=file,
-                             table_fmt="latex", float_fmt='.4f')
+                             table_fmt="latex", float_fmt='.3f', mili_joules=True)
         # Update Ranking
         for name, row in zip(names, table):
             scores[name] += (number_of_frameworks - row["Rank"])/float(number_of_frameworks)
