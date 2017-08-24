@@ -73,7 +73,9 @@ def tool(results_input, results_output):
         violinplot(
             *groups,
             save_fig=results_output+"/"+use_case_category+".pdf",
-            names_dict=names_dict, sort=True)
+            names_dict=names_dict, sort=True,
+            millijoules=True
+        )
         n_loop_iterations = _get_interactions_count(use_case_category)
         # Descriptive statistics
         with open(results_output+"/table_description_"+use_case_category+".tex", "w") as file: 
