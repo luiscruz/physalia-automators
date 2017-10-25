@@ -1,6 +1,6 @@
 click
-physalia
 Appium-Python-Client
 selenium==3.3.1
 uiautomator
 retrying
+physalia===0.0.1.dev113
