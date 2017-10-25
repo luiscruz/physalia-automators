@@ -1,6 +1,6 @@
-click
-Appium-Python-Client
+click==6.7
+Appium-Python-Client==0.24
 selenium==3.3.1
-uiautomator
-retrying
+uiautomator==0.3.2
+retrying==1.3.3
 physalia===0.0.1.dev113
