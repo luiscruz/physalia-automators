@@ -7,6 +7,7 @@ Example:
 # pylint: disable=no-value-for-parameter
 # pylint: disable=missing-docstring
 
+import sys
 import os
 import time
 import csv
@@ -15,11 +16,13 @@ import bisect
 from collections import defaultdict
 from tabulate import tabulate
 from operator import itemgetter
+from collections import OrderedDict
 
 import numpy as np
 import matplotlib.pyplot as plt
 from physalia.models import Measurement
-from physalia.analytics import violinplot, pairwise_welchs_ttest, describe
+from physalia.analytics import violinplot, pairwise_welchs_ttest
+import tabulate as T
 
 from physalia_automators.constants import loop_count
 
@@ -147,6 +150,60 @@ def tool(results_input, results_output):
 def _get_interactions_count(interaction_name):
     interaction_name = interaction_name.upper()
     return getattr(loop_count, interaction_name) * getattr(loop_count, interaction_name+"_UNIT")
+
+
+def describe(*samples, **options):
+    """Create table with statistic summary of samples."""
+    loop_count = options.get("loop_count")
+    names = list(options.get("names"))
+    out = options.get('out', sys.stdout)
+    table_fmt = options.get("table_fmt", "grid")
+    float_fmt = options.get("float_fmt", "")
+    show_ranking = options.get("ranking")
+    mili_joules = options.get("mili_joules")
+
+    consumption_samples = [np.array(sample, dtype='float') for sample in samples]
+    if mili_joules:
+        for sample in consumption_samples:
+            sample *= 1000
+        unit= 'mJ'
+    else:    
+        unit = 'J'
+    samples_means = np.array([np.mean(sample) for sample in consumption_samples])
+    if show_ranking:
+        order = samples_means.argsort()
+        ranking = order.argsort()
+    
+    durations = [
+        np.mean([measurement.duration for measurement in sample])
+        for sample in samples
+    ]
+    table = list()
+    for index, sample in enumerate(consumption_samples):
+        mean = np.mean(sample)
+        row = OrderedDict((
+            ("N",    len(sample)),
+            ("$\\bar{{x}}$ ({})".format(unit),  mean),
+            ("$s$",  np.std(sample)),
+        ))
+        if loop_count:
+            #row["Iter."] = loop_count
+            row["Single ({})".format(unit)] = mean/loop_count
+        #duration    
+        row["$\\delta t$ (s)"] = durations[index]
+        cost_idle_power = 0.0933
+        row["$\\bar{{x'}}$ (mJ)"] = mean - durations[index]*cost_idle_power
+        if show_ranking:
+            row["Rank"] = int(ranking[index]+1)
+            if row["Rank"] == 1 and table_fmt=='latex':
+                names[index] = "\\textbf{"+names[index]+"}"
+        table.append(row)
+    old_escape_rules = T.LATEX_ESCAPE_RULES
+    T.LATEX_ESCAPE_RULES = {}
+    out.write(T.tabulate(table, headers='keys', tablefmt=table_fmt, floatfmt=float_fmt, showindex=names))
+    T.LATEX_ESCAPE_RULES = old_escape_rules
+    out.write("\n")
+    return table
 
 def exit_gracefully(start_time):
     exit_time = time.time()
