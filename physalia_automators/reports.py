@@ -19,9 +19,13 @@ from operator import itemgetter
 from collections import OrderedDict
 
 import numpy as np
+import matplotlib
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['mathtext.fontset'] = 'cm'
 import matplotlib.pyplot as plt
 from physalia.models import Measurement
-from physalia.analytics import violinplot, pairwise_welchs_ttest
+from physalia.analytics import pairwise_welchs_ttest
+from statsmodels.graphics.boxplots import violinplot as stats_violinplot
 import tabulate as T
 
 from physalia_automators.constants import loop_count
@@ -145,6 +149,7 @@ def tool(results_input, results_output):
         bar_labels = [y==0 and "n.a." or format(y, ".2f") for y in Y]
         for x,y,label in zip(X, Y, bar_labels):
             plt.text(x, y, label, ha='center', va= 'bottom')
+        figure.tight_layout()
         figure.savefig(results_output+"/frameworks/"+framework)
 
 def _get_interactions_count(interaction_name):
@@ -182,7 +187,7 @@ def describe(*samples, **options):
     for index, sample in enumerate(consumption_samples):
         mean = np.mean(sample)
         row = OrderedDict((
-            ("N",    len(sample)),
+            # ("N",    len(sample)),
             ("$\\bar{{x}}$ ({})".format(unit),  mean),
             ("$s$",  np.std(sample)),
         ))
@@ -190,9 +195,9 @@ def describe(*samples, **options):
             #row["Iter."] = loop_count
             row["Single ({})".format(unit)] = mean/loop_count
         #duration    
-        row["$\\delta t$ (s)"] = durations[index]
+        row["$\\Delta t$ (s)"] = durations[index]
         cost_idle_power = 0.0933
-        row["$\\bar{{x'}}$ (mJ)"] = mean - durations[index]*cost_idle_power
+        # row["$\\bar{{x'}}$ (mJ)"] = mean - durations[index]*cost_idle_power
         if show_ranking:
             row["Rank"] = int(ranking[index]+1)
             if row["Rank"] == 1 and table_fmt=='latex':
@@ -204,6 +209,53 @@ def describe(*samples, **options):
     T.LATEX_ESCAPE_RULES = old_escape_rules
     out.write("\n")
     return table
+
+def violinplot(*samples, **options):
+    """Create violin plot for a set of measurement samples."""
+    names_dict = options.get("names_dict")
+    title = options.get("title")
+    sort = options.get("sort")
+    millijoules = options.get("millijoules")
+
+    consumptions = [np.array(sample, dtype='float') for sample in samples]
+    if millijoules:
+        for sample in consumptions:
+            sample *= 1000
+        unit= 'mJ'
+    else:    
+        unit = 'J'
+
+    if names_dict:
+        labels = [
+            sample and names_dict[sample[0].use_case]
+            for sample in samples
+        ]
+    else:
+        labels = [
+            sample and sample[0].use_case.title().replace('_', ' ')
+            for sample in samples
+        ]
+    
+    if sort:
+        labels, samples = zip(*sorted(zip(labels, samples)))
+
+    plot = stats_violinplot(consumptions, labels=labels, plot_opts={'label_rotation': 70})
+    axes = plt.gca()
+    axes.set_ylabel("Energy ({})".format(unit))
+    axes.spines['right'].set_visible(False)
+    axes.spines['left'].set_visible(False)
+    axes.spines['top'].set_visible(False)
+    axes.yaxis.grid(linestyle='dashed')
+    axes.yaxis.set_ticks_position('none') 
+
+    if title:
+        plt.title(title)
+    if options.get('save_fig'):
+        plt.gcf().tight_layout()
+        plt.savefig(options.get('save_fig'))
+    if options.get('show_fig'):
+        plt.show()
+
 
 def exit_gracefully(start_time):
     exit_time = time.time()
