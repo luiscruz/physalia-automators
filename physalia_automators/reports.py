@@ -241,7 +241,7 @@ def violinplot(*samples, **options):
         ]
     
     if sort:
-        labels, samples = zip(*sorted(zip(labels, samples)))
+        labels, samples = zip(*sorted(zip(labels, consumptions)))
 
     plot = stats_violinplot(consumptions, labels=labels, plot_opts={'label_rotation': 70})
     axes = plt.gca()
@@ -259,6 +259,39 @@ def violinplot(*samples, **options):
         plt.savefig(options.get('save_fig'))
     if options.get('show_fig'):
         plt.show()
+    
+    
+    index = range(len(consumptions))
+    means = [np.mean(sample) for sample in consumptions]
+    stds = [np.std(sample) for sample in consumptions]
+    fig, ax = plt.subplots(figsize=(6,3.5))
+    ax.bar(index, means, width=0.7, #yerr=stds,
+           capsize=5, alpha=0.5, edgecolor = 'k', linewidth=0.6,
+           zorder=0)
+    plt.errorbar(index, means, yerr=stds, zorder=5, capsize=3, linewidth=0.7, capthick=0.7, fmt='none')
+    parts = ax.violinplot(consumptions, index,
+                  showmeans=False, showextrema=False, showmedians=False)
+
+    for pc in parts['bodies']:
+        pc.set_facecolor('white')
+        pc.set_edgecolor('black')
+        pc.set_linewidth(0.6)
+
+        pc.set_alpha(0.7)
+#
+
+    ax.set_xticklabels(labels, rotation=70)
+    ax.set_xticks(range(len(labels)))
+    ax.tick_params(direction='out', top='off')
+    # ax.set_title("Number of projects by test framework")
+    ax.set_ylabel("Energy ({})".format(unit))
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.yaxis.grid(linestyle='dotted')
+
+    fig.tight_layout()
+    fig.savefig(options.get('save_fig'))
 
 
 def exit_gracefully(start_time):
