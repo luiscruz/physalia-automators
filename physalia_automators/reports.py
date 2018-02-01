@@ -150,7 +150,44 @@ def tool(results_input, results_output):
             plt.text(x, y, label, ha='center', va= 'bottom')
         figure.tight_layout()
         figure.savefig(results_output+"/frameworks/"+framework)
-
+    
+    # overall plot
+    fig, ax = plt.subplots(figsize=(5, 13))
+    for index, framework in enumerate(frameworks):
+        means = []
+        for interaction in use_case_categories:
+            use_case = "{}-{}".format(framework, interaction)
+            use_case_data = np.array(list(Measurement.get_entries_with_name(use_case, data)), dtype='float')
+            if len(use_case_data):
+                n_loop_iterations = _get_interactions_count(interaction)
+                mean = np.mean(use_case_data)/n_loop_iterations*1000
+            else:
+                mean = 0
+            means.append(mean)
+        means
+        width=0.105
+        plt.barh(
+            np.arange(len(use_case_categories))-(index+0.5-(len(frameworks))/2)*width,
+            means,
+            label=framework, height=width
+        )
+        # plt.scatter(range(len(frameworks)), means, marker='o', linewidth='1')
+    ax.set_yticklabels([name.replace('_', ' ').title() for name in use_case_categories])
+    ax.set_yticks(range(len(use_case_categories)))
+    ax.set_xlim(0, 2)
+    ax.set_xticks(np.arange(0, 2.1, 0.5))
+    ax.set_xticklabels(np.append(np.arange(0, 2.0, 0.5), '>2.0'))
+    ax.legend(loc='lower right', shadow=False)
+    ax.xaxis.grid(linestyle='dotted', color='gray')
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    ax.set_xlabel("Energy Consumption (mJ)")
+    fig.tight_layout()
+    fig.savefig(results_output + "/overall_results.pdf")
+    
+    
+    
 def _get_interactions_count(interaction_name):
     interaction_name = interaction_name.upper()
     return getattr(loop_count, interaction_name) * getattr(loop_count, interaction_name+"_UNIT")
