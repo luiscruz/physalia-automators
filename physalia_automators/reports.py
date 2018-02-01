@@ -172,7 +172,7 @@ def tool(results_input, results_output):
         figure.savefig(results_output+"/frameworks/"+framework)
     
     # overall plot
-    fig, ax = plt.subplots(figsize=(5, 13))
+    fig, ax = plt.subplots(figsize=(6.4, 13))
     for index, framework in enumerate(frameworks):
         means = []
         for interaction in use_case_categories:
