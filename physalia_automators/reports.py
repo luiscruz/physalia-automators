@@ -56,6 +56,7 @@ def tool(results_input, results_output):
         "back_button",
         "input_text",
     ]
+    summary_overheads = {}
     scores = defaultdict(lambda: 0)
     for use_case_category in use_case_categories:
         click.secho("----------------------------------------", fg="blue")
@@ -89,6 +90,8 @@ def tool(results_input, results_output):
                              loop_count=n_loop_iterations,
                              ranking=True, out=file,
                              table_fmt="latex", float_fmt='.3f', mili_joules=True)
+        # summary table
+        summary_overheads[use_case_category] = dict(zip(names, map(lambda row: row['Overhead'], table)))
         # Update Ranking
         for name, row in zip(names, table):
             scores[name] += (number_of_frameworks - row["Rank"])/float(number_of_frameworks)
@@ -96,15 +99,6 @@ def tool(results_input, results_output):
         with open(results_output+"/table_welchsttest_"+use_case_category+".tex", "w") as file:
             pairwise_welchs_ttest(*groups, names=names, out=file, table_fmt='latex')
 
-    # Ranking
-    click.secho("\nRanking".format(use_case_category), fg="blue")
-    sorted_scores = sorted(scores.items(), key=itemgetter(1), reverse=True)
-    with open(results_output+"/table_ranking.tex", "w") as file: 
-        file.write(
-            tabulate(sorted_scores, headers=["Framework", "Score"], tablefmt="latex",
-            floatfmt=".4f")
-        )
-    
     frameworks=[
         "AndroidViewClient",
         "Appium",
@@ -115,9 +109,35 @@ def tool(results_input, results_output):
         "Robotium",
         "UiAutomator",
     ]
+    
+    with open(results_output+"/overheads_summary.tex", "w") as file: 
+        old_escape_rules = T.LATEX_ESCAPE_RULES
+        T.LATEX_ESCAPE_RULES = {}
+        file.write((T.tabulate(
+            {
+                use_case.title().replace('_'," "): [row.get(framework, 'n.a.') for framework in frameworks]
+                for use_case, row in summary_overheads.items()
+            },
+            headers="keys", showindex=frameworks,
+            tablefmt="latex",
+        )))
+        T.LATEX_ESCAPE_RULES = old_escape_rules
+    
+        
+    # Ranking
+    click.secho("\nRanking".format(use_case_category), fg="blue")
+    sorted_scores = sorted(scores.items(), key=itemgetter(1), reverse=True)
+    with open(results_output+"/table_ranking.tex", "w") as file: 
+        file.write(
+            tabulate(sorted_scores, headers=["Framework", "Score"], tablefmt="latex",
+            floatfmt=".4f")
+        )
+    
+
     framework_results_dir = results_output+"/frameworks/"
     if not os.path.isdir(framework_results_dir):
         os.makedirs(framework_results_dir)
+        
     for framework in frameworks:
         means = []
         for interaction in use_case_categories:
@@ -150,6 +170,7 @@ def tool(results_input, results_output):
             plt.text(x, y, label, ha='center', va= 'bottom')
         figure.tight_layout()
         figure.savefig(results_output+"/frameworks/"+framework)
+        
 
 def _get_interactions_count(interaction_name):
     interaction_name = interaction_name.upper()
