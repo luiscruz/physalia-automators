@@ -45,9 +45,6 @@ def tool(results_input, results_output):
         os.makedirs(results_output)
 
     use_case_categories = [
-        "find_by_id",
-        "find_by_description",
-        "find_by_content",
         "tap",
         "long_tap",
         "dragndrop",
@@ -55,6 +52,9 @@ def tool(results_input, results_output):
         "pinch_and_spread",
         "back_button",
         "input_text",
+        "find_by_id",
+        "find_by_description",
+        "find_by_content",
     ]
     summary_overheads = {}
     scores = defaultdict(lambda: 0)
@@ -175,7 +175,7 @@ def tool(results_input, results_output):
     fig, ax = plt.subplots(figsize=(6.4, 13))
     for index, framework in enumerate(frameworks):
         means = []
-        for interaction in use_case_categories:
+        for interaction in use_case_categories[::-1]:
             use_case = "{}-{}".format(framework, interaction)
             use_case_data = np.array(list(Measurement.get_entries_with_name(use_case, data)), dtype='float')
             if len(use_case_data):
@@ -192,8 +192,9 @@ def tool(results_input, results_output):
             label=framework, height=width
         )
         # plt.scatter(range(len(frameworks)), means, marker='o', linewidth='1')
-    ax.set_yticklabels([name.replace('_', ' ').title() for name in use_case_categories])
+    ax.set_yticklabels([name.replace('_', ' ').title() for name in use_case_categories[::-1]])
     ax.set_yticks(range(len(use_case_categories)))
+    ax.set_ylim(-0.5, 9.5)
     ax.set_xlim(0, 2)
     ax.set_xticks(np.arange(0, 2.1, 0.5))
     ax.set_xticklabels(np.append(np.arange(0, 2.0, 0.5), '>2.0'))
