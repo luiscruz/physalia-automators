@@ -30,11 +30,14 @@ import tabulate as T
 
 from physalia_automators.constants import loop_count
 
+DARK_GREEN = "#009933"
+DARK_DARK_GREEN = "#004d00"
+
 @click.command()
 @click.option('-i','--results_input', default="results.csv", type=click.Path(dir_okay=False))
 @click.option('-o','--results_output', default="results", type=click.Path())
 def tool(results_input, results_output):
-    
+
     with open(results_input, 'rt') as csv_file:
         csv_reader = csv.reader(csv_file)
         data = []
@@ -81,15 +84,15 @@ def tool(results_input, results_output):
             *groups,
             save_fig=results_output+"/"+use_case_category+".pdf",
             names_dict=names_dict, sort=True,
-            millijoules=True
+            millijoules=False
         )
         n_loop_iterations = _get_interactions_count(use_case_category)
         # Descriptive statistics
-        with open(results_output+"/table_description_"+use_case_category+".tex", "w") as file: 
+        with open(results_output+"/table_description_"+use_case_category+".tex", "w") as file:
             table = describe(*groups, names=names,
                              loop_count=n_loop_iterations,
                              ranking=True, out=file,
-                             table_fmt="latex", float_fmt='.3f', mili_joules=True)
+                             table_fmt="latex", float_fmt='.3f', mili_joules=False)
         # summary table
         summary_overheads[use_case_category] = dict(zip(names, map(lambda row: row['Overhead'], table)))
         # Update Ranking
@@ -109,8 +112,8 @@ def tool(results_input, results_output):
         "Robotium",
         "UiAutomator",
     ]
-    
-    with open(results_output+"/overheads_summary.tex", "w") as file: 
+
+    with open(results_output+"/overheads_summary.tex", "w") as file:
         old_escape_rules = T.LATEX_ESCAPE_RULES
         T.LATEX_ESCAPE_RULES = {}
         file.write((T.tabulate(
@@ -122,22 +125,22 @@ def tool(results_input, results_output):
             tablefmt="latex",
         )))
         T.LATEX_ESCAPE_RULES = old_escape_rules
-    
-        
+
+
     # Ranking
     click.secho("\nRanking".format(use_case_category), fg="blue")
     sorted_scores = sorted(scores.items(), key=itemgetter(1), reverse=True)
-    with open(results_output+"/table_ranking.tex", "w") as file: 
+    with open(results_output+"/table_ranking.tex", "w") as file:
         file.write(
             tabulate(sorted_scores, headers=["Framework", "Score"], tablefmt="latex",
             floatfmt=".4f")
         )
-    
+
 
     framework_results_dir = results_output+"/frameworks/"
     if not os.path.isdir(framework_results_dir):
         os.makedirs(framework_results_dir)
-        
+
     for framework in frameworks:
         means = []
         for interaction in use_case_categories:
@@ -161,8 +164,8 @@ def tool(results_input, results_output):
         axes = figure.gca()
         axes.set_xticks(X)
         axes.set_xticklabels([name.replace("_", " ").title() for name in names], rotation = 'vertical')
-        axes.set_ylabel("Energy Consumption (mJ)")
-                
+        axes.set_ylabel("Energy Consumption (J)")
+
         figure.subplots_adjust(bottom=0.31)
 
         bar_labels = [y==0 and "n.a." or format(y, ".2f") for y in Y]
@@ -170,7 +173,7 @@ def tool(results_input, results_output):
             plt.text(x, y, label, ha='center', va= 'bottom')
         figure.tight_layout()
         figure.savefig(results_output+"/frameworks/"+framework)
-    
+
     # overall plot
     fig, ax = plt.subplots(figsize=(6.4, 11))
     for index, framework in enumerate(frameworks):
@@ -203,11 +206,11 @@ def tool(results_input, results_output):
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
     ax.spines['bottom'].set_visible(False)
-    ax.set_xlabel("Energy Consumption (mJ)")
+    ax.set_xlabel("Energy Consumption (J)")
     fig.tight_layout()
     fig.savefig(results_output + "/overall_results.pdf")
-    
-    
+
+
 
 def _get_interactions_count(interaction_name):
     interaction_name = interaction_name.upper()
@@ -228,21 +231,21 @@ def describe(*samples, **options):
         for sample in consumption_samples:
             sample *= 1000
         unit= 'mJ'
-    else:    
+    else:
         unit = 'J'
     samples_means = np.array([np.mean(sample) for sample in consumption_samples])
 
     order = samples_means.argsort()
     ranking = order.argsort()
-    
+
     durations = [
         np.mean([measurement.duration for measurement in sample])
         for sample in samples
     ]
-    
+
     best_framework_index = np.where(ranking == 0)[0][0]
     baseline = np.mean(consumption_samples[best_framework_index])
-    
+
     table = list()
     for index, sample in enumerate(consumption_samples):
         mean = np.mean(sample)
@@ -254,7 +257,7 @@ def describe(*samples, **options):
         if loop_count:
             #row["Iter."] = loop_count
             row["Sg ({})".format(unit)] = mean/loop_count
-        #duration    
+        #duration
         row["$\\Delta t$ (s)"] = durations[index]
         cost_idle_power = 0.0933
         # row["$\\bar{{x'}}$ (mJ)"] = mean - durations[index]*cost_idle_power
@@ -284,7 +287,7 @@ def violinplot(*samples, **options):
         for sample in consumptions:
             sample *= 1000
         unit= 'mJ'
-    else:    
+    else:
         unit = 'J'
 
     if names_dict:
@@ -297,7 +300,7 @@ def violinplot(*samples, **options):
             sample and sample[0].use_case.title().replace('_', ' ')
             for sample in samples
         ]
-    
+
     if sort:
         labels, samples = zip(*sorted(zip(labels, consumptions)))
 
@@ -308,7 +311,7 @@ def violinplot(*samples, **options):
     axes.spines['left'].set_visible(False)
     axes.spines['top'].set_visible(False)
     axes.yaxis.grid(linestyle='dashed')
-    axes.yaxis.set_ticks_position('none') 
+    axes.yaxis.set_ticks_position('none')
 
     if title:
         plt.title(title)
@@ -317,14 +320,17 @@ def violinplot(*samples, **options):
         plt.savefig(options.get('save_fig'))
     if options.get('show_fig'):
         plt.show()
-    
-    
+
+
     index = range(len(consumptions))
     means = [np.mean(sample) for sample in consumptions]
     stds = [np.std(sample) for sample in consumptions]
     fig, ax = plt.subplots(figsize=(6,3.5))
+    from cycler import cycler
+    ax.set_prop_cycle(cycler(color=[DARK_DARK_GREEN, 'r']))
+
     ax.bar(index, means, width=0.7, #yerr=stds,
-           capsize=5, alpha=0.5, edgecolor = 'k', linewidth=0.6,
+           capsize=5, alpha=0.5, color=DARK_GREEN, edgecolor='k', linewidth=0.6,
            zorder=0)
     plt.errorbar(index, means, yerr=stds, zorder=5, capsize=3, linewidth=0.7, capthick=0.7, fmt='none')
     parts = ax.violinplot(consumptions, index,
@@ -336,7 +342,6 @@ def violinplot(*samples, **options):
         pc.set_linewidth(0.6)
 
         pc.set_alpha(0.7)
-#
 
     ax.set_xticklabels(labels, rotation=70)
     ax.set_xticks(range(len(labels)))
