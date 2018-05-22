@@ -183,7 +183,7 @@ def tool(results_input, results_output):
             use_case_data = np.array(list(Measurement.get_entries_with_name(use_case, data)), dtype='float')
             if len(use_case_data):
                 n_loop_iterations = _get_interactions_count(interaction)
-                mean = np.mean(use_case_data)/n_loop_iterations*1000
+                mean = np.mean(use_case_data)/n_loop_iterations
             else:
                 mean = 0
             means.append(mean)
