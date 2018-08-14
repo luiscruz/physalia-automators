@@ -47,6 +47,16 @@ def tool(results_input, results_output):
     if not os.path.isdir(results_output):
         os.makedirs(results_output)
 
+    # calculate idle cost
+    IDLE_COST_CSV = "./experiments_part_2/results_idle_time.csv"
+    with open(IDLE_COST_CSV, 'rt') as csv_file:
+        csv_reader = csv.reader(csv_file)
+        idle_data = []
+        for row in list(csv_reader)[1:]:
+            idle_data.append(float(row[6])/float(row[5])) #energy/delta_time
+    global IDLE_COST
+    IDLE_COST = np.mean(idle_data)
+
     use_case_categories = [
         "tap",
         "long_tap",
@@ -254,13 +264,13 @@ def describe(*samples, **options):
             ("$\\bar{{x}}$ ({})".format(unit),  mean),
             ("$s$",  np.std(sample)),
         ))
+        #duration
+        row["$\\Delta t$ (s)"] = durations[index]
+        # row["$\\bar{{x'}}$ (mJ)"] = mean - durations[index]*IDLE_COST
+        row["Idle (J)"] = IDLE_COST * durations[index]
         if loop_count:
             #row["Iter."] = loop_count
             row["Sg ({})".format(unit)] = mean/loop_count
-        #duration
-        row["$\\Delta t$ (s)"] = durations[index]
-        cost_idle_power = 0.0933
-        # row["$\\bar{{x'}}$ (mJ)"] = mean - durations[index]*cost_idle_power
         row["Rank"] = int(ranking[index]+1)
         if row["Rank"] == 1 and table_fmt=='latex':
             names[index] = "\\textbf{"+names[index]+"}"
