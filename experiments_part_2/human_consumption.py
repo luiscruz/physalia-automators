@@ -60,6 +60,16 @@ def experiment(count, output, duration, interaction):
             click.secho(textwrap.fill(
                 "Please, click on back button 200 times."
             ),fg='green',blink=True, bold=True)
+        elif interaction == "pinch_and_spread":
+            click.secho(textwrap.fill(
+                "In paint area, perform a pinch in followed by a pinch out. "
+                "Repeat this procedure for 40 times."
+            ),fg='green',blink=True, bold=True)
+        elif interaction == "input":
+            click.secho(textwrap.fill(
+                "Please, fill the text field with 'Physalia says hi!', "
+                "then clear the field and repeat this for 10 times."
+            ),fg='green',blink=True, bold=True)
         click.pause(info="Press any key to start ...",)
     
     def cleanup(use_case):
