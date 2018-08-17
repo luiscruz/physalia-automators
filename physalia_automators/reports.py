@@ -43,19 +43,9 @@ def tool(results_input, results_output):
         data = []
         for row in csv_reader:
             # row[6] = float(row[6])*1000 # convert to mJ
-            data.append(Measurement(*row))
+            data.append(Measurement(*row[:7]))
     if not os.path.isdir(results_output):
         os.makedirs(results_output)
-
-    # calculate idle cost
-    IDLE_COST_CSV = "./experiments_part_2/results_idle_time.csv"
-    with open(IDLE_COST_CSV, 'rt') as csv_file:
-        csv_reader = csv.reader(csv_file)
-        idle_data = []
-        for row in list(csv_reader)[1:]:
-            idle_data.append(float(row[6])/float(row[5])) #energy/delta_time
-    global IDLE_COST
-    IDLE_COST = np.mean(idle_data)
 
     use_case_categories = [
         "tap",
@@ -69,6 +59,18 @@ def tool(results_input, results_output):
         "find_by_description",
         "find_by_content",
     ]
+    
+    # # collect human experiments data
+    #
+    # with open(results_input, 'rt') as csv_file:
+    #     csv_reader = csv.reader(csv_file)
+    #     human_data = []
+    #     for row in csv_reader:
+    #         # row[6] = float(row[6])*1000 # convert to mJ
+    #         data.append(Measurement(*row))
+    
+    
+    
     summary_overheads = {}
     scores = defaultdict(lambda: 0)
     for use_case_category in use_case_categories:
@@ -88,12 +90,18 @@ def tool(results_input, results_output):
         names = [
             name.replace("-"+use_case_category, "") for name in unique_use_cases
         ]
-        names, groups = zip(*sorted(zip(names, groups)))
+        def custom_sort_key(a):
+            name,_ = a
+            if name == "Human":
+                return 0
+            return name
+                
+        names, groups = zip(*sorted(zip(names, groups), key=custom_sort_key))
         title = use_case_category.title().replace('_'," ")
         violinplot(
             *groups,
             save_fig=results_output+"/"+use_case_category+".pdf",
-            names_dict=names_dict, sort=True,
+            names_dict=names_dict,
             millijoules=False
         )
         n_loop_iterations = _get_interactions_count(use_case_category)
@@ -264,13 +272,13 @@ def describe(*samples, **options):
             ("$\\bar{{x}}$ ({})".format(unit),  mean),
             ("$s$",  np.std(sample)),
         ))
-        #duration
-        row["$\\Delta t$ (s)"] = durations[index]
-        # row["$\\bar{{x'}}$ (mJ)"] = mean - durations[index]*IDLE_COST
-        row["Idle (J)"] = IDLE_COST * durations[index]
         if loop_count:
             #row["Iter."] = loop_count
             row["Sg ({})".format(unit)] = mean/loop_count
+        #duration
+        row["$\\Delta t$ (s)"] = durations[index]
+        cost_idle_power = 0.0933
+        # row["$\\bar{{x'}}$ (mJ)"] = mean - durations[index]*cost_idle_power
         row["Rank"] = int(ranking[index]+1)
         if row["Rank"] == 1 and table_fmt=='latex':
             names[index] = "\\textbf{"+names[index]+"}"
@@ -289,16 +297,9 @@ def violinplot(*samples, **options):
     """Create violin plot for a set of measurement samples."""
     names_dict = options.get("names_dict")
     title = options.get("title")
-    sort = options.get("sort")
-    millijoules = options.get("millijoules")
 
     consumptions = [np.array(sample, dtype='float') for sample in samples]
-    if millijoules:
-        for sample in consumptions:
-            sample *= 1000
-        unit= 'mJ'
-    else:
-        unit = 'J'
+    unit = 'J'
 
     if names_dict:
         labels = [
@@ -310,9 +311,6 @@ def violinplot(*samples, **options):
             sample and sample[0].use_case.title().replace('_', ' ')
             for sample in samples
         ]
-
-    if sort:
-        labels, samples = zip(*sorted(zip(labels, consumptions)))
 
     plot = stats_violinplot(consumptions, labels=labels, plot_opts={'label_rotation': 70})
     axes = plt.gca()
@@ -339,9 +337,14 @@ def violinplot(*samples, **options):
     from cycler import cycler
     ax.set_prop_cycle(cycler(color=[DARK_DARK_GREEN, 'r']))
 
-    ax.bar(index, means, width=0.7, #yerr=stds,
+    bars = ax.bar(index, means, width=0.7, #yerr=stds,
            capsize=5, alpha=0.5, color=DARK_GREEN, edgecolor='k', linewidth=0.6,
            zorder=0)
+    # Highlight human results
+    if labels[0] == "Human":
+        bars[0].set_facecolor('yellow')
+        plt.axhline(y=means[0], color=DARK_GREEN, linestyle='--', linewidth=0.6)
+    
     plt.errorbar(index, means, yerr=stds, zorder=5, capsize=3, linewidth=0.7, capthick=0.7, fmt='none')
     parts = ax.violinplot(consumptions, index,
                   showmeans=False, showextrema=False, showmedians=False)
