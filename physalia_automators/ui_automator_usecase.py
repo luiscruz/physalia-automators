@@ -3,8 +3,8 @@
 # adb shell am instrument -w  com.example.android.testing.uiautomator.BasicSample.test/android.support.test.runner.AndroidJUnitRunner
 
 from physalia.energy_profiler import AndroidUseCase
-from utils import minimum_execution_time
-import time_boundaries
+from .utils import minimum_execution_time
+from . import time_boundaries
 import subprocess
 import click
 
@@ -56,7 +56,7 @@ class UiAutomatorUseCase(AndroidUseCase):
     def _run(self):
         @minimum_execution_time(seconds=self.minimum_execution_time)
         def launch_ui_automator():
-            print subprocess.check_output(
+            print(subprocess.check_output(
                 "adb shell am instrument -w -r -e debug false -e class {test_class}#{test_method} "
                 "{test_pkg}/android.support.test.runner.AndroidJUnitRunner".format(
                     test_class=self.test_class,
@@ -64,7 +64,7 @@ class UiAutomatorUseCase(AndroidUseCase):
                     test_pkg=self.test_pkg
                 ),
                 shell=True
-            )
+            ))
         launch_ui_automator()
         
 

@@ -3,7 +3,7 @@
 # adb shell am instrument -w  com.example.android.testing.uiautomator.BasicSample.test/android.support.test.runner.AndroidJUnitRunner
 
 import os
-import time_boundaries
+from . import time_boundaries
 import subprocess
 import click
 from physalia.energy_profiler import AndroidUseCase
@@ -66,7 +66,7 @@ class EspressoUseCase(AndroidUseCase):
                 shell=True
             )
             if "OK (1 test)" not in out:
-                print out
+                print(out)
         launch_espresso()
         
 

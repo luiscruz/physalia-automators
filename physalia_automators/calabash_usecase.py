@@ -9,8 +9,8 @@ import subprocess
 import click
 from whichcraft import which
 from physalia.energy_profiler import AndroidUseCase
-from utils import minimum_execution_time
-import time_boundaries
+from .utils import minimum_execution_time
+from . import time_boundaries
 
 
 class CalabashUseCase(AndroidUseCase):
@@ -42,7 +42,7 @@ class CalabashUseCase(AndroidUseCase):
         @minimum_execution_time(seconds=self.minimum_execution_time)
         def launch_calabash():
             try:
-                print subprocess.check_output(
+                print(subprocess.check_output(
                     "calabash-android run ../../{apk} "
                     "features/{feature}"
                     " --name \"{scenario}\"".format(
@@ -52,10 +52,10 @@ class CalabashUseCase(AndroidUseCase):
                     ),
                     cwd="./physalia_automators/calabash-ruby/",
                     shell=True
-                )
+                ))
             except subprocess.CalledProcessError as e:
                 click.secho(str(e), fg='red')
-                print e.output
+                print(e.output)
         launch_calabash()
     
     @staticmethod

@@ -2,8 +2,8 @@
 
 from physalia.energy_profiler import AndroidUseCase
 from physalia.exceptions import PhysaliaExecutionFailed
-from utils import minimum_execution_time, get_path
-import time_boundaries
+from .utils import minimum_execution_time, get_path
+from . import time_boundaries
 import subprocess
 import click
 
@@ -63,7 +63,7 @@ class RobotiumUseCase(AndroidUseCase):
                 ),
                 shell=True
             )
-            print output
+            print(output)
             if "INSTRUMENTATION_FAILED" in output:
                 raise PhysaliaExecutionFailed
         launch_espresso()

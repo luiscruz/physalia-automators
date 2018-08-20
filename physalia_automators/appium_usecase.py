@@ -6,9 +6,9 @@ from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
 import click
 from physalia.energy_profiler import AndroidUseCase
-from utils import minimum_execution_time
-import time_boundaries
-from constants import loop_count
+from .utils import minimum_execution_time
+from . import time_boundaries
+from .constants import loop_count
 
 import os
 PATH = lambda p: os.path.abspath(
@@ -374,7 +374,7 @@ def run_pinch_and_spread(use_case):
 
     @minimum_execution_time(seconds=time_boundaries.PINCH_AND_SPREAD)
     def simple_routine():
-        print dir(use_case.paint)
+        print(dir(use_case.paint))
         for _ in range(loop_count.PINCH_AND_SPREAD):
             pinch(use_case.paint.id)
             zoom(use_case.paint.id)
