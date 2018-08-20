@@ -32,6 +32,7 @@ from physalia_automators.constants import loop_count
 
 DARK_GREEN = "#009933"
 DARK_DARK_GREEN = "#004d00"
+LIGHT_GREEN = "#80ff80"
 
 @click.command()
 @click.option('-i','--results_input', default="results.csv", type=click.Path(dir_okay=False))
@@ -46,6 +47,17 @@ def tool(results_input, results_output):
             data.append(Measurement(*row[:7]))
     if not os.path.isdir(results_output):
         os.makedirs(results_output)
+
+    # calculate idle cost
+    IDLE_COST_CSV = "./experiments_part_2/results_idle_time.csv"
+    with open(IDLE_COST_CSV, 'rt') as csv_file:
+        csv_reader = csv.reader(csv_file)
+        idle_data = []
+        for row in list(csv_reader)[1:]:
+            idle_data.append(float(row[6])/float(row[5])) #energy/delta_time
+    global IDLE_COST
+    IDLE_COST = np.mean(idle_data)
+    click.secho('Idle cost: {}'.format(IDLE_COST))
 
     use_case_categories = [
         "tap",
@@ -110,7 +122,7 @@ def tool(results_input, results_output):
             table = describe(*groups, names=names,
                              loop_count=n_loop_iterations,
                              ranking=True, out=file,
-                             table_fmt="latex", float_fmt='.3f', mili_joules=False)
+                             table_fmt="latex", float_fmt='.2f', mili_joules=False)
         # summary table
         summary_overheads[use_case_category] = dict(zip(names, map(lambda row: row['Overhead'], table)))
         # Update Ranking
@@ -277,8 +289,11 @@ def describe(*samples, **options):
             row["Sg ({})".format(unit)] = mean/loop_count
         #duration
         row["$\\Delta t$ (s)"] = durations[index]
-        cost_idle_power = 0.0933
-        # row["$\\bar{{x'}}$ (mJ)"] = mean - durations[index]*cost_idle_power
+        row["$\\bar{{x}}'$ (mJ)"] = mean - durations[index]*IDLE_COST
+        if row["$\\bar{{x}}'$ (mJ)"] <= 0 :
+            click.secho("WARNING: negative consumption for {}.".format(names[index]), fg='yellow')
+            # import pdb; pdb.set_trace()
+        row["Idle (J)"] = IDLE_COST * durations[index]
         row["Rank"] = int(ranking[index]+1)
         if row["Rank"] == 1 and table_fmt=='latex':
             names[index] = "\\textbf{"+names[index]+"}"
@@ -299,6 +314,7 @@ def violinplot(*samples, **options):
     title = options.get("title")
 
     consumptions = [np.array(sample, dtype='float') for sample in samples]
+    durations = np.array([np.mean([measurement.duration for measurement in sample]) for sample in samples])
     unit = 'J'
 
     if names_dict:
@@ -333,28 +349,32 @@ def violinplot(*samples, **options):
     index = range(len(consumptions))
     means = [np.mean(sample) for sample in consumptions]
     stds = [np.std(sample) for sample in consumptions]
+    means_without_idle_cost = means - IDLE_COST*durations
     fig, ax = plt.subplots(figsize=(6,3.5))
     from cycler import cycler
     ax.set_prop_cycle(cycler(color=[DARK_DARK_GREEN, 'r']))
 
     bars = ax.bar(index, means, width=0.7, #yerr=stds,
-           capsize=5, alpha=0.5, color=DARK_GREEN, edgecolor='k', linewidth=0.6,
+           capsize=5, color='white', edgecolor='gray', linewidth=0.6,
            zorder=0)
+    bars = ax.bar(index, means_without_idle_cost, width=0.7, #yerr=stds,
+           capsize=5, alpha=0.5, color=DARK_GREEN, edgecolor='gray', linewidth=0.6,
+           zorder=1)
     # Highlight human results
     if labels[0] == "Human":
         bars[0].set_facecolor('yellow')
-        plt.axhline(y=means[0], color=DARK_GREEN, linestyle='--', linewidth=0.6)
+        plt.axhline(y=means_without_idle_cost[0], color='gray', linestyle='--', linewidth=0.6)
     
     plt.errorbar(index, means, yerr=stds, zorder=5, capsize=3, linewidth=0.7, capthick=0.7, fmt='none')
     parts = ax.violinplot(consumptions, index,
                   showmeans=False, showextrema=False, showmedians=False)
 
     for pc in parts['bodies']:
-        pc.set_facecolor('white')
+        pc.set_facecolor(DARK_GREEN)
         pc.set_edgecolor('black')
         pc.set_linewidth(0.6)
 
-        pc.set_alpha(0.7)
+        pc.set_alpha(0.4)
 
     ax.set_xticklabels(labels, rotation=70)
     ax.set_xticks(range(len(labels)))
