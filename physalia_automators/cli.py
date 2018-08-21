@@ -114,7 +114,7 @@ def evaluate_platform(use_cases, power_meter, count, output):
 
 def get_number_of_rows_for_key(key, filename):
     """Get number of elements for a given usecase name."""
-    with open(filename, 'rb') as csvfile:
+    with open(filename, 'r') as csvfile:
         csv_reader = csv.reader(csvfile)
         return len([None for row in csv_reader if row[COLUMN_USE_CASE] == key])
         
