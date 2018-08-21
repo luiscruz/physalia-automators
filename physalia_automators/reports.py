@@ -52,12 +52,15 @@ def tool(results_input, results_output):
     IDLE_COST_CSV = "./experiments_part_2/results_idle_time.csv"
     with open(IDLE_COST_CSV, 'rt') as csv_file:
         csv_reader = csv.reader(csv_file)
-        idle_data = []
+        idle_cost_data = []
+        idle_cost_total_data = []
         for row in list(csv_reader)[1:]:
-            idle_data.append(float(row[6])/float(row[5])) #energy/delta_time
+            idle_cost_total_data.append(float(row[6]))
+            idle_cost_data.append(float(row[6])/float(row[5])) #energy/delta_time
     global IDLE_COST
-    IDLE_COST = np.mean(idle_data)
+    IDLE_COST = np.mean(idle_cost_data)
     click.secho('Idle cost: {}'.format(IDLE_COST))
+    click.secho('Idle coconsumption for 120 seconds: {}'.format(np.mean(idle_cost_total_data)))
 
     use_case_categories = [
         "tap",
@@ -107,7 +110,6 @@ def tool(results_input, results_output):
             if name == "Human":
                 return 0
             return name
-                
         names, groups = zip(*sorted(zip(names, groups), key=custom_sort_key))
         title = use_case_category.title().replace('_'," ")
         violinplot(
@@ -305,15 +307,10 @@ def describe(*samples, **options):
         # row["Idle (J)"] = IDLE_COST * durations[index]
         if loop_count:
             #row["Iter."] = loop_count
-            row["Sg ({})".format(unit)] = mean/loop_count
+            row["Sg ({})".format(unit)] = mean_without_idle_cost/loop_count
 
         #duration
         row["$\\Delta t$ (s)"] = durations[index]
-        row["$\\bar{{x}}'$ (mJ)"] = mean - durations[index]*IDLE_COST
-        if row["$\\bar{{x}}'$ (mJ)"] <= 0 :
-            click.secho("WARNING: negative consumption for {}.".format(names[index]), fg='yellow')
-            # import pdb; pdb.set_trace()
-        row["Idle (J)"] = IDLE_COST * durations[index]
         row["Rank"] = int(ranking[index]+1)
         if row["Rank"] == 1 and table_fmt=='latex':
             names_formatted[index] = "\\textbf{"+names[index]+"}"
