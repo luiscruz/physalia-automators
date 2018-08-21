@@ -203,6 +203,7 @@ def tool(results_input, results_output):
             plt.text(x, y, label, ha='center', va= 'bottom')
         figure.tight_layout()
         figure.savefig(results_output+"/frameworks/"+framework)
+        plt.close()
 
     # overall plot
     fig, ax = plt.subplots(figsize=(6.4, 11))
@@ -239,6 +240,7 @@ def tool(results_input, results_output):
     ax.set_xlabel("Energy Consumption (J)")
     fig.tight_layout()
     fig.savefig(results_output + "/overall_results.pdf")
+    plt.close()
 
 
 
@@ -250,11 +252,12 @@ def _get_interactions_count(interaction_name):
 def describe(*samples, **options):
     """Create table with statistic summary of samples."""
     loop_count = options.get("loop_count")
-    names = list(options.get("names"))
+    names = list(options["names"])
     out = options.get('out', sys.stdout)
     table_fmt = options.get("table_fmt", "grid")
     float_fmt = options.get("float_fmt", "")
     mili_joules = options.get("mili_joules")
+    overhead = options.get("overhead", True)
 
     consumption_samples = [np.array(sample, dtype='float') for sample in samples]
     if mili_joules:
@@ -273,9 +276,13 @@ def describe(*samples, **options):
         for sample in samples
     ]
 
-    best_framework_index = np.where(ranking == 0)[0][0]
-    baseline = np.mean(consumption_samples[best_framework_index])
-
+    # best_framework_index = np.where(ranking == 0)[0][0]
+    # baseline = np.mean(consumption_samples[best_framework_index])
+    
+    #human
+    baseline_wihtout_idle_cost = samples_means[0] - durations[0]*IDLE_COST
+    #
+    
     table = list()
     for index, sample in enumerate(consumption_samples):
         mean = np.mean(sample)
@@ -284,22 +291,24 @@ def describe(*samples, **options):
             ("$\\bar{{x}}$ ({})".format(unit),  mean),
             ("$s$",  np.std(sample)),
         ))
+        #duration
+        row["$\\Delta t$ (s)"] = durations[index]
+        mean_without_idle_cost = mean - durations[index]*IDLE_COST
+        row["$\\bar{{x}}'$ (J)"] = mean_without_idle_cost
+        if mean_without_idle_cost <= 0 :
+            click.secho("WARNING: negative consumption for {}.".format(names[index]), fg='yellow')
+            # import pdb; pdb.set_trace()
+        # row["Idle (J)"] = IDLE_COST * durations[index]
         if loop_count:
             #row["Iter."] = loop_count
             row["Sg ({})".format(unit)] = mean/loop_count
-        #duration
-        row["$\\Delta t$ (s)"] = durations[index]
-        row["$\\bar{{x}}'$ (mJ)"] = mean - durations[index]*IDLE_COST
-        if row["$\\bar{{x}}'$ (mJ)"] <= 0 :
-            click.secho("WARNING: negative consumption for {}.".format(names[index]), fg='yellow')
-            # import pdb; pdb.set_trace()
-        row["Idle (J)"] = IDLE_COST * durations[index]
         row["Rank"] = int(ranking[index]+1)
         if row["Rank"] == 1 and table_fmt=='latex':
             names[index] = "\\textbf{"+names[index]+"}"
-        row["Overhead"] = "{:.1f}\\%".format((mean / baseline - 1)*100)
-        if row["Overhead"] == "0.0\\%":
-            row["Overhead"] = "---"
+        if names[0] == "Human":
+            row["Overhead"] = "{:.1f}\\%".format((mean_without_idle_cost / baseline_wihtout_idle_cost - 1)*100)
+            if row["Overhead"] == "0.0\\%":
+                row["Overhead"] = "---"
         table.append(row)
     old_escape_rules = T.LATEX_ESCAPE_RULES
     T.LATEX_ESCAPE_RULES = {}
@@ -327,7 +336,6 @@ def violinplot(*samples, **options):
             sample and sample[0].use_case.title().replace('_', ' ')
             for sample in samples
         ]
-
     plot = stats_violinplot(consumptions, labels=labels, plot_opts={'label_rotation': 70})
     axes = plt.gca()
     axes.set_ylabel("Energy ({})".format(unit))
@@ -342,6 +350,7 @@ def violinplot(*samples, **options):
     if options.get('save_fig'):
         plt.gcf().tight_layout()
         plt.savefig(options.get('save_fig'))
+        plt.close()
     if options.get('show_fig'):
         plt.show()
 
@@ -388,6 +397,7 @@ def violinplot(*samples, **options):
 
     fig.tight_layout()
     fig.savefig(options.get('save_fig'))
+    plt.close()
 
 
 def exit_gracefully(start_time):
