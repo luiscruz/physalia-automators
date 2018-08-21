@@ -124,7 +124,11 @@ def tool(results_input, results_output):
                              ranking=True, out=file,
                              table_fmt="latex", float_fmt='.2f', mili_joules=False)
         # summary table
-        summary_overheads[use_case_category] = dict(zip(names, map(lambda row: row['Overhead'], table)))
+        if use_case_category not in ["find_by_id",
+                                     "find_by_description",
+                                     "find_by_content"]:
+
+            summary_overheads[use_case_category] = dict(zip(names, map(lambda row: row['Overhead'], table)))
         # Update Ranking
         for name, row in zip(names, table):
             scores[name] += (number_of_frameworks - row["Rank"])/float(number_of_frameworks)
@@ -253,11 +257,11 @@ def describe(*samples, **options):
     """Create table with statistic summary of samples."""
     loop_count = options.get("loop_count")
     names = list(options["names"])
+    names_formatted = list(names)
     out = options.get('out', sys.stdout)
     table_fmt = options.get("table_fmt", "grid")
     float_fmt = options.get("float_fmt", "")
     mili_joules = options.get("mili_joules")
-    overhead = options.get("overhead", True)
 
     consumption_samples = [np.array(sample, dtype='float') for sample in samples]
     if mili_joules:
@@ -280,7 +284,7 @@ def describe(*samples, **options):
     # baseline = np.mean(consumption_samples[best_framework_index])
     
     #human
-    baseline_wihtout_idle_cost = samples_means[0] - durations[0]*IDLE_COST
+    baseline_without_idle_cost = samples_means[0] - durations[0]*IDLE_COST
     #
     
     table = list()
@@ -302,17 +306,25 @@ def describe(*samples, **options):
         if loop_count:
             #row["Iter."] = loop_count
             row["Sg ({})".format(unit)] = mean/loop_count
+
+        #duration
+        row["$\\Delta t$ (s)"] = durations[index]
+        row["$\\bar{{x}}'$ (mJ)"] = mean - durations[index]*IDLE_COST
+        if row["$\\bar{{x}}'$ (mJ)"] <= 0 :
+            click.secho("WARNING: negative consumption for {}.".format(names[index]), fg='yellow')
+            # import pdb; pdb.set_trace()
+        row["Idle (J)"] = IDLE_COST * durations[index]
         row["Rank"] = int(ranking[index]+1)
         if row["Rank"] == 1 and table_fmt=='latex':
-            names[index] = "\\textbf{"+names[index]+"}"
+            names_formatted[index] = "\\textbf{"+names[index]+"}"
         if names[0] == "Human":
-            row["Overhead"] = "{:.1f}\\%".format((mean_without_idle_cost / baseline_wihtout_idle_cost - 1)*100)
+            row["Overhead"] = "{:.1f}\\%".format((mean_without_idle_cost / baseline_without_idle_cost - 1)*100)
             if row["Overhead"] == "0.0\\%":
                 row["Overhead"] = "---"
         table.append(row)
     old_escape_rules = T.LATEX_ESCAPE_RULES
     T.LATEX_ESCAPE_RULES = {}
-    out.write(T.tabulate(table, headers='keys', tablefmt=table_fmt, floatfmt=float_fmt, showindex=names).replace('rl}', 'rr}'))
+    out.write(T.tabulate(table, headers='keys', tablefmt=table_fmt, floatfmt=float_fmt, showindex=names_formatted).replace('rl}', 'rr}'))
     T.LATEX_ESCAPE_RULES = old_escape_rules
     out.write("\n")
     return table
