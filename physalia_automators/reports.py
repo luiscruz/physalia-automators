@@ -164,7 +164,7 @@ def tool(results_input, results_output):
 
 
     # Ranking
-    click.secho("\nRanking".format(use_case_category), fg="blue")
+    click.secho("\nRanking {}".format(use_case_category), fg="blue")
     sorted_scores = sorted(scores.items(), key=itemgetter(1), reverse=True)
     with open(results_output+"/table_ranking.tex", "w") as file:
         file.write(
@@ -274,13 +274,15 @@ def describe(*samples, **options):
         unit = 'J'
     samples_means = np.array([np.mean(sample) for sample in consumption_samples])
 
-    order = samples_means.argsort()
-    ranking = order.argsort()
 
     durations = [
         np.mean([measurement.duration for measurement in sample])
         for sample in samples
     ]
+    samples_means_without_idle_cost = np.array(samples_means) - np.array(durations)*IDLE_COST
+
+    order = samples_means_without_idle_cost.argsort()
+    ranking = order.argsort()
 
     # best_framework_index = np.where(ranking == 0)[0][0]
     # baseline = np.mean(consumption_samples[best_framework_index])
