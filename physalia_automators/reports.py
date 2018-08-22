@@ -307,7 +307,7 @@ def describe(*samples, **options):
         # row["Idle (J)"] = IDLE_COST * durations[index]
         if loop_count:
             #row["Iter."] = loop_count
-            row["Sg ({})".format(unit)] = mean_without_idle_cost/loop_count
+            row["Sg (mJ)"] = mean_without_idle_cost/loop_count*1000
 
         #duration
         row["$\\Delta t$ (s)"] = durations[index]

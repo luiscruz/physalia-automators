@@ -52,7 +52,7 @@ class RobotiumUseCase(AndroidUseCase):
     
     def _run(self):
         @minimum_execution_time(seconds=self.minimum_execution_time)
-        def launch_espresso():
+        def launch_instrumentation():
             output = subprocess.check_output(
                 "adb shell am instrument -w -r -e debug false "
                 "-e class {test_class}#{test_method} {test_pkg}/"
@@ -62,13 +62,13 @@ class RobotiumUseCase(AndroidUseCase):
                     test_pkg=self.test_pkg
                 ),
                 shell=True
-            )
+            ).decode()
             print(output)
             if "INSTRUMENTATION_FAILED" in output:
                 raise PhysaliaExecutionFailed
-        launch_espresso()
+        launch_instrumentation()
 
-APK = get_path("../apks/testapp-debug.apk")
+APK = get_path("../apks/RobotiumTest.apk")
 APP_PKG = "com.tqrg.physalia.testapp"
 APP_VERSION = "0.01"
 TEST_APK = get_path("../apks/RobotiumTest_routines.apk")

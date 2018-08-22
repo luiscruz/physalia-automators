@@ -19,7 +19,7 @@ APP_VERSION = "0.01"
 
 @click.command()
 @click.option('--count', default=30, type=click.IntRange(min=1))
-@click.option('--output', default="results_idle_cost.csv", type=click.Path(dir_okay=False))
+@click.option('--output', default="results_idle_time.csv", type=click.Path(dir_okay=False))
 def experiment(count, output):
     """Run idle time experiment."""
 
