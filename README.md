@@ -1,5 +1,8 @@
-# physalia-automators
-Project to compare UI Automated interaction frameworks using Physalia
+# On the Energy Footprint of Mobile Testing Frameworks
+
+Project to compare UI Automated interaction frameworks.
+
+**Submitted to the IEEE Transactions on Software Engineering**
 
 ### Requirements
 
