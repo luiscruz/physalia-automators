@@ -20,6 +20,7 @@ from collections import OrderedDict
 
 import numpy as np
 import matplotlib
+matplotlib.use('TkAgg')
 matplotlib.rcParams['font.family'] = 'serif'
 matplotlib.rcParams['mathtext.fontset'] = 'cm'
 import matplotlib.pyplot as plt
@@ -313,13 +314,16 @@ def describe(*samples, **options):
 
         #duration
         row["$\\Delta t$ (s)"] = durations[index]
+        if names[0] == "Human":
+            row["Cohen's $d$"] = cohen_d(consumption_samples[0], sample)
+            row["Overhead"] = "{:.1f}\\%".format((mean_without_idle_cost / baseline_without_idle_cost - 1)*100)
+            if row["Overhead"] == "0.0\\%":
+                row["Cohen's $d$"] = None
+                row["Overhead"] = "---"
         row["Rank"] = int(ranking[index]+1)
         if row["Rank"] == 1 and table_fmt=='latex':
             names_formatted[index] = "\\textbf{"+names[index]+"}"
-        if names[0] == "Human":
-            row["Overhead"] = "{:.1f}\\%".format((mean_without_idle_cost / baseline_without_idle_cost - 1)*100)
-            if row["Overhead"] == "0.0\\%":
-                row["Overhead"] = "---"
+            
         table.append(row)
     old_escape_rules = T.LATEX_ESCAPE_RULES
     T.LATEX_ESCAPE_RULES = {}
@@ -409,6 +413,14 @@ def violinplot(*samples, **options):
     fig.tight_layout()
     fig.savefig(options.get('save_fig'))
     plt.close()
+
+def cohen_d(y,x):
+    """Calculte Cohens-d effect size between sample x and y."""
+    nx = len(x)
+    ny = len(y)
+    dof = nx + ny - 2
+    return (np.mean(x) - np.mean(y)) / np.sqrt(((nx-1)*np.std(x, ddof=1) ** 2 + (ny-1)*np.std(y, ddof=1) ** 2) / dof)
+
 
 
 def exit_gracefully(start_time):
