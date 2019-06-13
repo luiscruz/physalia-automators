@@ -132,9 +132,9 @@ def tool(results_input, results_output):
                                      "find_by_content"]:
 
             summary_overheads[use_case_category] = dict(zip(names, map(lambda row: row['Overhead'], table)))
-        # Update Ranking
+        # Update #ing
         for name, row in zip(names, table):
-            scores[name] += (number_of_frameworks - row["Rank"])/float(number_of_frameworks)
+            scores[name] += (number_of_frameworks - row["\\#"])/float(number_of_frameworks)
         # Welchs ttest
         with open(results_output+"/table_welchsttest_"+use_case_category+".tex", "w") as file:
             pairwise_welchs_ttest(*groups, names=names, out=file, table_fmt='latex')
@@ -284,12 +284,21 @@ def describe(*samples, **options):
 
     order = samples_means_without_idle_cost.argsort()
     ranking = order.argsort()
+    
+    durations_samples = [
+        [measurement.duration for measurement in sample]
+        for sample in samples
+    ]
 
     # best_framework_index = np.where(ranking == 0)[0][0]
     # baseline = np.mean(consumption_samples[best_framework_index])
     
     #human
     baseline_without_idle_cost = samples_means[0] - durations[0]*IDLE_COST
+    baseline_sample_without_idle_cost = [
+        measurement - duration*IDLE_COST
+        for measurement, duration in zip(consumption_samples[0], durations_samples[0])
+    ]
     #
     
     table = list()
@@ -302,6 +311,11 @@ def describe(*samples, **options):
         ))
         #duration
         row["$\\Delta t$ (s)"] = durations[index]
+        
+        sample_without_idle_cost = [
+            measurement - duration*IDLE_COST
+            for measurement, duration in zip(sample, durations_samples[index])
+        ]
         mean_without_idle_cost = mean - durations[index]*IDLE_COST
         row["$\\bar{{x}}'$ (J)"] = mean_without_idle_cost
         if mean_without_idle_cost <= 0 :
@@ -315,13 +329,13 @@ def describe(*samples, **options):
         #duration
         row["$\\Delta t$ (s)"] = durations[index]
         if names[0] == "Human":
-            row["Cohen's $d$"] = cohen_d(consumption_samples[0], sample)
+            row["$d$"] = cohen_d(baseline_sample_without_idle_cost, sample_without_idle_cost)
             row["Overhead"] = "{:.1f}\\%".format((mean_without_idle_cost / baseline_without_idle_cost - 1)*100)
             if row["Overhead"] == "0.0\\%":
-                row["Cohen's $d$"] = None
+                row["$d$"] = None
                 row["Overhead"] = "---"
-        row["Rank"] = int(ranking[index]+1)
-        if row["Rank"] == 1 and table_fmt=='latex':
+        row["\\#"] = int(ranking[index]+1)
+        if row["\\#"] == 1 and table_fmt=='latex':
             names_formatted[index] = "\\textbf{"+names[index]+"}"
             
         table.append(row)
