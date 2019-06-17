@@ -61,7 +61,29 @@ def tool(results_input, results_output):
     global IDLE_COST
     IDLE_COST = np.mean(idle_cost_data)
     click.secho('Idle cost: {}'.format(IDLE_COST))
-    click.secho('Idle coconsumption for 120 seconds: {}'.format(np.mean(idle_cost_total_data)))
+    click.secho('Idle consumption for 120 seconds: {}'.format(np.mean(idle_cost_total_data)))
+
+    fig, ax = plt.subplots(figsize=(6.4, 2))
+    violin = ax.violinplot(idle_cost_total_data, vert=False,showextrema=False)
+    plot = ax.boxplot(idle_cost_total_data, vert=False, showfliers=False)
+    for pc in violin['bodies']:
+        pc.set_facecolor(DARK_GREEN)
+        pc.set_edgecolor('black')
+        pc.set_linewidth(0.6)
+
+        pc.set_alpha(0.4)
+    ax.tick_params(direction='out', top='off')
+    # ax.set_title("Number of projects by test framework")
+    ax.set_xlabel("Energy (J)")
+    ax.spines['bottom'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.xaxis.grid(linestyle='dotted')
+    ax.set_yticklabels(["Idle Cost"])
+    
+    fig.tight_layout()
+    fig.savefig(results_output+"/idle_cost.pdf")
+    
 
     use_case_categories = [
         "tap",
