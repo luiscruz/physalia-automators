@@ -2,7 +2,7 @@
 
 Project to compare UI Automated interaction frameworks.
 
-**Submitted to the IEEE Transactions on Software Engineering**
+**[Accepted in IEEE Transactions on Software Engineering](https://luiscruz.github.io/publications/2019-12-cruz-uiframeworks.html)**
 
 ### Requirements
 
